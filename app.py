@@ -18,12 +18,12 @@ app.secret_key = "pnle-reviewer-secret-key-change-in-production"
 # ─── Database Setup ────────────────────────────────────────────────────────────
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "data", "results.db")
-QUESTIONS_PATH = os.path.join(BASE_DIR, "data", "questions.json")
+DB_PATH = os.path.join(BASE_DIR, "results.db")
+QUESTIONS_PATH = os.path.join(BASE_DIR, "questions.json")
 
 def init_db():
     """Initialize SQLite database for storing quiz results."""
-    os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
+    
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
 
