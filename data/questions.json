@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "2.0",
-    "last_updated": "2025-05-03",
+    "last_updated": "2026-05-03",
     "description": "PNLE Question Bank — sourced from Med-Surg, OB, Community Health, and Psychiatric Nursing review materials."
   },
   "subjects": [
@@ -2395,6 +2395,2466 @@
       ],
       "answer": "A",
       "rationale": "Avoidant personality disorder involves social inhibition and hypersensitivity to negative evaluation."
+    },
+    {
+      "id": 160,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Oncology",
+      "difficulty": "medium",
+      "question": "A 52-year-old female tells the nurse that she has found a painless lump in her right breast during her monthly self-examination. Which assessment finding would strongly suggest that this client's lump is cancerous?",
+      "choices": [
+        "A. Eversion of the right nipple and a mobile mass",
+        "B. Nonmobile mass with irregular edges",
+        "C. Mobile mass that is soft and easily delineated",
+        "D. Nonpalpable right axillary lymph nodes"
+      ],
+      "answer": "B",
+      "rationale": "A nonmobile mass with irregular edges suggests malignancy due to fixed, invasive tumor growth."
+    },
+    {
+      "id": 161,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "A client is scheduled to have a descending colostomy. He is anxious and has many questions about surgery, stoma care, and lifestyle changes. It would be most appropriate for the nurse to refer him to which health care provider?",
+      "choices": [
+        "A. Social worker",
+        "B. Registered dietician",
+        "C. Occupational therapist",
+        "D. Enterostomal nurse therapist"
+      ],
+      "answer": "D",
+      "rationale": "An enterostomal nurse therapist specializes in stoma care teaching and psychosocial support for ostomy patients."
+    },
+    {
+      "id": 162,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "Otorrhea and rhinorrhea are most commonly seen with which type of skull fracture?",
+      "choices": [
+        "A. Basilar",
+        "B. Temporal",
+        "C. Occipital",
+        "D. Parietal"
+      ],
+      "answer": "A",
+      "rationale": "Basilar skull fractures commonly cause CSF leakage from the ears and nose due to dura mater disruption."
+    },
+    {
+      "id": 163,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Oncology",
+      "difficulty": "medium",
+      "question": "A male client should be taught about testicular examinations:",
+      "choices": [
+        "A. When sexual activity starts",
+        "B. After age 60",
+        "C. After age 40",
+        "D. Before age 20"
+      ],
+      "answer": "D",
+      "rationale": "Testicular self-examination should begin before age 20 to allow early detection of testicular cancer."
+    },
+    {
+      "id": 164,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Respiratory",
+      "difficulty": "medium",
+      "question": "Before weaning a client from a ventilator, which assessment parameter is most important for the nurse to review?",
+      "choices": [
+        "A. Fluid intake for the last 24 hours",
+        "B. Baseline arterial blood gas (ABG) levels",
+        "C. Prior outcomes of weaning",
+        "D. Electrocardiogram (ECG) results"
+      ],
+      "answer": "B",
+      "rationale": "Baseline ABG levels are essential to assess respiratory function and readiness for ventilator weaning."
+    },
+    {
+      "id": 165,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Oncology",
+      "difficulty": "medium",
+      "question": "According to American Cancer Society (ACS) guidelines, women aged 47 should be advised to:",
+      "choices": [
+        "A. Perform breast self-examination annually",
+        "B. Have a mammogram annually",
+        "C. Have a hormonal receptor assay annually",
+        "D. Have a physician conduct a clinical evaluation every 2 years"
+      ],
+      "answer": "B",
+      "rationale": "ACS recommends annual mammography for women aged 40 and above for early detection of breast cancer."
+    },
+    {
+      "id": 166,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "In esophageal varices, bleeding most commonly results from:",
+      "choices": [
+        "A. Esophageal perforation",
+        "B. Pulmonary hypertension",
+        "C. Portal hypertension",
+        "D. Peptic ulcers"
+      ],
+      "answer": "C",
+      "rationale": "Portal hypertension increases venous pressure, leading to rupture of esophageal varices."
+    },
+    {
+      "id": 167,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Musculoskeletal",
+      "difficulty": "medium",
+      "question": "A Colles' fracture treated with an external fixator is explained as:",
+      "choices": [
+        "A. Has very low complication rate",
+        "B. Maintains reduction and overall hand function",
+        "C. Is less bothersome than a cast",
+        "D. Is best for older people"
+      ],
+      "answer": "B",
+      "rationale": "External fixation maintains bone alignment and function, improving long-term recovery in complex fractures."
+    },
+    {
+      "id": 168,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Renal",
+      "difficulty": "medium",
+      "question": "A client with chronic renal failure should be taught to:",
+      "choices": [
+        "A. Eat meat at every meal",
+        "B. Eat bananas regularly",
+        "C. Restrict sodium intake",
+        "D. Drink plenty of fluids"
+      ],
+      "answer": "C",
+      "rationale": "Sodium restriction is necessary to prevent fluid overload and hypertension in renal failure."
+    },
+    {
+      "id": 169,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Oncology",
+      "difficulty": "medium",
+      "question": "A client recovering from a mastectomy is coping well but anxious. What is the best nursing action?",
+      "choices": [
+        "A. Tell spouse to be supportive",
+        "B. Encourage treatment progression",
+        "C. Advise client to remain cheerful",
+        "D. Refer to Reach for Recovery program"
+      ],
+      "answer": "D",
+      "rationale": "Support groups provide emotional support and help improve coping and adjustment after mastectomy."
+    },
+    {
+      "id": 170,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Oncology",
+      "difficulty": "medium",
+      "question": "A 21-year-old male has a testicular thickening. HCG level is ordered. The nurse should explain that:",
+      "choices": [
+        "A. The test will evaluate prostatic function",
+        "B. The test identifies the site of a possible infection",
+        "C. Clients with testicular cancer often have elevated HCG levels",
+        "D. The test evaluates testosterone level"
+      ],
+      "answer": "C",
+      "rationale": "Human chorionic gonadotropin (HCG) is a tumor marker that is commonly elevated in testicular cancer."
+    },
+    {
+      "id": 171,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A client is receiving captopril for heart failure. Therapy is ineffective if assessment shows:",
+      "choices": [
+        "A. A skin rash",
+        "B. Peripheral edema",
+        "C. A dry cough",
+        "D. Postural hypotension"
+      ],
+      "answer": "B",
+      "rationale": "Peripheral edema indicates worsening fluid overload and ineffective heart failure management."
+    },
+    {
+      "id": 172,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Fluid & Electrolytes",
+      "difficulty": "medium",
+      "question": "Which finding indicates dehydration?",
+      "choices": [
+        "A. Tenting of chest skin when pinched",
+        "B. Rapid filling of hand veins",
+        "C. A pulse that is not easily obliterated",
+        "D. Neck vein distention"
+      ],
+      "answer": "A",
+      "rationale": "Skin tenting reflects decreased skin turgor, a classic sign of dehydration."
+    },
+    {
+      "id": 173,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "To reduce risk of atherosclerosis, the nurse should encourage the client to:",
+      "choices": [
+        "A. Avoid focusing on his weight",
+        "B. Increase his activity level",
+        "C. Follow a regular diet",
+        "D. Continue high-stress lifestyle"
+      ],
+      "answer": "B",
+      "rationale": "Regular physical activity helps reduce cardiovascular risk and slow atherosclerosis progression."
+    },
+    {
+      "id": 174,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Oncology",
+      "difficulty": "medium",
+      "question": "For radiation-induced thrombocytopenia, which intervention is appropriate?",
+      "choices": [
+        "A. Give aspirin if temperature exceeds 38.8°C",
+        "B. Inspect skin for petechiae once per shift",
+        "C. Provide frequent periods of rest",
+        "D. Place client in strict isolation"
+      ],
+      "answer": "B",
+      "rationale": "Monitoring for petechiae helps detect early signs of bleeding due to low platelet count."
+    },
+    {
+      "id": 175,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Respiratory",
+      "difficulty": "medium",
+      "question": "A client has dyspnea but normal lungs and SaO₂ ≥96%. The client most likely has:",
+      "choices": [
+        "A. Poor peripheral perfusion",
+        "B. Hematologic problem",
+        "C. Psychosomatic disorder",
+        "D. Left-sided heart failure"
+      ],
+      "answer": "B",
+      "rationale": "Normal oxygen saturation with dyspnea suggests reduced oxygen-carrying capacity, often due to hematologic issues like anemia."
+    },
+    {
+      "id": 176,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "In Addisonian crisis, which medication is dangerous to administer?",
+      "choices": [
+        "A. Potassium chloride",
+        "B. Normal saline solution",
+        "C. Hydrocortisone",
+        "D. Fludrocortisone"
+      ],
+      "answer": "A",
+      "rationale": "Addisonian crisis causes hyperkalemia; giving potassium chloride can worsen life-threatening hyperkalemia."
+    },
+    {
+      "id": 177,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Hematology",
+      "difficulty": "medium",
+      "question": "Bone marrow biopsy shows many immature cells. This indicates acute leukemia involving:",
+      "choices": [
+        "A. Lymphocytes",
+        "B. Thrombocytes",
+        "C. Reticulocytes",
+        "D. Leukocytes"
+      ],
+      "answer": "D",
+      "rationale": "Acute leukemia is characterized by proliferation of immature leukocytes (blast cells) in the bone marrow."
+    },
+    {
+      "id": 178,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Infection Control",
+      "difficulty": "medium",
+      "question": "Which technique demonstrates surgical asepsis?",
+      "choices": [
+        "A. Putting on sterile gloves then opening sterile saline",
+        "B. Cleaning wound from outer circles toward center",
+        "C. Changing sterile field after it becomes wet",
+        "D. Placing sterile dressing ½ inch from edge of sterile field"
+      ],
+      "answer": "C",
+      "rationale": "A sterile field becomes contaminated when wet due to capillary action drawing microorganisms through the field."
+    },
+    {
+      "id": 179,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A client with mitral valve prolapse should avoid:",
+      "choices": [
+        "A. High fluid intake",
+        "B. Aerobic exercise",
+        "C. Caffeine-containing products",
+        "D. Protein-rich foods"
+      ],
+      "answer": "C",
+      "rationale": "Caffeine is a stimulant that can worsen palpitations and symptoms in mitral valve prolapse."
+    },
+    {
+      "id": 180,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "A client with a history of hypertension is diagnosed with primary hyperaldosteronism. This indicates excessive hormone secretion from which organ?",
+      "choices": [
+        "A. Adrenal cortex",
+        "B. Pancreas",
+        "C. Adrenal medulla",
+        "D. Parathyroid"
+      ],
+      "answer": "A",
+      "rationale": "Primary hyperaldosteronism is caused by excess aldosterone secretion from the adrenal cortex, leading to sodium retention and hypertension."
+    },
+    {
+      "id": 181,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "Which history finding is a major risk factor for infective endocarditis in a client scheduled for tooth extraction?",
+      "choices": [
+        "A. Appendectomy",
+        "B. Pernicious anemia",
+        "C. Diabetes mellitus",
+        "D. Valve replacement"
+      ],
+      "answer": "D",
+      "rationale": "Prosthetic heart valves significantly increase the risk of infective endocarditis due to abnormal flow and surface for bacterial attachment."
+    },
+    {
+      "id": 182,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Renal",
+      "difficulty": "medium",
+      "question": "A client with pyelonephritis and recurrent UTIs presents with hypernatremia and high osmolarity. Which nursing diagnosis is most appropriate?",
+      "choices": [
+        "A. Deficient fluid volume related to inability to conserve water",
+        "B. Imbalanced nutrition: less than body requirements related to hypermetabolic state",
+        "C. Deficient fluid volume related to osmotic diuresis induced by hypernatremia",
+        "D. Imbalanced nutrition: less than body requirements related to insulin deficiency"
+      ],
+      "answer": "A",
+      "rationale": "The findings indicate water loss and inability of the kidneys to conserve water, leading to dehydration and hypernatremia."
+    },
+    {
+      "id": 183,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "A client newly diagnosed with Crohn's disease needs nutritional assessment. The nurse should:",
+      "choices": [
+        "A. Allow unrestricted eating during hospitalization",
+        "B. Weigh the client daily",
+        "C. Ask the client to describe a typical daily food intake",
+        "D. Place client on I&O and draw electrolytes"
+      ],
+      "answer": "C",
+      "rationale": "A dietary history is the first step in nutritional assessment to identify intake patterns and deficiencies."
+    },
+    {
+      "id": 184,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "After thyroidectomy for Graves' disease, discharge teaching should include:",
+      "choices": [
+        "A. Record intake and output",
+        "B. Use nasal DDAVP",
+        "C. Ensure regular follow-up care",
+        "D. Perform cardiovascular exercise"
+      ],
+      "answer": "C",
+      "rationale": "Regular follow-up is essential because thyroidectomy patients are at risk for long-term hypothyroidism."
+    },
+    {
+      "id": 185,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A post-resuscitation ICU client after ventricular tachycardia. Which nursing diagnosis is most appropriate?",
+      "choices": [
+        "A. Deficient knowledge",
+        "B. Impaired physical mobility",
+        "C. Social isolation",
+        "D. Anxiety related to threat of death"
+      ],
+      "answer": "D",
+      "rationale": "The life-threatening event and ICU admission create significant anxiety related to fear of death."
+    },
+    {
+      "id": 186,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Infectious Disease",
+      "difficulty": "medium",
+      "question": "A client with active tuberculosis requires which nursing intervention?",
+      "choices": [
+        "A. Nurse wears mask on entry",
+        "B. Client wears mask at all times",
+        "C. Nurse wears gown and gloves only",
+        "D. Door kept open for observation"
+      ],
+      "answer": "A",
+      "rationale": "TB is airborne; the nurse must wear a mask (N95) when entering the room."
+    },
+    {
+      "id": 187,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "A client 24 hours post-subtotal gastrectomy with NG tube should have:",
+      "choices": [
+        "A. Hourly suction applied",
+        "B. NG tube clamped if nauseated",
+        "C. NG tube gently irrigated with saline",
+        "D. Tube repositioned if displaced"
+      ],
+      "answer": "C",
+      "rationale": "Gentle irrigation maintains patency; repositioning or clamping can cause complications or distention."
+    },
+    {
+      "id": 188,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "Fluid replacement for HHNS should be:",
+      "choices": [
+        "A. 2–3 L rapidly",
+        "B. 6 L in first 24 hours",
+        "C. Dextrose in normal saline",
+        "D. Administered slowly to prevent overload"
+      ],
+      "answer": "B",
+      "rationale": "HHNS causes severe dehydration requiring aggressive fluid replacement, often around 6 L in 24 hours."
+    },
+    {
+      "id": 189,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "An adverse reaction of glipizide (Glucotrol) is:",
+      "choices": [
+        "A. Headache",
+        "B. Constipation",
+        "C. Hypotension",
+        "D. Photosensitivity"
+      ],
+      "answer": "D",
+      "rationale": "Glipizide may cause skin reactions including photosensitivity and pruritus."
+    },
+    {
+      "id": 190,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Infectious Disease",
+      "difficulty": "medium",
+      "question": "The nurse is caring for four clients on a step-down intensive care unit. The client at highest risk for nosocomial pneumonia is the one who:",
+      "choices": [
+        "A. Has a respiratory infection",
+        "B. Is intubated and on a ventilator",
+        "C. Has pleural chest tubes",
+        "D. Is receiving feedings through a jejunostomy tube"
+      ],
+      "answer": "B",
+      "rationale": "Mechanical ventilation bypasses normal airway defenses, making intubated clients most vulnerable to nosocomial pneumonia."
+    },
+    {
+      "id": 191,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Respiratory",
+      "difficulty": "medium",
+      "question": "A client with chronic bronchitis is being taught breathing exercises. Which should be included?",
+      "choices": [
+        "A. Make inhalation longer than exhalation",
+        "B. Exhale through an open mouth",
+        "C. Use diaphragmatic breathing",
+        "D. Use chest breathing"
+      ],
+      "answer": "C",
+      "rationale": "Diaphragmatic breathing strengthens the diaphragm and improves ventilation efficiency in chronic bronchitis."
+    },
+    {
+      "id": 192,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "A client with SLE becomes angry when the call bell is not answered promptly. The best response is:",
+      "choices": [
+        "A. \"You seem angry. Would you like to talk about it?\"",
+        "B. \"Calm down. Stress will worsen your symptoms.\"",
+        "C. \"Would you like to talk to the nursing supervisor?\"",
+        "D. \"I'll come back when you've calmed down.\""
+      ],
+      "answer": "A",
+      "rationale": "Acknowledging feelings using therapeutic communication helps the client express emotions and reduces escalation."
+    },
+    {
+      "id": 193,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A client with chronic arterial occlusive disease stopped smoking. To relieve intermittent claudication, the nurse should recommend:",
+      "choices": [
+        "A. Taking daily walks",
+        "B. Engaging in anaerobic exercise",
+        "C. Reducing fat intake to <45%",
+        "D. Avoiding HDL-increasing foods"
+      ],
+      "answer": "A",
+      "rationale": "Regular walking improves collateral circulation and reduces symptoms of intermittent claudication."
+    },
+    {
+      "id": 194,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "Gastric decompression for small bowel obstruction requires suction that is:",
+      "choices": [
+        "A. Low pressure and intermittent",
+        "B. Low pressure and continuous",
+        "C. High pressure and continuous",
+        "D. High pressure and intermittent"
+      ],
+      "answer": "A",
+      "rationale": "Low intermittent suction prevents gastric mucosal damage while effectively removing gastric contents."
+    },
+    {
+      "id": 195,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Musculoskeletal",
+      "difficulty": "medium",
+      "question": "Most appropriate nursing diagnosis for an elderly client with osteoarthritis:",
+      "choices": [
+        "A. Risk for injury",
+        "B. Impaired urinary elimination",
+        "C. Ineffective breathing pattern",
+        "D. Imbalanced nutrition: less than body requirements"
+      ],
+      "answer": "A",
+      "rationale": "Joint stiffness and decreased mobility increase fall and injury risk in osteoarthritis."
+    },
+    {
+      "id": 196,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "Parathyroid hormone (PTH) affects the kidney by:",
+      "choices": [
+        "A. Stimulating calcium reabsorption and phosphate excretion",
+        "B. Stimulating phosphate reabsorption and calcium excretion",
+        "C. Increasing vitamin D absorption and vitamin E excretion",
+        "D. Increasing vitamin E absorption and vitamin D excretion"
+      ],
+      "answer": "A",
+      "rationale": "PTH increases calcium reabsorption and promotes phosphate excretion to regulate serum calcium levels."
+    },
+    {
+      "id": 197,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Musculoskeletal",
+      "difficulty": "medium",
+      "question": "A post–hip replacement client's home assessment shows which finding that needs health teaching?",
+      "choices": [
+        "A. Bathroom with grab bars",
+        "B. Items stored at reachable levels",
+        "C. Many small, unsecured area rugs",
+        "D. Adequate stair lighting"
+      ],
+      "answer": "C",
+      "rationale": "Unsecured rugs increase fall risk, especially after hip surgery."
+    },
+    {
+      "id": 198,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Ethics & Legal",
+      "difficulty": "medium",
+      "question": "A client refuses splenectomy, believing thrombocytopenia will resolve. The nurse bases response on:",
+      "choices": [
+        "A. Beneficence",
+        "B. Autonomy",
+        "C. Advocacy",
+        "D. Justice"
+      ],
+      "answer": "B",
+      "rationale": "Autonomy supports the client's right to make informed decisions about their own care."
+    },
+    {
+      "id": 199,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "Most critical intervention for myxedema coma:",
+      "choices": [
+        "A. Oral levothyroxine",
+        "B. Warming blanket",
+        "C. Accurate intake and output",
+        "D. Maintaining a patent airway"
+      ],
+      "answer": "D",
+      "rationale": "Airway maintenance is the priority because respiratory depression is life-threatening in myxedema coma."
+    },
+    {
+      "id": 200,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Integumentary",
+      "difficulty": "medium",
+      "question": "The nurse assesses a client with urticaria. The nurse understands that urticaria is another name for:",
+      "choices": [
+        "A. Hives",
+        "B. A toxin",
+        "C. A tubercle",
+        "D. A virus"
+      ],
+      "answer": "A",
+      "rationale": "Urticaria is the medical term for hives, a hypersensitivity skin reaction."
+    },
+    {
+      "id": 201,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Integumentary",
+      "difficulty": "medium",
+      "question": "A client with psoriasis is assessed. Which secondary lesion is expected?",
+      "choices": [
+        "A. Scale",
+        "B. Crust",
+        "C. Ulcer",
+        "D. Scar"
+      ],
+      "answer": "A",
+      "rationale": "Psoriasis is characterized by silvery scales due to excessive skin cell turnover."
+    },
+    {
+      "id": 202,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Integumentary",
+      "difficulty": "medium",
+      "question": "To prevent pressure ulcers in a bedridden elderly client, the nurse should:",
+      "choices": [
+        "A. Turn and reposition every 8 hours",
+        "B. Vigorously massage bony prominences",
+        "C. Post a turning schedule at bedside",
+        "D. Slide the client instead of lifting"
+      ],
+      "answer": "C",
+      "rationale": "A turning schedule ensures regular repositioning (every 1–2 hours), reducing pressure injury risk."
+    },
+    {
+      "id": 203,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Integumentary",
+      "difficulty": "medium",
+      "question": "A client with full-thickness burn treated with artificial skin should restrict during the first 7 days:",
+      "choices": [
+        "A. Range of motion",
+        "B. Protein intake",
+        "C. Going outdoors",
+        "D. Fluid ingestion"
+      ],
+      "answer": "A",
+      "rationale": "Limiting movement prevents disruption of artificial skin adherence to the wound bed."
+    },
+    {
+      "id": 204,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Integumentary",
+      "difficulty": "medium",
+      "question": "Using the Rule of Nines, a client with burns on the entire back and one arm has burned:",
+      "choices": [
+        "A. 9%",
+        "B. 18%",
+        "C. 27%",
+        "D. 36%"
+      ],
+      "answer": "C",
+      "rationale": "Back (18%) + one arm (9%) = 27% total body surface area burned."
+    },
+    {
+      "id": 205,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Integumentary",
+      "difficulty": "medium",
+      "question": "Which guideline is correct for wet-to-dry dressing?",
+      "choices": [
+        "A. Wound should remain moist from dressing",
+        "B. Dressing should be tightly packed",
+        "C. Dressing allowed to dry before removal",
+        "D. Cover with plastic sheet"
+      ],
+      "answer": "C",
+      "rationale": "Wet-to-dry dressings are allowed to dry so they can mechanically debride necrotic tissue upon removal."
+    },
+    {
+      "id": 206,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Integumentary",
+      "difficulty": "medium",
+      "question": "A client diagnosed with scabies asks about family exposure. The nurse should say:",
+      "choices": [
+        "A. All family members must be treated",
+        "B. Only treat if symptoms appear",
+        "C. Avoid sharing linens and towels",
+        "D. No risk after treatment"
+      ],
+      "answer": "A",
+      "rationale": "All close contacts require treatment due to high transmissibility before symptoms appear."
+    },
+    {
+      "id": 207,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Integumentary",
+      "difficulty": "medium",
+      "question": "Burn client receiving fluid resuscitation—best indicator of effectiveness:",
+      "choices": [
+        "A. Urine output >100 mL/hr",
+        "B. Weight gain of 4 lb",
+        "C. Normal temperature",
+        "D. No ECG arrhythmias"
+      ],
+      "answer": "A",
+      "rationale": "Adequate urine output indicates proper renal perfusion and effective fluid resuscitation."
+    },
+    {
+      "id": 208,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Musculoskeletal",
+      "difficulty": "medium",
+      "question": "Expected lab finding in rheumatoid arthritis:",
+      "choices": [
+        "A. Increased platelet count",
+        "B. Elevated ESR",
+        "C. Electrolyte imbalance",
+        "D. Abnormal BUN/creatinine"
+      ],
+      "answer": "B",
+      "rationale": "ESR is elevated due to chronic inflammation in rheumatoid arthritis."
+    },
+    {
+      "id": 209,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "Highest priority nursing diagnosis in Parkinson's crisis:",
+      "choices": [
+        "A. Imbalanced nutrition",
+        "B. Ineffective airway clearance",
+        "C. Impaired urinary elimination",
+        "D. Risk for injury"
+      ],
+      "answer": "B",
+      "rationale": "Airway obstruction risk from drooling and immobility makes airway clearance the priority."
+    },
+    {
+      "id": 210,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Renal",
+      "difficulty": "medium",
+      "question": "Spinal cord injury client has 550 mL urine per catheterization. Nurse should:",
+      "choices": [
+        "A. Increase catheterization frequency",
+        "B. Insert indwelling catheter",
+        "C. Restrict fluids",
+        "D. Use condom catheter"
+      ],
+      "answer": "A",
+      "rationale": "Volumes >500 mL indicate need for more frequent intermittent catheterization."
+    },
+    {
+      "id": 211,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "Abnormal lumbar puncture finding:",
+      "choices": [
+        "A. Glucose in CSF",
+        "B. Pressure 70–200 mm H₂O",
+        "C. RBCs in first tube",
+        "D. Pressure 100–250 mm H₂O"
+      ],
+      "answer": "D",
+      "rationale": "Normal CSF pressure is 70–200 mm H₂O; 100–250 mm H₂O indicates abnormal elevation."
+    },
+    {
+      "id": 212,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Sensory",
+      "difficulty": "medium",
+      "question": "Best site for eye drop administration:",
+      "choices": [
+        "A. Conjunctival sac",
+        "B. Pupil",
+        "C. Sclera",
+        "D. Vitreous humor"
+      ],
+      "answer": "A",
+      "rationale": "The conjunctival sac allows optimal absorption and reduces corneal injury risk."
+    },
+    {
+      "id": 213,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "A 52-year-old man recovering from CVA—condition affects:",
+      "choices": [
+        "A. Only himself",
+        "B. Only wife and children",
+        "C. Entire family",
+        "D. No one if fully recovered"
+      ],
+      "answer": "C",
+      "rationale": "Illness affects the entire family system due to role changes and caregiving demands."
+    },
+    {
+      "id": 214,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "Highest priority intervention for hemiparesis after CVA:",
+      "choices": [
+        "A. Passive ROM exercises",
+        "B. Place client on affected side",
+        "C. Use hand rolls",
+        "D. Apply antiembolism stockings"
+      ],
+      "answer": "B",
+      "rationale": "Positioning on the affected side helps maintain airway patency and reduces aspiration risk."
+    },
+    {
+      "id": 215,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "A client has just experienced a transient ischemic attack (TIA). Which fact should be included in teaching?",
+      "choices": [
+        "A. TIA symptoms may last 24–48 hours",
+        "B. Most clients have residual effects after TIA",
+        "C. TIA may be a warning of a future cerebrovascular accident (CVA)",
+        "D. The most common symptom of TIA is inability to speak"
+      ],
+      "answer": "C",
+      "rationale": "A TIA is a warning sign of an impending stroke (CVA) and requires urgent prevention measures."
+    },
+    {
+      "id": 216,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Sensory",
+      "difficulty": "medium",
+      "question": "A client is preparing for cataract surgery. Which statement shows effective teaching?",
+      "choices": [
+        "A. Coughs and deep breathes postoperatively",
+        "B. Ties his own shoes",
+        "C. Asks wife to pick up shirt from the floor",
+        "D. States eye patch is not needed"
+      ],
+      "answer": "C",
+      "rationale": "Bending increases intraocular pressure; the client should avoid bending and ask for assistance."
+    },
+    {
+      "id": 217,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "The least serious form of brain trauma with brief LOC and confusion is:",
+      "choices": [
+        "A. Contusion",
+        "B. Concussion",
+        "C. Coup",
+        "D. Contrecoup"
+      ],
+      "answer": "B",
+      "rationale": "Concussion is a mild, reversible brain injury with brief loss of consciousness and confusion."
+    },
+    {
+      "id": 218,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "Dilated pupils that do not respond to light indicate:",
+      "choices": [
+        "A. Glaucoma",
+        "B. Third cranial nerve damage",
+        "C. Lumbar spine damage",
+        "D. Bell's palsy"
+      ],
+      "answer": "B",
+      "rationale": "Oculomotor (CN III) nerve damage causes fixed, dilated pupils due to loss of parasympathetic control."
+    },
+    {
+      "id": 219,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Musculoskeletal",
+      "difficulty": "medium",
+      "question": "To prevent osteoporosis after CVA, the priority intervention is:",
+      "choices": [
+        "A. Maintain protein levels",
+        "B. Maintain vitamin levels",
+        "C. Promote weight-bearing exercises",
+        "D. Promote ROM exercises"
+      ],
+      "answer": "C",
+      "rationale": "Weight-bearing activity prevents bone loss and reduces risk of osteoporosis from immobility."
+    },
+    {
+      "id": 220,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Infectious Disease",
+      "difficulty": "medium",
+      "question": "A client with Neisseria meningitidis meningitis requires:",
+      "choices": [
+        "A. Contact precautions",
+        "B. Droplet precautions",
+        "C. Airborne precautions",
+        "D. Standard precautions"
+      ],
+      "answer": "B",
+      "rationale": "Meningococcal meningitis spreads via respiratory droplets, requiring droplet precautions."
+    },
+    {
+      "id": 221,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "Early sign of increasing intracranial pressure is:",
+      "choices": [
+        "A. Pupillary asymmetry",
+        "B. Irregular breathing",
+        "C. Involuntary posturing",
+        "D. Declining level of consciousness"
+      ],
+      "answer": "D",
+      "rationale": "The earliest and most sensitive indicator of increased ICP is a change in level of consciousness."
+    },
+    {
+      "id": 222,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Emergency Nursing",
+      "difficulty": "medium",
+      "question": "Highest priority intervention for a trauma client is:",
+      "choices": [
+        "A. Assessing the left leg",
+        "B. Assessing the pupils",
+        "C. Placing in Trendelenburg's position",
+        "D. Assessing level of consciousness"
+      ],
+      "answer": "A",
+      "rationale": "After airway and breathing are stabilized, circulation is next priority; femur fracture may cause major bleeding."
+    },
+    {
+      "id": 223,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "Alzheimer's disease in a client with MI requires:",
+      "choices": [
+        "A. Perform ADLs for the client",
+        "B. Provide stimulating environment",
+        "C. Establish and maintain a routine",
+        "D. Reason with the client frequently"
+      ],
+      "answer": "C",
+      "rationale": "Routine reduces confusion and anxiety in Alzheimer's clients and improves functional stability."
+    },
+    {
+      "id": 224,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "Preferred bed position for head injury with stabilized neck is:",
+      "choices": [
+        "A. Trendelenburg's",
+        "B. 30-degree head elevation",
+        "C. Flat",
+        "D. Side-lying"
+      ],
+      "answer": "B",
+      "rationale": "Elevating the head at 30 degrees promotes venous drainage and reduces intracranial pressure."
+    },
+    {
+      "id": 225,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "Sarah visits the prenatal clinic at 10 weeks gestation. She reports mild abdominal cramping and moderate bright red vaginal bleeding. Upon examination, the nurse finds the cervical os is open. The nurse should document this as which type of abortion?",
+      "choices": [
+        "A. Inevitable",
+        "B. Incomplete",
+        "C. Threatened",
+        "D. Missed"
+      ],
+      "answer": "A",
+      "rationale": "An inevitable abortion is confirmed when there is both vaginal bleeding and cervical dilation. In a threatened abortion, the cervix would remain closed."
+    },
+    {
+      "id": 226,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "A nurse is explaining the normal physiological changes of pregnancy to a client. Which respiratory change is expected?",
+      "choices": [
+        "A. A decrease in the total amount of air inhaled (tidal volume)",
+        "B. An increase in the amount of air inhaled per breath (tidal volume)",
+        "C. A decrease in oxygen consumption to protect the mother",
+        "D. A narrowing of the airway passages"
+      ],
+      "answer": "B",
+      "rationale": "To meet increased metabolic demands, the body naturally increases tidal volume during pregnancy."
+    },
+    {
+      "id": 227,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "A client is currently pregnant. Her obstetric history includes one birth at 39 weeks (living) and one miscarriage at 10 weeks. The nurse records her GTPAL as:",
+      "choices": [
+        "A. G=3, T=1, P=0, A=1, L=1",
+        "B. G=2, T=1, P=0, A=1, L=1",
+        "C. G=3, T=2, P=0, A=0, L=2",
+        "D. G=2, T=1, P=1, A=0, L=1"
+      ],
+      "answer": "A",
+      "rationale": "G=3 (current + full term + miscarriage); T=1 (the 39-week birth); P=0; A=1 (the miscarriage); L=1 (the living child)."
+    },
+    {
+      "id": 228,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "\"Station 0\" in labor refers to the fetal presenting part being at the level of the:",
+      "choices": [
+        "A. Pelvic inlet",
+        "B. Ischial spines",
+        "C. Pelvic outlet",
+        "D. Perineum"
+      ],
+      "answer": "B",
+      "rationale": "When the baby's head reaches the ischial spines, it is considered \"engaged\" or at station 0."
+    },
+    {
+      "id": 229,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Nurse Miller is assisting in the vaginal delivery of a newborn in the labor room. She knows to monitor the mother closely for the risk of uterine rupture if which of the following situations occurs?",
+      "choices": [
+        "A. Use of forceps during delivery",
+        "B. Weak bearing down efforts",
+        "C. Hypotonic contractions",
+        "D. Schultz mechanism of placental delivery"
+      ],
+      "answer": "A",
+      "rationale": "This risk is heightened with the use of forceps, especially if there is excessive traction or if the mother has a history of cesarean section or uterine surgery."
+    },
+    {
+      "id": 230,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Nurse Davis is caring for a patient in the labor and delivery suite at 36 weeks' gestation. The patient has a history of C-section and presents with severe abdominal pain that began less than an hour ago. After vomiting, the patient reports that the pain has improved and then loses consciousness. What is the most likely cause of her symptoms?",
+      "choices": [
+        "A. Dysfunctional labor",
+        "B. Placental abruption",
+        "C. Hysteria compounded by the flu",
+        "D. Uterine rupture"
+      ],
+      "answer": "D",
+      "rationale": "The patient has a history of a C-section, which is a significant risk factor for uterine rupture. The sudden onset of severe abdominal pain, followed by brief relief and loss of consciousness, strongly suggests uterine rupture."
+    },
+    {
+      "id": 231,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Nurse Simmons is coaching a laboring mother on when to start bearing down. At what stage of labor should the mother be advised to bear down?",
+      "choices": [
+        "A. In between uterine contractions to prevent uterine rupture",
+        "B. When she feels pressure in the rectal area",
+        "C. Anytime she feels like bearing down",
+        "D. During a uterine contraction"
+      ],
+      "answer": "D",
+      "rationale": "Bearing down during a uterine contraction increases the efficiency of each push, facilitating the baby's descent and eventual birth."
+    },
+    {
+      "id": 232,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Nurse Taylor is monitoring a patient during the induction of labor. Which sign should Nurse Taylor be particularly vigilant about?",
+      "choices": [
+        "A. Uterine tetany",
+        "B. Severe pain",
+        "C. Umbilical cord prolapse",
+        "D. Hypoglycemia"
+      ],
+      "answer": "A",
+      "rationale": "Uterine tetany is particularly dangerous because it can compromise fetal oxygenation by reducing uteroplacental blood flow, potentially leading to fetal distress or uterine rupture."
+    },
+    {
+      "id": 233,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Nurse Green is caring for a patient when uterine rupture occurs. What should be the priority intervention?",
+      "choices": [
+        "A. Inserting a urinary catheter",
+        "B. Instituting complete bed rest",
+        "C. Obtaining blood specimens",
+        "D. Limiting hypovolemic shock"
+      ],
+      "answer": "D",
+      "rationale": "Uterine rupture is a catastrophic obstetric emergency that can lead to severe hemorrhage, resulting in hypovolemic shock."
+    },
+    {
+      "id": 234,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "During a nonstress test (NST), the nurse observes a relatively flat line for fetal movement on the electronic tracing. When should the nurse instruct the client to press the control button?",
+      "choices": [
+        "A. After every three fetal movements",
+        "B. At the start of each contraction",
+        "C. At the end of each fetal movement",
+        "D. At the start of each fetal movement"
+      ],
+      "answer": "D",
+      "rationale": "The client marks fetal movements at the start to correlate fetal heart rate changes with movement on the NST strip."
+    },
+    {
+      "id": 235,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "A client who is 30 weeks pregnant undergoes a biophysical profile (BPP). She received a BPP score of 8. What does this score indicate?",
+      "choices": [
+        "A. The fetus should be delivered within 24 hours",
+        "B. The client should repeat the test in 24 hours",
+        "C. The fetus isn't in distress at this time",
+        "D. The client should repeat the test in 1 week"
+      ],
+      "answer": "C",
+      "rationale": "A BPP score of 8/10 is considered normal and indicates the fetus is not in distress at this time."
+    },
+    {
+      "id": 236,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "Accompanied by her husband, Mrs. Grant arrives at the labor and delivery unit, stating that she believes she is in labor. What is the first question the nurse should ask?",
+      "choices": [
+        "A. \"Who will be supporting you during labor?\"",
+        "B. \"Do you have any chronic health conditions?\"",
+        "C. \"Are you allergic to any medications or substances?\"",
+        "D. \"When is your estimated due date?\""
+      ],
+      "answer": "D",
+      "rationale": "Knowing the EDD provides critical context to assess whether Mrs. Grant is at term or experiencing preterm or post-term labor."
+    },
+    {
+      "id": 237,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "During a first prenatal visit, the nurse learns that the client previously had a reduction mammoplasty and expresses a desire to breast-feed. What information should the nurse provide?",
+      "choices": [
+        "A. \"You should consult with your surgeon to see if breast-feeding is an option.\"",
+        "B. \"You should be able to breast-feed without any issues.\"",
+        "C. \"I support your decision, but you may need to supplement with formula at each feeding.\"",
+        "D. \"Breast-feeding is not recommended after this type of surgery.\""
+      ],
+      "answer": "C",
+      "rationale": "Reduction mammoplasty can impact milk supply depending on the surgical technique and amount of glandular tissue removed, so supplementation may be needed."
+    },
+    {
+      "id": 238,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Nurse Jamie is assisting Maria, a multigravida client in early labor at the birthing center. Maria feels hungry and asks for a snack. Which snack option would be best?",
+      "choices": [
+        "A. A cup of vegetable soup",
+        "B. A few peanut butter cookies",
+        "C. A bowl of cereal with milk",
+        "D. A serving of yogurt"
+      ],
+      "answer": "D",
+      "rationale": "Yogurt is light, nutrient-dense, and provides a good balance of protein and carbohydrates, appropriate for early labor."
+    },
+    {
+      "id": 239,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "Ms. Reed is practicing the rhythm (calendar-basal body temperature) method for family planning. According to this method, when is the unsafe period for sexual activity?",
+      "choices": [
+        "A. When her basal body temperature returns to preovulatory levels",
+        "B. After three consecutive days of elevated basal body temperature and presence of clear, thin cervical mucus",
+        "C. When her basal body temperature rises by 0.1 to 0.2 degrees on the second or third day of the cycle",
+        "D. When she experiences breast tenderness and Mittelschmerz"
+      ],
+      "answer": "B",
+      "rationale": "Three consecutive days of elevated BBT with clear thin mucus confirms the post-ovulatory fertile period has passed."
+    },
+    {
+      "id": 240,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "During the second stage of labor, a nurse is monitoring a client's uterine contractions. What is the primary purpose of frequent contraction monitoring at this stage?",
+      "choices": [
+        "A. To determine the baby's head position and estimate delivery time",
+        "B. To assess the client's pain levels for effective pain management",
+        "C. To determine if the client should receive additional fluids",
+        "D. To ensure contractions are strong enough to facilitate fetal descent"
+      ],
+      "answer": "D",
+      "rationale": "The primary purpose of frequent contraction monitoring during the second stage is to ensure contractions are effective enough to facilitate fetal descent."
+    },
+    {
+      "id": 241,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Nurse Thompson is caring for Sarah, a patient with eclampsia who suddenly begins to have a seizure. What should Nurse Thompson prioritize first?",
+      "choices": [
+        "A. Position a pillow under Sarah's left hip",
+        "B. Insert a padded tongue blade in Sarah's mouth",
+        "C. Ensure the side rails are padded",
+        "D. Focus on maintaining an open airway"
+      ],
+      "answer": "D",
+      "rationale": "During a seizure in a client with eclampsia, maintaining an open airway is the priority to ensure adequate oxygenation."
+    },
+    {
+      "id": 242,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Nurse Lila is monitoring a client in labor whose external fetal monitor shows variable decelerations. What should Nurse Lila do first?",
+      "choices": [
+        "A. Check for placenta previa",
+        "B. Prepare for an emergency cesarean section",
+        "C. Administer oxygen",
+        "D. Change the client's position"
+      ],
+      "answer": "D",
+      "rationale": "The first intervention for variable decelerations is to change the mother's position to relieve pressure on the umbilical cord."
+    },
+    {
+      "id": 243,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Postpartum",
+      "difficulty": "medium",
+      "question": "When assessing a mother who is breast-feeding, which of the following would be inappropriate to evaluate?",
+      "choices": [
+        "A. The mother's comfort level with positioning the baby",
+        "B. Audible swallowing",
+        "C. The baby's lips smacking",
+        "D. The attachment of the baby to the breast"
+      ],
+      "answer": "C",
+      "rationale": "Lip smacking indicates a poor latch; proper attachment creates a secure seal covering most of the areola, not just the nipple."
+    },
+    {
+      "id": 244,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "During a routine prenatal visit in the third trimester, which symptom should Nurse Jane advise Mrs. Adams to report immediately?",
+      "choices": [
+        "A. Blurred vision",
+        "B. Hemorrhoids",
+        "C. An increase in vaginal mucus",
+        "D. Shortness of breath during exertion"
+      ],
+      "answer": "A",
+      "rationale": "Blurred vision in the third trimester can indicate preeclampsia and requires immediate attention."
+    },
+    {
+      "id": 245,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Postpartum",
+      "difficulty": "medium",
+      "question": "Nurse Carla is assessing Emily, a first-time mother, shortly after delivery. Why does Nurse Carla carefully use both hands when palpating the fundus?",
+      "choices": [
+        "A. To speed up the postpartum recovery phase",
+        "B. To encourage the uterus to contract back to its normal size",
+        "C. To prevent the uterus from inverting",
+        "D. To evaluate the size of the uterine fundus"
+      ],
+      "answer": "C",
+      "rationale": "Using both hands when palpating the fundus postpartum prevents uterine inversion."
+    },
+    {
+      "id": 246,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Nurse Lena is assisting Clara, a multigravida mother with a history of rapid labor, who suddenly exclaims, \"The baby is coming!\" What should Nurse Lena's first action be?",
+      "choices": [
+        "A. Check the perineum for crowning",
+        "B. Listen to the fetal heart rate",
+        "C. Notify the birth attendant immediately",
+        "D. Assess the timing of contractions"
+      ],
+      "answer": "A",
+      "rationale": "Checking the perineum for crowning determines if birth is imminent and guides the urgency of the next steps."
+    },
+    {
+      "id": 247,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "Nurse Sophia explains how long it typically takes for the blastocyst to travel to the uterus for implantation. What is the approximate duration?",
+      "choices": [
+        "A. 7 days",
+        "B. 2 days",
+        "C. 14 weeks",
+        "D. 10 days"
+      ],
+      "answer": "A",
+      "rationale": "After fertilization in the fallopian tube, the blastocyst travels to the uterus for implantation in approximately 7 days."
+    },
+    {
+      "id": 248,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Nurse Jamie is caring for a client at 40 weeks' gestation with contractions every 2 minutes and a fetal station of +4. Which intervention should be the priority?",
+      "choices": [
+        "A. Prepare for immediate delivery",
+        "B. Offer comfort measures to the client",
+        "C. Check if the membranes have ruptured",
+        "D. Place the client in bed to initiate fetal monitoring"
+      ],
+      "answer": "A",
+      "rationale": "A fetal station of +4 indicates delivery is imminent and immediate preparation is the priority."
+    },
+    {
+      "id": 249,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "While reviewing Mrs. Lopez's prenatal history, which finding suggests a genetic risk factor?",
+      "choices": [
+        "A. The patient is 25 years of age",
+        "B. The patient was exposed to rubella at 36 weeks' gestation",
+        "C. The patient has a child diagnosed with cystic fibrosis",
+        "D. The patient previously had preterm labor at 32 weeks' gestation"
+      ],
+      "answer": "C",
+      "rationale": "Cystic fibrosis is an autosomal recessive genetic disorder, making a previously affected child a significant genetic risk factor."
+    },
+    {
+      "id": 250,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Postpartum",
+      "difficulty": "medium",
+      "question": "After a rapid delivery, the nurse finds a fourth-degree laceration. Which action would be contraindicated?",
+      "choices": [
+        "A. Applying cold packs to reduce swelling for the first 12 to 24 hours",
+        "B. Teaching the client about the importance of perineal (Kegel) exercises",
+        "C. Advising the client to use two or more peripads for extra cushioning",
+        "D. Educating the client on using sitz baths, if ordered by the provider"
+      ],
+      "answer": "C",
+      "rationale": "Using two or more peripads is contraindicated for a client with a fourth-degree laceration as it does not provide appropriate support and may worsen discomfort."
+    },
+    {
+      "id": 251,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "Nurse Kelly is conducting a prenatal checkup for Sarah at 36 weeks pregnant. Which question would best help assess Sarah's readiness for parenthood?",
+      "choices": [
+        "A. Have you started attending any prenatal classes?",
+        "B. What adjustments have you made at home in preparation for the baby?",
+        "C. Could you describe your usual daily meals?",
+        "D. Are you considering using epidural anesthesia during labor?"
+      ],
+      "answer": "B",
+      "rationale": "Asking about home adjustments provides insights into practical and emotional readiness for the baby's arrival."
+    },
+    {
+      "id": 252,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Postpartum",
+      "difficulty": "medium",
+      "question": "Nurse Lisa is preparing a teaching plan for a postpartum client about to receive a rubella vaccine. Which information should she include?",
+      "choices": [
+        "A. Pregnancy should be avoided for 3 months after receiving the immunization",
+        "B. The vaccine will prevent future fetuses from developing congenital anomalies",
+        "C. The client should avoid contact with children who have been diagnosed with rubella",
+        "D. The injection provides immunity against the 7-day measles"
+      ],
+      "answer": "A",
+      "rationale": "The rubella vaccine is a live attenuated vaccine; pregnancy should be avoided for at least 3 months after administration."
+    },
+    {
+      "id": 253,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "Between 18 and 40 weeks' gestation, which procedure is typically used to detect fetal anomalies?",
+      "choices": [
+        "A. Fetoscopy",
+        "B. Amniocentesis",
+        "C. Chorionic villi sampling",
+        "D. Ultrasound"
+      ],
+      "answer": "D",
+      "rationale": "Ultrasound is the primary non-invasive diagnostic tool used to detect fetal anomalies between 18 and 40 weeks of gestation."
+    },
+    {
+      "id": 254,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "A primigravida client at 35 weeks' gestation in active labor arrives without prenatal care and admits to cocaine use. Who should the nurse notify first?",
+      "choices": [
+        "A. Physician who will attend the delivery of the infant",
+        "B. Chaplain in case the fetus dies in utero",
+        "C. Head of the hospital's security department",
+        "D. Nursing unit manager so appropriate agencies can be notified"
+      ],
+      "answer": "A",
+      "rationale": "The physician who will attend the delivery should be notified first, as this is a clinical emergency."
+    },
+    {
+      "id": 255,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "After a vaginal examination, the nurse-midwife notes the fetus is in the right occiput anterior position at a -1 station. The fetal presenting part is:",
+      "choices": [
+        "A. 1 cm below the ischial spines",
+        "B. In no relationship to the ischial spines",
+        "C. Directly in line with the ischial spines",
+        "D. 1 cm above the ischial spines"
+      ],
+      "answer": "D",
+      "rationale": "Negative station numbers indicate the presenting part is above the ischial spines; -1 means 1 cm above."
+    },
+    {
+      "id": 256,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "A client at 14 weeks' gestation presents with uterine size equivalent to 18–20 weeks. Gestational trophoblastic disease is suspected. What finding does the nurse expect on ultrasonography?",
+      "choices": [
+        "A. A severely malformed fetus",
+        "B. Grapelike clusters",
+        "C. An empty gestational sac",
+        "D. An extrauterine pregnancy"
+      ],
+      "answer": "B",
+      "rationale": "Gestational trophoblastic disease (molar pregnancy) appears as grapelike clusters of abnormal trophoblastic tissue on ultrasound."
+    },
+    {
+      "id": 257,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Postpartum",
+      "difficulty": "medium",
+      "question": "Nurse Mia is caring for a postpartum client who had a vaginal delivery with a midline episiotomy. Which nursing diagnosis should take priority?",
+      "choices": [
+        "A. Pain related to the type of incision",
+        "B. Risk for deficient fluid volume related to hemorrhage",
+        "C. Risk for infection related to the type of delivery",
+        "D. Urinary retention related to periurethral edema"
+      ],
+      "answer": "B",
+      "rationale": "Postpartum hemorrhage is a leading cause of maternal mortality; hemorrhage risk takes priority in the immediate postpartum period."
+    },
+    {
+      "id": 258,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "During a prenatal visit, which statement by the client indicates she understands symptoms to report during pregnancy?",
+      "choices": [
+        "A. \"If I experience blurred or double vision, I should call the clinic right away.\"",
+        "B. \"If I feel tired even after resting, I should report it immediately.\"",
+        "C. \"I'll report if I start needing to urinate more often.\"",
+        "D. \"I should report any nausea immediately.\""
+      ],
+      "answer": "A",
+      "rationale": "Blurred or double vision is a serious symptom during pregnancy that may indicate preeclampsia and must be reported immediately."
+    },
+    {
+      "id": 259,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "A 39-year-old client at 37 weeks' gestation is admitted with vaginal bleeding after using cocaine. Which complication is most likely responsible for her bleeding?",
+      "choices": [
+        "A. Abruptio placentae",
+        "B. Ectopic pregnancy",
+        "C. Spontaneous abortion",
+        "D. Placenta previa"
+      ],
+      "answer": "A",
+      "rationale": "Cocaine causes intense vasoconstriction that can reduce placental blood flow and trigger placental abruption."
+    },
+    {
+      "id": 260,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "Which response from the client indicates understanding of the purpose of an episiotomy?",
+      "choices": [
+        "A. Ensures quick placenta delivery",
+        "B. Shortens the second stage of labor",
+        "C. Enlarges the pelvic inlet",
+        "D. Prevents perineal edema"
+      ],
+      "answer": "B",
+      "rationale": "An episiotomy enlarges the vaginal opening, shortening the second stage of labor."
+    },
+    {
+      "id": 261,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "A multigravida client with type 1 diabetes is 27 weeks pregnant. What should the nurse advise regarding fetal well-being monitoring?",
+      "choices": [
+        "A. \"Limit your physical activity to avoid straining the fetus.\"",
+        "B. \"Start counting fetal movements daily and report any decrease immediately.\"",
+        "C. \"Monitor your blood glucose only in the mornings to track trends.\"",
+        "D. \"Come to the clinic once a week for fetal heart rate monitoring.\""
+      ],
+      "answer": "B",
+      "rationale": "Daily fetal movement counting is a critical way to monitor fetal well-being in diabetic pregnancies."
+    },
+    {
+      "id": 262,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Postpartum",
+      "difficulty": "medium",
+      "question": "Which of the following changes would Nurse Jenna recognize as a progressive physiological change during the postpartum period?",
+      "choices": [
+        "A. Lochia",
+        "B. Lactation",
+        "C. Diuresis",
+        "D. Uterine involution"
+      ],
+      "answer": "B",
+      "rationale": "Lactation is a progressive physiological change; it develops and continues postpartum to nourish the newborn."
+    },
+    {
+      "id": 263,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "What is the \"Rule of Thumb\" for the frequency of contractions in active labor?",
+      "choices": [
+        "A. Every 10–15 minutes",
+        "B. Every 2–3 minutes, lasting 60–90 seconds",
+        "C. Every 1 minute, lasting 2 minutes",
+        "D. Once an hour"
+      ],
+      "answer": "B",
+      "rationale": "Contractions closer than every 2 minutes or lasting longer than 90 seconds can cause fetal hypoxia and uterine rupture."
+    },
+    {
+      "id": 264,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Postpartum",
+      "difficulty": "medium",
+      "question": "\"Lochia Rubra\" is typically seen during which postpartum days?",
+      "choices": [
+        "A. Days 1–3",
+        "B. Days 4–10",
+        "C. Days 11–21",
+        "D. After 6 weeks"
+      ],
+      "answer": "A",
+      "rationale": "Lochia rubra (red) is the first stage of postpartum discharge, consisting mostly of blood, seen in days 1–3."
+    },
+    {
+      "id": 265,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Postpartum",
+      "difficulty": "medium",
+      "question": "A postpartum client reports a reddened, swollen, and painful area on one breast accompanied by fever. This likely indicates:",
+      "choices": [
+        "A. Engorgement",
+        "B. Mastitis",
+        "C. Plugged duct",
+        "D. Normal lactation"
+      ],
+      "answer": "B",
+      "rationale": "Mastitis is an infection of breast tissue; systemic symptoms like fever distinguish it from simple engorgement."
+    },
+    {
+      "id": 266,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "What is the hormone responsible for maintaining the corpus luteum and supporting the uterine lining in very early pregnancy?",
+      "choices": [
+        "A. Human chorionic gonadotropin (hCG)",
+        "B. Progesterone",
+        "C. Estrogen",
+        "D. Prolactin"
+      ],
+      "answer": "A",
+      "rationale": "hCG is produced by the trophoblast and signals the corpus luteum to keep producing progesterone."
+    },
+    {
+      "id": 267,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Postpartum",
+      "difficulty": "medium",
+      "question": "A postpartum client has extensive vulvar edema and a firm fundus. She reports severe pain and the \"feeling that something is about to burst\" in her rectal area. What should the nurse do first?",
+      "choices": [
+        "A. Offer an analgesic",
+        "B. Provide an ice pack to the perineum",
+        "C. Inspect the perineum and vaginal area",
+        "D. Apply a firm pressure dressing"
+      ],
+      "answer": "C",
+      "rationale": "Intense pain and rectal pressure with a firm fundus strongly suggest a hematoma; the first step is inspection and assessment."
+    },
+    {
+      "id": 268,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum",
+      "difficulty": "medium",
+      "question": "What is the physiological cause of Supine Hypotensive Syndrome during the third trimester?",
+      "choices": [
+        "A. Increased blood volume",
+        "B. Hormonal relaxation of vessel walls",
+        "C. The heavy uterus compressing the inferior vena cava",
+        "D. Maternal anemia"
+      ],
+      "answer": "C",
+      "rationale": "When the large uterus compresses the vena cava, blood return to the heart is reduced, causing hypotension."
+    },
+    {
+      "id": 269,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum",
+      "difficulty": "medium",
+      "question": "A client at 34 weeks gestation has a Biophysical Profile (BPP) score of 4/10. What does this suggest?",
+      "choices": [
+        "A. Normal fetal well-being",
+        "B. Potential fetal distress/asphyxia",
+        "C. Gestational diabetes",
+        "D. The baby is sleeping"
+      ],
+      "answer": "B",
+      "rationale": "BPP scores below 6 usually indicate potential fetal distress and require further evaluation or delivery."
+    },
+    {
+      "id": 270,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Postpartum",
+      "difficulty": "medium",
+      "question": "Which \"T\" of the 4 T's of PPH involves a \"boggy\" uterus?",
+      "choices": [
+        "A. Tone",
+        "B. Trauma",
+        "C. Tissue",
+        "D. Thrombin"
+      ],
+      "answer": "A",
+      "rationale": "Tone refers to uterine atony (lack of muscle contraction), which causes a boggy uterus and postpartum hemorrhage."
+    },
+    {
+      "id": 271,
+      "subject": "Psychiatric Nursing",
+      "topic": "Pharmacology",
+      "difficulty": "medium",
+      "question": "A client taking Sertraline reports decreased libido. What is the nurse's best action?",
+      "choices": [
+        "A. Discontinue the medication",
+        "B. Administer an antidote",
+        "C. Reassure that this is a common side effect",
+        "D. Ignore the complaint"
+      ],
+      "answer": "C",
+      "rationale": "Sexual dysfunction including decreased libido is a common and expected SSRI side effect."
+    },
+    {
+      "id": 272,
+      "subject": "Psychiatric Nursing",
+      "topic": "Schizophrenia",
+      "difficulty": "medium",
+      "question": "A client with schizophrenia states, \"The TV is sending me messages.\" What is the nurse's best response?",
+      "choices": [
+        "A. \"That is not true.\"",
+        "B. \"The TV cannot send messages, but I understand you feel that way.\"",
+        "C. \"Why do you think that?\"",
+        "D. \"I agree with you.\""
+      ],
+      "answer": "B",
+      "rationale": "Acknowledging the client's feelings while presenting reality is the therapeutic approach for delusions."
+    },
+    {
+      "id": 273,
+      "subject": "Psychiatric Nursing",
+      "topic": "Safety",
+      "difficulty": "medium",
+      "question": "A client is experiencing command hallucinations instructing self-harm. What is the nurse's priority action?",
+      "choices": [
+        "A. Ensure client safety",
+        "B. Document the behavior",
+        "C. Administer PRN medication",
+        "D. Reorient the client"
+      ],
+      "answer": "A",
+      "rationale": "Safety is always the priority when a client is at risk for self-harm due to command hallucinations."
+    },
+    {
+      "id": 274,
+      "subject": "Psychiatric Nursing",
+      "topic": "Mental Health Foundations",
+      "difficulty": "medium",
+      "question": "A nurse is assessing a client who states, \"I don't feel sick because I can still go to work, even if I feel disconnected from people and constantly overwhelmed.\" Which interpretation by the nurse is MOST appropriate?",
+      "choices": [
+        "A. The client does not meet criteria for mental illness due to preserved functioning",
+        "B. The client demonstrates mental health because occupational role is maintained",
+        "C. The client may still be experiencing impaired mental health despite functional ability",
+        "D. The client's condition is considered normal because stress is expected in daily life"
+      ],
+      "answer": "C",
+      "rationale": "WHO definition emphasizes physical, mental, and social well-being, not merely functioning; distress and disconnection indicate impairment."
+    },
+    {
+      "id": 275,
+      "subject": "Psychiatric Nursing",
+      "topic": "Mental Health Foundations",
+      "difficulty": "medium",
+      "question": "A psychiatric nurse is analyzing factors contributing to a client's condition. The client has strong family support but demonstrates persistent unrealistic fears and heightened anxiety without clear cause. Which category of contributing factor is MOST implicated?",
+      "choices": [
+        "A. Individual factor",
+        "B. Social-cultural factor",
+        "C. Interpersonal factor",
+        "D. Environmental factor"
+      ],
+      "answer": "A",
+      "rationale": "Persistent unrealistic fears without external cause are classified under individual (intrapsychic) factors."
+    },
+    {
+      "id": 276,
+      "subject": "Psychiatric Nursing",
+      "topic": "Mental Health Foundations",
+      "difficulty": "medium",
+      "question": "A nurse is reviewing a multidisciplinary report using DSM-5 classification. Which finding BEST demonstrates the comprehensive approach of DSM classification?",
+      "choices": [
+        "A. Identification of psychiatric symptoms alone to determine diagnosis",
+        "B. Inclusion of coexisting medical conditions and psychosocial stressors",
+        "C. Focus on pharmacologic response to validate diagnosis",
+        "D. Reliance on patient self-report without external data"
+      ],
+      "answer": "B",
+      "rationale": "DSM-5 takes a holistic, multi-dimensional view including psychiatric disorders, medical conditions, and psychosocial/environmental problems."
+    },
+    {
+      "id": 277,
+      "subject": "Psychiatric Nursing",
+      "topic": "Mental Health Foundations",
+      "difficulty": "medium",
+      "question": "A student nurse is comparing historical perspectives in mental health care. Which statement BEST reflects a shift toward modern psychiatric nursing practice?",
+      "choices": [
+        "A. Mental illness is primarily a result of supernatural forces requiring spiritual intervention",
+        "B. Treatment focuses on restoring balance through physical methods such as purging",
+        "C. Care emphasizes humane treatment and scientific understanding of mental illness",
+        "D. Individuals with mental illness should be isolated to protect society"
+      ],
+      "answer": "C",
+      "rationale": "The Enlightenment period introduced moral treatment emphasizing humane care, marking the shift to modern psychiatric nursing practice."
+    },
+    {
+      "id": 278,
+      "subject": "Psychiatric Nursing",
+      "topic": "Ethics & Legal",
+      "difficulty": "medium",
+      "question": "A voluntarily admitted client states, \"I want to leave now.\" However, the nurse notes increasing agitation and verbal threats toward another client. Which is the MOST appropriate nursing action?",
+      "choices": [
+        "A. Honor the client's request for discharge and document refusal of care",
+        "B. Administer PRN medication and reassess readiness for discharge",
+        "C. Encourage the client to stay voluntarily for further evaluation",
+        "D. Delay discharge and initiate procedures for involuntary commitment"
+      ],
+      "answer": "D",
+      "rationale": "When a client becomes a danger to self or others, commitment procedures must be initiated, overriding voluntary status."
+    },
+    {
+      "id": 279,
+      "subject": "Psychiatric Nursing",
+      "topic": "Ethics & Legal",
+      "difficulty": "medium",
+      "question": "A nurse is caring for a client placed in seclusion after attempting to harm others. Which action BEST demonstrates adherence to legal standards of least restrictive care?",
+      "choices": [
+        "A. Maintaining seclusion until the client verbalizes full insight into behavior",
+        "B. Discontinuing seclusion as soon as the client demonstrates self-control",
+        "C. Continuing seclusion for a fixed period to prevent relapse of aggression",
+        "D. Applying seclusion only after obtaining consent from the client"
+      ],
+      "answer": "B",
+      "rationale": "Restraint/seclusion should be discontinued once the client demonstrates self-control, reflecting the principle of least restrictive care."
+    },
+    {
+      "id": 280,
+      "subject": "Psychiatric Nursing",
+      "topic": "Ethics & Legal",
+      "difficulty": "medium",
+      "question": "A client tells the nurse, \"When I get out, I will find my former coworker and make him pay.\" Which is the nurse's BEST legal and ethical response?",
+      "choices": [
+        "A. Maintain confidentiality to preserve therapeutic trust",
+        "B. Document the statement but take no further action",
+        "C. Notify appropriate authorities or intended victim",
+        "D. Encourage the client to express anger in therapy"
+      ],
+      "answer": "C",
+      "rationale": "There is a duty to warn identifiable third parties when a client makes a specific threat; this legal obligation overrides confidentiality."
+    },
+    {
+      "id": 281,
+      "subject": "Psychiatric Nursing",
+      "topic": "Ethics & Legal",
+      "difficulty": "medium",
+      "question": "A nurse fails to implement fall precautions for a disoriented psychiatric client, resulting in injury. Which element of malpractice is BEST demonstrated?",
+      "choices": [
+        "A. Breach of duty",
+        "B. Duty",
+        "C. Causation",
+        "D. Damages"
+      ],
+      "answer": "A",
+      "rationale": "Breach of duty is failure to conform to standards of care (not implementing fall precautions), a key element in proving malpractice."
+    },
+    {
+      "id": 282,
+      "subject": "Psychiatric Nursing",
+      "topic": "Trauma & Stress",
+      "difficulty": "medium",
+      "question": "A client who experienced a traumatic car accident 2 weeks ago reports nightmares, avoids driving, and becomes easily startled. Which is the MOST accurate interpretation?",
+      "choices": [
+        "A. The client is exhibiting normal stress response and does not meet criteria for disorder",
+        "B. The client is likely developing posttraumatic stress disorder",
+        "C. The client is experiencing acute stress disorder which may progress to PTSD",
+        "D. The client is demonstrating an adjustment disorder due to situational stress"
+      ],
+      "answer": "C",
+      "rationale": "Acute stress disorder occurs 3 days to 4 weeks after trauma and includes re-experiencing, avoidance, and hyperarousal; it may progress to PTSD."
+    },
+    {
+      "id": 283,
+      "subject": "Psychiatric Nursing",
+      "topic": "Trauma & Stress",
+      "difficulty": "medium",
+      "question": "A nurse is explaining PTSD mechanisms to a student. Which statement BEST reflects the concept of \"failure of extinction\" in trauma response?",
+      "choices": [
+        "A. The individual forgets traumatic memories over time",
+        "B. The individual becomes desensitized to all stress-related stimuli",
+        "C. The brain suppresses emotional responses to prevent distress",
+        "D. Fear responses continue even when the threat is no longer present"
+      ],
+      "answer": "D",
+      "rationale": "Failure of extinction means fear/anxiety responses persist even in the absence of the traumatic event, explaining chronic hyperarousal in PTSD."
+    },
+    {
+      "id": 284,
+      "subject": "Psychiatric Nursing",
+      "topic": "Trauma & Stress",
+      "difficulty": "medium",
+      "question": "A client with PTSD reports feeling \"detached\" and unable to feel pain during stressful situations. Which neurochemical response BEST explains this phenomenon?",
+      "choices": [
+        "A. Increased serotonergic activity leading to emotional stabilization",
+        "B. Increased endogenous opiate release causing depersonalization and analgesia",
+        "C. Decreased adrenergic activity resulting in reduced stress response",
+        "D. Increased dopamine activity leading to heightened awareness"
+      ],
+      "answer": "B",
+      "rationale": "Increased endogenous opiate release leads to depersonalization, physical analgesia, and emotional blunting in PTSD."
+    },
+    {
+      "id": 285,
+      "subject": "Psychiatric Nursing",
+      "topic": "Trauma & Stress",
+      "difficulty": "medium",
+      "question": "A nurse is planning care for a client with PTSD who is withdrawn, suspicious, and reluctant to share experiences. Which is the PRIORITY nursing intervention?",
+      "choices": [
+        "A. Encourage detailed discussion of the traumatic event immediately",
+        "B. Educate the client about pharmacologic treatment options",
+        "C. Provide cognitive processing therapy as soon as possible",
+        "D. Establish a trusting nurse-patient relationship before deeper interventions"
+      ],
+      "answer": "D",
+      "rationale": "Development of trust is the priority, as clients with PTSD are often withdrawn and suspicious; safety and trust must come before deeper therapeutic work."
+    },
+    {
+      "id": 286,
+      "subject": "Psychiatric Nursing",
+      "topic": "Trauma & Stress",
+      "difficulty": "medium",
+      "question": "A client who survived a physical assault 10 days ago reports vivid flashbacks and avoids leaving the room. During assessment, the client freezes and does not respond to verbal cues after a door slams. What is the MOST appropriate immediate nursing action?",
+      "choices": [
+        "A. Gently reorient the client and ensure a safe, low-stimulation environment",
+        "B. Encourage the client to verbalize the traumatic experience to process the event",
+        "C. Administer prescribed anxiolytic medication immediately to prevent escalation",
+        "D. Explain that the reaction is expected and will resolve over time"
+      ],
+      "answer": "A",
+      "rationale": "The priority is grounding, reorientation, and reducing stimuli; stabilization and safety come before processing the trauma."
+    },
+    {
+      "id": 287,
+      "subject": "Psychiatric Nursing",
+      "topic": "OCD & Related",
+      "difficulty": "medium",
+      "question": "A client repeatedly washes hands for hours due to fear of contamination and reports intense anxiety when unable to do so. Which statement BEST explains the relationship between the client's thoughts and behavior?",
+      "choices": [
+        "A. The behavior is independent of the thought and serves no psychological purpose",
+        "B. The behavior is performed to suppress unconscious conflict unrelated to anxiety",
+        "C. The behavior is a response to intrusive thoughts and serves to reduce anxiety",
+        "D. The behavior is a learned habit that persists despite absence of triggering thoughts"
+      ],
+      "answer": "C",
+      "rationale": "Obsessions are intrusive thoughts, while compulsions are repetitive behaviors performed to reduce the anxiety caused by those obsessions."
+    },
+    {
+      "id": 288,
+      "subject": "Psychiatric Nursing",
+      "topic": "OCD & Related",
+      "difficulty": "medium",
+      "question": "A client states, \"I know checking the door 20 times is unreasonable, but I feel like something bad will happen if I don't.\" Which is the MOST accurate interpretation?",
+      "choices": [
+        "A. The client lacks insight into the irrationality of the behavior",
+        "B. The client demonstrates intact insight but impaired control over compulsions",
+        "C. The client is experiencing a delusion related to safety",
+        "D. The client's behavior is consistent with a personality disorder"
+      ],
+      "answer": "B",
+      "rationale": "Individuals with OCD recognize their behavior as irrational but are unable to control or stop it, distinguishing OCD from psychotic disorders."
+    },
+    {
+      "id": 289,
+      "subject": "Psychiatric Nursing",
+      "topic": "OCD & Related",
+      "difficulty": "medium",
+      "question": "A nurse is planning care for a client with severe OCD who spends most of the day performing rituals. Which intervention is MOST appropriate initially?",
+      "choices": [
+        "A. Allow time for rituals initially, then gradually reduce duration",
+        "B. Interrupt the ritual to prevent reinforcement of compulsive behavior",
+        "C. Confront the irrational nature of the behavior directly",
+        "D. Distract the client immediately whenever rituals begin"
+      ],
+      "answer": "A",
+      "rationale": "Rituals should not be interrupted initially; gradually reducing frequency and duration prevents anxiety escalation while promoting behavior change."
+    },
+    {
+      "id": 290,
+      "subject": "Psychiatric Nursing",
+      "topic": "OCD & Related",
+      "difficulty": "medium",
+      "question": "A nurse is educating a client about treatment for OCD. Which statement by the client indicates correct understanding of behavioral therapy?",
+      "choices": [
+        "A. \"I should avoid situations that trigger my anxiety.\"",
+        "B. \"I will focus on eliminating all intrusive thoughts.\"",
+        "C. \"I will replace my compulsions with more acceptable behaviors immediately.\"",
+        "D. \"I will be exposed to anxiety triggers and learn to resist rituals.\""
+      ],
+      "answer": "D",
+      "rationale": "Exposure and response prevention (ERP) involves confronting anxiety-provoking stimuli and resisting ritual performance to break the OCD cycle."
+    },
+    {
+      "id": 291,
+      "subject": "Psychiatric Nursing",
+      "topic": "Anxiety Disorders",
+      "difficulty": "medium",
+      "question": "A client states, \"I feel like something bad is going to happen, but I don't know what.\" The nurse notes no identifiable trigger. Which is the MOST accurate interpretation?",
+      "choices": [
+        "A. The client is experiencing fear due to an unknown external stimulus",
+        "B. The client is experiencing anxiety characterized by diffuse apprehension",
+        "C. The client is exhibiting panic-level anxiety due to loss of control",
+        "D. The client is demonstrating moderate anxiety with narrowed perception"
+      ],
+      "answer": "B",
+      "rationale": "Anxiety is a diffuse feeling of uneasiness without an identifiable stimulus, often accompanied by apprehension about anticipated danger."
+    },
+    {
+      "id": 292,
+      "subject": "Psychiatric Nursing",
+      "topic": "Anxiety Disorders",
+      "difficulty": "medium",
+      "question": "A client in the emergency room is pacing, has elevated BP and HR, and is focused only on one concern while unable to process additional information. Which level of anxiety is MOST consistent?",
+      "choices": [
+        "A. Mild anxiety",
+        "B. Moderate anxiety",
+        "C. Severe anxiety",
+        "D. Panic level anxiety"
+      ],
+      "answer": "C",
+      "rationale": "Severe anxiety is characterized by markedly reduced perceptual field, difficulty thinking, and physiologic signs with focus on only one area."
+    },
+    {
+      "id": 293,
+      "subject": "Psychiatric Nursing",
+      "topic": "Anxiety Disorders",
+      "difficulty": "medium",
+      "question": "A client with generalized anxiety disorder reports persistent worry for the past 7 months and difficulty controlling it. Which additional finding BEST supports this diagnosis?",
+      "choices": [
+        "A. Episodes of intense fear lasting 15–30 minutes",
+        "B. Presence of an identifiable object triggering fear",
+        "C. Restlessness, irritability, and sleep disturbance",
+        "D. Sudden dissociation and hallucinations"
+      ],
+      "answer": "C",
+      "rationale": "GAD includes excessive worry for at least 6 months with restlessness, irritability, difficulty concentrating, and sleep disturbance."
+    },
+    {
+      "id": 294,
+      "subject": "Psychiatric Nursing",
+      "topic": "Anxiety Disorders",
+      "difficulty": "medium",
+      "question": "A nurse is caring for a client experiencing high anxiety. Which intervention is MOST appropriate initially?",
+      "choices": [
+        "A. Provide a calm environment and minimize external stimuli",
+        "B. Encourage the client to analyze the source of anxiety in detail",
+        "C. Teach cognitive restructuring techniques immediately",
+        "D. Encourage participation in group therapy activities"
+      ],
+      "answer": "A",
+      "rationale": "Providing a calm environment and minimizing stimuli are priority interventions to reduce anxiety and promote stabilization."
+    },
+    {
+      "id": 295,
+      "subject": "Psychiatric Nursing",
+      "topic": "Theoretical Foundations",
+      "difficulty": "medium",
+      "question": "A client insists on immediate gratification and becomes frustrated when desires are delayed. Which personality structure is MOST dominant?",
+      "choices": [
+        "A. Ego",
+        "B. Superego",
+        "C. Id",
+        "D. Conscious mind"
+      ],
+      "answer": "C",
+      "rationale": "The id is driven by the pleasure principle, seeking immediate gratification and avoiding pain."
+    },
+    {
+      "id": 296,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "A nurse recognizes feeling unusually irritated toward a client who reminds her of her rebellious teenager. Which phenomenon is MOST accurate?",
+      "choices": [
+        "A. Transference",
+        "B. Projection",
+        "C. Displacement",
+        "D. Countertransference"
+      ],
+      "answer": "D",
+      "rationale": "Countertransference occurs when the nurse projects personal feelings onto the client, potentially affecting therapeutic objectivity."
+    },
+    {
+      "id": 297,
+      "subject": "Psychiatric Nursing",
+      "topic": "Theoretical Foundations",
+      "difficulty": "medium",
+      "question": "A teenager is struggling to define personal values and identity. According to Erikson, which stage is MOST relevant?",
+      "choices": [
+        "A. Industry vs. inferiority",
+        "B. Identity vs. role confusion",
+        "C. Intimacy vs. isolation",
+        "D. Generativity vs. stagnation"
+      ],
+      "answer": "B",
+      "rationale": "Adolescence corresponds to Erikson's identity vs. role confusion stage, where individuals develop a sense of self."
+    },
+    {
+      "id": 298,
+      "subject": "Psychiatric Nursing",
+      "topic": "Theoretical Foundations",
+      "difficulty": "medium",
+      "question": "A child demonstrates ability to think logically about concrete events but struggles with abstract reasoning. Which Piaget stage BEST applies?",
+      "choices": [
+        "A. Sensorimotor",
+        "B. Preoperational",
+        "C. Concrete operational",
+        "D. Formal operational"
+      ],
+      "answer": "C",
+      "rationale": "The concrete operational stage involves logical thinking limited to concrete situations, without abstract reasoning."
+    },
+    {
+      "id": 299,
+      "subject": "Psychiatric Nursing",
+      "topic": "Theoretical Foundations",
+      "difficulty": "medium",
+      "question": "A client's anxiety is traced to repeated patterns of unhealthy relationships. Which theorist BEST explains this perspective?",
+      "choices": [
+        "A. Sigmund Freud",
+        "B. Harry Stack Sullivan",
+        "C. Jean Piaget",
+        "D. Abraham Maslow"
+      ],
+      "answer": "B",
+      "rationale": "Sullivan believed mental illness arises from disturbed interpersonal relationships, with anxiety stemming from relational patterns."
+    },
+    {
+      "id": 300,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Relationship",
+      "difficulty": "medium",
+      "question": "A nurse establishes trust, identifies patient needs, and explains hospital routines during the initial interaction. Which Peplau phase is being demonstrated?",
+      "choices": [
+        "A. Identification",
+        "B. Orientation",
+        "C. Exploitation",
+        "D. Resolution"
+      ],
+      "answer": "B",
+      "rationale": "The orientation phase is the initial meeting where trust is built, needs are identified, and roles are clarified."
+    },
+    {
+      "id": 301,
+      "subject": "Psychiatric Nursing",
+      "topic": "Theoretical Foundations",
+      "difficulty": "medium",
+      "question": "A client prioritizes food and shelter over social relationships. Which Maslow principle BEST explains this behavior?",
+      "choices": [
+        "A. Lower-level needs must be met before higher-level needs",
+        "B. Needs are fulfilled simultaneously",
+        "C. Higher-level needs override basic needs",
+        "D. Self-actualization drives all behavior"
+      ],
+      "answer": "A",
+      "rationale": "Basic physiological and safety needs must be met before higher-level needs become motivating according to Maslow's hierarchy."
+    },
+    {
+      "id": 302,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "A therapist responds to a client by saying, \"I can see how painful this experience has been for you,\" demonstrating understanding without judgment. Which principle is illustrated?",
+      "choices": [
+        "A. Genuineness",
+        "B. Reality testing",
+        "C. Positive reinforcement",
+        "D. Empathetic understanding"
+      ],
+      "answer": "D",
+      "rationale": "Empathetic understanding involves sensing the client's feelings and communicating that understanding without judgment."
+    },
+    {
+      "id": 303,
+      "subject": "Psychiatric Nursing",
+      "topic": "Theoretical Foundations",
+      "difficulty": "medium",
+      "question": "A client learns to associate a previously neutral sound with a stressful event, leading to anxiety when hearing the sound again. Which concept BEST explains this?",
+      "choices": [
+        "A. Classical conditioning",
+        "B. Operant conditioning",
+        "C. Cognitive restructuring",
+        "D. Insight learning"
+      ],
+      "answer": "A",
+      "rationale": "Classical conditioning is learning through association where a neutral stimulus becomes linked to a meaningful one, producing a conditioned response."
+    },
+    {
+      "id": 304,
+      "subject": "Psychiatric Nursing",
+      "topic": "Theoretical Foundations",
+      "difficulty": "medium",
+      "question": "A client states, \"I failed the exam, so I'm completely worthless.\" Which approach would BEST address this thinking according to Ellis?",
+      "choices": [
+        "A. Encourage expression of unconscious conflict",
+        "B. Identify and challenge irrational beliefs",
+        "C. Focus on present-moment awareness",
+        "D. Reinforce positive behavior"
+      ],
+      "answer": "B",
+      "rationale": "REBT (Ellis) focuses on identifying and challenging irrational beliefs (B) that lead to emotional consequences (C)."
+    },
+    {
+      "id": 305,
+      "subject": "Psychiatric Nursing",
+      "topic": "Disruptive Behavior",
+      "difficulty": "medium",
+      "question": "A child frequently argues with teachers, refuses to follow rules, and is hostile toward authority figures but has not violated major societal norms. Which disorder is MOST consistent?",
+      "choices": [
+        "A. Conduct Disorder",
+        "B. Intermittent Explosive Disorder",
+        "C. Oppositional Defiant Disorder",
+        "D. Antisocial Personality Disorder"
+      ],
+      "answer": "C",
+      "rationale": "ODD involves persistent defiant, disobedient, and hostile behavior toward authority figures without major antisocial violations."
+    },
+    {
+      "id": 306,
+      "subject": "Psychiatric Nursing",
+      "topic": "Disruptive Behavior",
+      "difficulty": "medium",
+      "question": "A client has sudden aggressive outbursts lasting less than 30 minutes, disproportionate to the situation, followed by regret. Which disorder BEST explains this behavior?",
+      "choices": [
+        "A. Intermittent Explosive Disorder",
+        "B. Conduct Disorder",
+        "C. Oppositional Defiant Disorder",
+        "D. Kleptomania"
+      ],
+      "answer": "A",
+      "rationale": "IED involves impulsive, sudden aggressive episodes disproportionate to triggers, lasting less than 30 minutes and followed by distress or regret."
+    },
+    {
+      "id": 307,
+      "subject": "Psychiatric Nursing",
+      "topic": "Disruptive Behavior",
+      "difficulty": "medium",
+      "question": "Which factor is MOST appropriate to classify as modifiable in the development of disruptive behavior disorders?",
+      "choices": [
+        "A. Genetic predisposition",
+        "B. Male sex",
+        "C. Inconsistent parenting",
+        "D. Family history of ADHD"
+      ],
+      "answer": "C",
+      "rationale": "Inconsistent or harsh parenting is a modifiable risk factor that can be targeted through interventions such as parent training."
+    },
+    {
+      "id": 308,
+      "subject": "Psychiatric Nursing",
+      "topic": "Disruptive Behavior",
+      "difficulty": "medium",
+      "question": "A child demonstrates defiant behavior only at home but behaves appropriately in school. How is this severity BEST classified?",
+      "choices": [
+        "A. Mild",
+        "B. Moderate",
+        "C. Severe",
+        "D. Situational"
+      ],
+      "answer": "A",
+      "rationale": "Mild severity occurs when symptoms are present in only one setting."
+    },
+    {
+      "id": 309,
+      "subject": "Psychiatric Nursing",
+      "topic": "Disruptive Behavior",
+      "difficulty": "medium",
+      "question": "A nurse is planning care for a child with ODD. Which intervention is MOST appropriate initially?",
+      "choices": [
+        "A. Confront the child regarding negative behavior",
+        "B. Ignore minor maladaptive behaviors and reinforce positive ones",
+        "C. Administer medication to control defiance",
+        "D. Allow behavior to continue to avoid conflict"
+      ],
+      "answer": "B",
+      "rationale": "Ignoring minor maladaptive behaviors while reinforcing positive ones reduces negative attention-seeking patterns."
+    },
+    {
+      "id": 310,
+      "subject": "Psychiatric Nursing",
+      "topic": "Disruptive Behavior",
+      "difficulty": "medium",
+      "question": "A 7-year-old child with persistent defiance since age 3 has begun physically harming peers and destroying school property. Which interpretation is MOST appropriate?",
+      "choices": [
+        "A. The child is demonstrating progression of disruptive behavior to a more severe disorder",
+        "B. The child's condition is stable and unlikely to progress further",
+        "C. The child is exhibiting typical developmental aggression",
+        "D. The behavior reflects situational stress and will resolve without intervention"
+      ],
+      "answer": "A",
+      "rationale": "Early-onset oppositional behaviors can progress to conduct disorder when aggression and rule violations emerge."
+    },
+    {
+      "id": 311,
+      "subject": "Psychiatric Nursing",
+      "topic": "Disruptive Behavior",
+      "difficulty": "medium",
+      "question": "A client presents with repeated aggressive outbursts but also has a history of deliberate rule-breaking, theft, and manipulation. Which is the MOST accurate clinical interpretation?",
+      "choices": [
+        "A. The client has only intermittent explosive disorder",
+        "B. The client's symptoms are best explained by oppositional defiant disorder",
+        "C. The client's behavior is within normal adolescent development",
+        "D. The client demonstrates features consistent with conduct disorder rather than purely episodic aggression"
+      ],
+      "answer": "D",
+      "rationale": "Conduct disorder involves persistent violations of rules, aggression, and deceitfulness, which go beyond episodic aggression seen in IED."
+    },
+    {
+      "id": 312,
+      "subject": "Psychiatric Nursing",
+      "topic": "Disruptive Behavior",
+      "difficulty": "medium",
+      "question": "A child with disruptive behavior demonstrates repeated failure to learn from consequences despite consistent discipline. Which underlying issue BEST explains this pattern?",
+      "choices": [
+        "A. Lack of environmental structure",
+        "B. Reduced sensitivity to reward and punishment",
+        "C. Absence of parental involvement",
+        "D. Inadequate cognitive development"
+      ],
+      "answer": "B",
+      "rationale": "Difficulty learning from consequences due to reduced sensitivity to reward/punishment explains why standard discipline may be ineffective."
+    },
+    {
+      "id": 313,
+      "subject": "Psychiatric Nursing",
+      "topic": "Crisis Intervention",
+      "difficulty": "medium",
+      "question": "A nurse is caring for a client with escalating aggression and loss of control. The client begins pacing, clenching fists, and shouting. Which is the MOST appropriate immediate nursing action?",
+      "choices": [
+        "A. Initiate discussion about triggers of aggression",
+        "B. Provide education on coping strategies",
+        "C. Maintain safety by controlling the environment and ensuring protection",
+        "D. Encourage the client to verbalize feelings"
+      ],
+      "answer": "C",
+      "rationale": "Ensuring safety is the priority during aggressive episodes, including managing the environment before any therapeutic intervention."
+    },
+    {
+      "id": 314,
+      "subject": "Psychiatric Nursing",
+      "topic": "Disruptive Behavior",
+      "difficulty": "medium",
+      "question": "A client repeatedly sets fires, expresses fascination with flames, and reports relief after the act without intent for revenge or gain. Which differentiation is MOST important in identifying this condition?",
+      "choices": [
+        "A. Motivation driven by emotional tension and gratification",
+        "B. Presence of aggressive intent toward others",
+        "C. Association with conduct disorder behaviors",
+        "D. Involvement of peer influence in behavior"
+      ],
+      "answer": "A",
+      "rationale": "Pyromania involves intentional fire-setting driven by fascination and tension relief, without external motives such as revenge or gain."
+    },
+    {
+      "id": 315,
+      "subject": "Psychiatric Nursing",
+      "topic": "Eating Disorders",
+      "difficulty": "medium",
+      "question": "A severely underweight client insists, \"I'm still fat,\" despite obvious emaciation. Which is the MOST accurate interpretation?",
+      "choices": [
+        "A. The client is demonstrating denial as a coping mechanism",
+        "B. The client is experiencing a distorted body image",
+        "C. The client has impaired reality testing consistent with psychosis",
+        "D. The client is exhibiting low self-esteem only"
+      ],
+      "answer": "B",
+      "rationale": "Individuals with anorexia have a distorted perception of body weight and link self-worth to appearance."
+    },
+    {
+      "id": 316,
+      "subject": "Psychiatric Nursing",
+      "topic": "Eating Disorders",
+      "difficulty": "medium",
+      "question": "A nurse is caring for a client with anorexia nervosa who is being refed after prolonged starvation. Which complication is MOST critical to monitor?",
+      "choices": [
+        "A. Hyperglycemia",
+        "B. Fluid overload from excessive intake",
+        "C. Increased appetite leading to overeating",
+        "D. Refeeding syndrome due to electrolyte imbalance"
+      ],
+      "answer": "D",
+      "rationale": "Refeeding syndrome can occur with nutritional rehabilitation, leading to dangerous electrolyte shifts and cardiac complications."
+    },
+    {
+      "id": 317,
+      "subject": "Psychiatric Nursing",
+      "topic": "Eating Disorders",
+      "difficulty": "medium",
+      "question": "A client engages in binge eating followed by self-induced vomiting and laxative use. Which distinguishing feature differentiates this condition from binge eating disorder?",
+      "choices": [
+        "A. Presence of guilt after eating",
+        "B. Recurrent episodes of binge eating",
+        "C. Use of compensatory behaviors",
+        "D. Lack of control during eating"
+      ],
+      "answer": "C",
+      "rationale": "Bulimia nervosa is distinguished by compensatory behaviors (purging, laxatives, fasting); binge eating disorder has no compensatory behaviors."
+    },
+    {
+      "id": 318,
+      "subject": "Psychiatric Nursing",
+      "topic": "Eating Disorders",
+      "difficulty": "medium",
+      "question": "A nurse observes a client wearing bulky clothing and hiding food during meals. Which interpretation is MOST appropriate?",
+      "choices": [
+        "A. The client is attempting to maintain warmth due to low body fat",
+        "B. The client is demonstrating resistance to treatment and food avoidance behaviors",
+        "C. The client is preparing for excessive physical activity",
+        "D. The client is showing improvement in coping mechanisms"
+      ],
+      "answer": "B",
+      "rationale": "Wearing baggy clothing to hide weight loss and hiding food indicates resistance and ongoing disordered eating patterns."
+    },
+    {
+      "id": 319,
+      "subject": "Psychiatric Nursing",
+      "topic": "Eating Disorders",
+      "difficulty": "medium",
+      "question": "A client states, \"I eat large amounts quickly and feel out of control, but I don't purge.\" Which condition is MOST consistent?",
+      "choices": [
+        "A. Bulimia nervosa",
+        "B. Anorexia nervosa",
+        "C. Binge eating disorder",
+        "D. Orthorexia nervosa"
+      ],
+      "answer": "C",
+      "rationale": "Binge eating disorder involves recurrent binge episodes with loss of control but without compensatory behaviors."
+    },
+    {
+      "id": 320,
+      "subject": "Psychiatric Nursing",
+      "topic": "Eating Disorders",
+      "difficulty": "medium",
+      "question": "A client refuses to eat food prepared by others and becomes anxious when \"pure\" foods are unavailable. Which disorder is MOST consistent?",
+      "choices": [
+        "A. Orthorexia nervosa",
+        "B. Bulimia nervosa",
+        "C. Anorexia nervosa",
+        "D. Pica"
+      ],
+      "answer": "A",
+      "rationale": "Orthorexia involves obsession with \"healthy\" or \"pure\" foods, rigid dietary rules, and anxiety when these rules are violated."
+    },
+    {
+      "id": 321,
+      "subject": "Psychiatric Nursing",
+      "topic": "Eating Disorders",
+      "difficulty": "medium",
+      "question": "A client with bulimia nervosa has just finished a meal and immediately asks to use the bathroom. Which is the MOST appropriate nursing response?",
+      "choices": [
+        "A. \"You may go, but please return within 10 minutes.\"",
+        "B. \"I will accompany you to ensure your safety.\"",
+        "C. \"Why do you always need to go to the bathroom after eating?\"",
+        "D. \"Let's stay here for a while and talk after your meal.\""
+      ],
+      "answer": "D",
+      "rationale": "Remaining with the client after eating prevents immediate access to compensatory behaviors; this approach is therapeutic and non-confrontational."
+    },
+    {
+      "id": 322,
+      "subject": "Psychiatric Nursing",
+      "topic": "Eating Disorders",
+      "difficulty": "medium",
+      "question": "A client with anorexia nervosa develops bradycardia and hypotension. Which interpretation BEST explains the underlying pathophysiology?",
+      "choices": [
+        "A. Increased metabolic demand leading to cardiovascular strain",
+        "B. Decreased metabolic rate and malnutrition reducing cardiac output",
+        "C. Excess fluid intake causing dilutional effects on circulation",
+        "D. Increased sympathetic activity resulting in compensatory slowing of the heart"
+      ],
+      "answer": "B",
+      "rationale": "Malnutrition leads to decreased metabolic demand and reduced cardiac output, resulting in bradycardia and hypotension."
+    },
+    {
+      "id": 323,
+      "subject": "Psychiatric Nursing",
+      "topic": "Eating Disorders",
+      "difficulty": "medium",
+      "question": "A client with binge eating disorder reports frequent episodes of eating large amounts rapidly when stressed, followed by shame. Which nursing intervention BEST addresses the underlying mechanism?",
+      "choices": [
+        "A. Restrict caloric intake to prevent further weight gain",
+        "B. Encourage the client to eat alone to reduce embarrassment",
+        "C. Focus on immediate weight loss through diet modification",
+        "D. Teach coping strategies to manage emotional triggers"
+      ],
+      "answer": "D",
+      "rationale": "Binge eating is often triggered by emotional distress; teaching coping strategies addresses the root cause rather than the symptom."
     }
   ]
 }
