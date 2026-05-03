@@ -1,244 +1,2400 @@
 {
   "metadata": {
-    "version": "1.0",
-    "last_updated": "2025-01-01",
-    "description": "PNLE Question Bank - Add your questions here following the same format"
+    "version": "2.0",
+    "last_updated": "2025-05-03",
+    "description": "PNLE Question Bank — sourced from Med-Surg, OB, Community Health, and Psychiatric Nursing review materials."
   },
   "subjects": [
-    "Fundamentals of Nursing",
-    "Community Health Nursing",
     "Medical-Surgical Nursing",
     "Maternal & Child Health Nursing",
-    "Psychiatric Nursing",
-    "Pharmacology",
-    "Care of Mother & Child",
-    "Nutrition & Diet Therapy"
+    "Community Health Nursing",
+    "Psychiatric Nursing"
   ],
   "questions": [
     {
       "id": 1,
-      "subject": "Fundamentals of Nursing",
-      "topic": "Vital Signs",
-      "difficulty": "easy",
-      "question": "A nurse is assessing a client's radial pulse. Which finding should be reported to the physician immediately?",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Renal",
+      "difficulty": "medium",
+      "question": "A patient with chronic kidney disease is noted to have decreased urine output, hyperkalemia, and metabolic acidosis. Which complication should the nurse anticipate?",
       "choices": [
-        "A. A rate of 72 beats per minute",
-        "B. A rate of 110 beats per minute with irregular rhythm",
-        "C. A rate of 60 beats per minute with regular rhythm",
-        "D. A rate of 80 beats per minute with strong amplitude"
+        "A. Respiratory alkalosis",
+        "B. Cardiac dysrhythmias",
+        "C. Hypoglycemia",
+        "D. Hypertension crisis"
       ],
       "answer": "B",
-      "rationale": "A pulse rate of 110 bpm with irregular rhythm (tachycardia with dysrhythmia) is an abnormal finding that should be reported immediately. Normal pulse rate is 60-100 bpm with regular rhythm. An irregular rhythm may indicate cardiac arrhythmia."
+      "rationale": "Hyperkalemia increases the risk of life-threatening cardiac dysrhythmias due to altered myocardial conduction."
     },
     {
       "id": 2,
-      "subject": "Fundamentals of Nursing",
-      "topic": "Infection Control",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
       "difficulty": "medium",
-      "question": "A nurse is caring for a client diagnosed with active pulmonary tuberculosis. Which type of isolation precautions should the nurse implement?",
+      "question": "A client with left-sided heart failure presents with dyspnea and crackles. Which is the priority nursing intervention?",
       "choices": [
-        "A. Contact precautions",
-        "B. Droplet precautions",
-        "C. Airborne precautions",
-        "D. Standard precautions only"
+        "A. Encourage fluid intake",
+        "B. Place in high Fowler’s position",
+        "C. Administer potassium supplements",
+        "D. Restrict oxygen"
       ],
-      "answer": "C",
-      "rationale": "Pulmonary tuberculosis is spread via airborne transmission (droplet nuclei <5 microns that remain suspended in air). Airborne precautions include a negative pressure room, N95 respirator for healthcare workers, and surgical mask on patient during transport."
+      "answer": "B",
+      "rationale": "High Fowler’s position decreases venous return and improves lung expansion, relieving dyspnea."
     },
     {
       "id": 3,
-      "subject": "Fundamentals of Nursing",
-      "topic": "Medication Administration",
-      "difficulty": "easy",
-      "question": "When preparing to administer medications, which action by the nurse best demonstrates safe medication administration?",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A patient receiving heparin therapy develops bleeding gums. Which lab value should the nurse check?",
       "choices": [
-        "A. Preparing medications for all assigned clients at the same time",
-        "B. Verifying the 10 rights of medication administration",
-        "C. Crushing all medications before administration",
-        "D. Documenting medication administration before giving the drug"
+        "A. INR",
+        "B. PT",
+        "C. aPTT",
+        "D. Platelet count"
       ],
-      "answer": "B",
-      "rationale": "The nurse should always verify the rights of medication administration: right patient, right medication, right dose, right route, right time, right documentation, right reason, right response, right education, and right to refuse. This ensures medication safety."
+      "answer": "C",
+      "rationale": "Activated partial thromboplastin time (aPTT) monitors heparin therapy effectiveness and safety."
     },
     {
       "id": 4,
       "subject": "Medical-Surgical Nursing",
-      "topic": "Cardiovascular",
-      "difficulty": "hard",
-      "question": "A client is admitted with chest pain. The ECG shows ST-segment elevation in leads II, III, and aVF. Which area of the heart is most likely affected?",
+      "topic": "Respiratory",
+      "difficulty": "medium",
+      "question": "A client with COPD is given oxygen at 6 L/min via nasal cannula. What is the priority concern?",
       "choices": [
-        "A. Anterior wall",
-        "B. Lateral wall",
-        "C. Inferior wall",
-        "D. Posterior wall"
+        "A. Oxygen toxicity",
+        "B. Carbon dioxide retention",
+        "C. Respiratory alkalosis",
+        "D. Hypoxia"
       ],
-      "answer": "C",
-      "rationale": "ST-segment elevation in leads II, III, and aVF indicates inferior wall MI. These leads view the inferior surface of the heart supplied by the right coronary artery (RCA). Anterior MI shows changes in V1-V4; lateral MI in I, aVL, V5-V6."
+      "answer": "B",
+      "rationale": "High oxygen levels may suppress the hypoxic drive in COPD patients, leading to CO ₂ retention."
     },
     {
       "id": 5,
       "subject": "Medical-Surgical Nursing",
-      "topic": "Respiratory",
+      "topic": "Gastrointestinal",
       "difficulty": "medium",
-      "question": "A nurse is caring for a client with COPD who is receiving oxygen therapy. What oxygen flow rate is most appropriate for this client?",
+      "question": "A patient with a nasogastric tube has greenish drainage. What does this indicate?",
       "choices": [
-        "A. 6-8 L/min via simple face mask",
-        "B. 1-3 L/min via nasal cannula",
-        "C. 10-15 L/min via non-rebreather mask",
-        "D. 4-6 L/min via nasal cannula"
+        "A. Intestinal fluid",
+        "B. Gastric contents",
+        "C. Bile reflux",
+        "D. Pancreatic enzymes"
       ],
       "answer": "B",
-      "rationale": "COPD clients rely on hypoxic drive for breathing stimulation. High oxygen levels can suppress their respiratory drive. Low-flow oxygen (1-3 L/min via nasal cannula) maintains SpO2 at 88-92%, preventing oxygen-induced hypoventilation while treating hypoxemia."
+      "rationale": "Greenish drainage is typically gastric contents mixed with bile."
     },
     {
       "id": 6,
       "subject": "Medical-Surgical Nursing",
       "topic": "Endocrine",
       "difficulty": "medium",
-      "question": "A client with Type 1 Diabetes Mellitus is found unresponsive with a blood glucose of 40 mg/dL. Which intervention is the priority?",
+      "question": "A client with diabetes mellitus reports sweating, tremors, and confusion. What is the initial nursing action?",
       "choices": [
-        "A. Administer insulin per sliding scale",
-        "B. Give 15g of fast-acting carbohydrate orally",
-        "C. Administer 50% dextrose (D50W) intravenously",
-        "D. Call the physician before doing anything"
+        "A. Administer insulin",
+        "B. Check blood glucose",
+        "C. Provide high-protein diet",
+        "D. Restrict fluids"
       ],
-      "answer": "C",
-      "rationale": "The client is unresponsive (altered mental status), making oral administration contraindicated due to aspiration risk. D50W IV is the priority treatment for severe hypoglycemia with unconsciousness. Never give oral glucose to an unconscious patient."
+      "answer": "B",
+      "rationale": "Symptoms suggest hypoglycemia; verifying blood glucose confirms the condition before intervention."
     },
     {
       "id": 7,
-      "subject": "Maternal & Child Health Nursing",
-      "topic": "Antepartum Care",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Respiratory",
       "difficulty": "medium",
-      "question": "A pregnant client at 28 weeks gestation reports decreased fetal movement. Which nursing action is most appropriate initially?",
+      "question": "A patient with a chest tube shows continuous bubbling in the water seal chamber. What does this indicate?",
       "choices": [
-        "A. Reassure the client that decreased movement is normal",
-        "B. Instruct the client to perform kick counts",
-        "C. Immediately schedule a cesarean section",
-        "D. Administer oxytocin to stimulate fetal activity"
+        "A. Normal function",
+        "B. Air leak",
+        "C. Lung re-expansion",
+        "D. Tube obstruction"
       ],
       "answer": "B",
-      "rationale": "Kick counts (fetal movement counting) is the first intervention for decreased fetal movement. The client should count 10 movements within 2 hours. If fewer than 10 movements occur, further assessment (NST, BPP) is warranted. Decreased fetal movement can indicate fetal compromise."
+      "rationale": "Continuous bubbling indicates an air leak in the system."
     },
     {
       "id": 8,
-      "subject": "Maternal & Child Health Nursing",
-      "topic": "Intrapartum",
-      "difficulty": "hard",
-      "question": "During a vaginal examination, the nurse discovers a prolapsed umbilical cord. What is the priority nursing action?",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "A client with cirrhosis develops ascites. Which diet should the nurse recommend?",
       "choices": [
-        "A. Place the client in Trendelenburg position and call for help",
-        "B. Push the cord back into the uterus",
-        "C. Prepare the client for immediate cesarean section",
-        "D. Apply continuous external fetal monitoring"
+        "A. High sodium",
+        "B. Low protein",
+        "C. Low sodium",
+        "D. High fat"
       ],
-      "answer": "A",
-      "rationale": "Priority is relieving cord compression. The nurse should place a gloved hand in the vagina to lift the presenting part off the cord, while simultaneously positioning the client in knee-chest or Trendelenburg position to use gravity. Call for help immediately. Never push the cord back as this can cause vasospasm."
+      "answer": "C",
+      "rationale": "Sodium restriction helps reduce fluid retention and ascites."
     },
     {
       "id": 9,
-      "subject": "Psychiatric Nursing",
-      "topic": "Therapeutic Communication",
-      "difficulty": "easy",
-      "question": "A client says, 'I feel like no one understands me.' Which response by the nurse demonstrates the most therapeutic communication?",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Respiratory",
+      "difficulty": "medium",
+      "question": "A patient experiences sudden chest pain and dyspnea after surgery. What is the priority assessment?",
       "choices": [
-        "A. 'Don't worry, I understand you perfectly.'",
-        "B. 'Tell me more about what you're feeling.'",
-        "C. 'Everyone feels that way sometimes.'",
-        "D. 'Have you tried talking to your family?'"
+        "A. Blood pressure",
+        "B. Oxygen saturation",
+        "C. Temperature",
+        "D. Urine output"
       ],
       "answer": "B",
-      "rationale": "Asking the client to elaborate encourages expression of feelings and demonstrates active listening. Option A offers false reassurance. Option C minimizes feelings. Option D gives premature advice before fully assessing the situation. Therapeutic communication focuses on the client's feelings."
+      "rationale": "Suspected pulmonary embolism requires immediate assessment of oxygenation."
     },
     {
       "id": 10,
-      "subject": "Psychiatric Nursing",
-      "topic": "Crisis Intervention",
-      "difficulty": "hard",
-      "question": "A nurse is assessing a client who states, 'I have a plan to end my life, and I have the means to do it.' How should the nurse prioritize safety?",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "A client with hyperthyroidism is at risk for which complication?",
       "choices": [
-        "A. Maintain confidentiality and document the statement",
-        "B. Ask the client to promise not to harm themselves",
-        "C. Implement suicide precautions and notify the treatment team immediately",
-        "D. Encourage the client to call a crisis hotline"
+        "A. Myxedema coma",
+        "B. Thyroid storm",
+        "C. Addisonian crisis",
+        "D. Hypoglycemia"
       ],
-      "answer": "C",
-      "rationale": "A client with a specific plan and means is at HIGH risk for suicide. Priority is safety — implement 1:1 observation, remove harmful objects, and immediately notify the treatment team. Confidentiality is overridden when safety is at risk. A 'no-harm contract' (promise) alone is insufficient for high-risk clients."
+      "answer": "B",
+      "rationale": "Thyroid storm is a life-threatening exacerbation of hyperthyroidism."
     },
     {
       "id": 11,
-      "subject": "Community Health Nursing",
-      "topic": "Epidemiology",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
       "difficulty": "medium",
-      "question": "The incidence rate of dengue fever in a community is being calculated. Which data does the nurse need to compute this?",
+      "question": "A patient with increased ICP should avoid which action?",
       "choices": [
-        "A. Total number of existing dengue cases in the population",
-        "B. Number of new dengue cases during a specific time period",
-        "C. Number of dengue deaths in the community",
-        "D. Total hospital admissions for dengue"
+        "A. Coughing",
+        "B. Elevating head",
+        "C. Limiting stimuli",
+        "D. Maintaining alignment"
       ],
-      "answer": "B",
-      "rationale": "Incidence rate measures NEW cases of a disease occurring in a population during a specific time period. It is calculated as: (New cases / Population at risk) × constant (e.g., 100,000). Prevalence counts ALL existing cases (old + new). Incidence helps identify risk factors and disease spread."
+      "answer": "A",
+      "rationale": "Coughing increases intracranial pressure."
     },
     {
       "id": 12,
-      "subject": "Community Health Nursing",
-      "topic": "Levels of Prevention",
-      "difficulty": "easy",
-      "question": "A nurse conducts a breast self-examination class for women in the community. This is an example of which level of prevention?",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A client on warfarin should avoid which food?",
       "choices": [
-        "A. Primary prevention",
-        "B. Secondary prevention",
-        "C. Tertiary prevention",
-        "D. Primordial prevention"
+        "A. Apples",
+        "B. Spinach",
+        "C. Chicken",
+        "D. Rice"
       ],
       "answer": "B",
-      "rationale": "Secondary prevention focuses on early detection and prompt treatment of disease. BSE is a screening measure aimed at detecting breast cancer early when it is most treatable. Primary prevention prevents disease onset (e.g., vaccination). Tertiary prevents complications and rehabilitation."
+      "rationale": "Spinach is high in vitamin K, which counteracts warfarin."
     },
     {
       "id": 13,
-      "subject": "Pharmacology",
-      "topic": "Antibiotics",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Gastrointestinal",
       "difficulty": "medium",
-      "question": "A client is prescribed amoxicillin. Before administration, which assessment is most critical?",
+      "question": "A patient with acute pancreatitis should be placed on which diet initially?",
       "choices": [
-        "A. Current blood pressure reading",
-        "B. History of allergies, especially to penicillin",
-        "C. Most recent kidney function tests",
-        "D. Current body temperature"
+        "A. High protein",
+        "B. NPO",
+        "C. Low fat",
+        "D. High carbohydrate"
       ],
       "answer": "B",
-      "rationale": "Amoxicillin is a penicillin-type antibiotic. Cross-reactivity between penicillins and cephalosporins can occur. Assessing for penicillin allergy is critical to prevent potentially life-threatening anaphylaxis. Always obtain a complete allergy history before administering any antibiotic."
+      "rationale": "NPO status reduces pancreatic stimulation."
     },
     {
       "id": 14,
-      "subject": "Pharmacology",
-      "topic": "Cardiac Drugs",
-      "difficulty": "hard",
-      "question": "A client is receiving digoxin. Which assessment finding requires the nurse to withhold the medication and notify the physician?",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Hematology",
+      "difficulty": "medium",
+      "question": "A client with anemia reports fatigue. Which lab value confirms anemia?",
       "choices": [
-        "A. Apical pulse of 62 bpm",
-        "B. Serum potassium level of 3.0 mEq/L",
-        "C. Blood pressure of 118/76 mmHg",
-        "D. Respiratory rate of 18 breaths/min"
+        "A. Hemoglobin",
+        "B. WBC",
+        "C. Platelets",
+        "D. Sodium"
       ],
-      "answer": "B",
-      "rationale": "Hypokalemia (K+ < 3.5 mEq/L) increases the risk of digoxin toxicity. Potassium and digoxin compete for the same receptor sites on the Na+/K+ ATPase pump. Low potassium increases digoxin binding, leading to toxicity. Signs include bradycardia, nausea, yellow-green halos. Withhold digoxin and notify physician."
+      "answer": "A",
+      "rationale": "Low hemoglobin indicates anemia."
     },
     {
       "id": 15,
-      "subject": "Nutrition & Diet Therapy",
-      "topic": "Therapeutic Diets",
-      "difficulty": "easy",
-      "question": "A client with chronic kidney disease (CKD) asks what dietary changes to make. Which foods should the nurse instruct the client to limit?",
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Infectious Disease",
+      "difficulty": "medium",
+      "question": "A patient develops wheezing after penicillin administration. What is the priority action?",
       "choices": [
-        "A. Rice and pasta",
-        "B. Bananas and oranges",
-        "C. Olive oil and butter",
-        "D. White bread and crackers"
+        "A. Monitor vital signs",
+        "B. Administer antihistamine",
+        "C. Stop infusion",
+        "D. Document reaction"
+      ],
+      "answer": "C",
+      "rationale": "Stopping the medication prevents worsening anaphylaxis."
+    },
+    {
+      "id": 16,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Medical-Surgical Nursing",
+      "difficulty": "medium",
+      "question": "A patient with hypokalemia may exhibit:",
+      "choices": [
+        "A. Muscle weakness",
+        "B. Hyperreflexia",
+        "C. Bradycardia",
+        "D. Hypertension"
+      ],
+      "answer": "A",
+      "rationale": "Low potassium causes muscle weakness and arrhythmias."
+    },
+    {
+      "id": 17,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "A client post-thyroidectomy shows stridor. What is the nurse’s priority action?",
+      "choices": [
+        "A. Administer calcium",
+        "B. Maintain airway",
+        "C. Check incision",
+        "D. Give analgesics"
       ],
       "answer": "B",
-      "rationale": "CKD clients need to limit potassium-rich foods because damaged kidneys cannot excrete excess potassium, leading to hyperkalemia (dangerous cardiac arrhythmias). Bananas and oranges are high in potassium. Low-potassium alternatives include apples, grapes, and berries."
+      "rationale": "Stridor indicates airway obstruction."
+    },
+    {
+      "id": 18,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Renal",
+      "difficulty": "medium",
+      "question": "A patient with UTI is encouraged to increase fluid intake to:",
+      "choices": [
+        "A. Reduce fever",
+        "B. Dilute urine",
+        "C. Increase BP",
+        "D. Improve appetite"
+      ],
+      "answer": "B",
+      "rationale": "Fluids flush bacteria from the urinary tract."
+    },
+    {
+      "id": 19,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "A client with Guillain-Barré syndrome is at risk for:",
+      "choices": [
+        "A. Seizures",
+        "B. Respiratory failure",
+        "C. Hypertension",
+        "D. Renal failure"
+      ],
+      "answer": "B",
+      "rationale": "Ascending paralysis can affect respiratory muscles."
+    },
+    {
+      "id": 20,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "A patient with peptic ulcer disease should avoid:",
+      "choices": [
+        "A. Milk",
+        "B. Spicy food",
+        "C. Protein",
+        "D. Fiber"
+      ],
+      "answer": "B",
+      "rationale": "Spicy foods irritate the gastric mucosa."
+    },
+    {
+      "id": 21,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Medical-Surgical Nursing",
+      "difficulty": "medium",
+      "question": "A client with hypercalcemia may experience:",
+      "choices": [
+        "A. Tetany",
+        "B. Constipation",
+        "C. Diarrhea",
+        "D. Muscle cramps"
+      ],
+      "answer": "B",
+      "rationale": "High calcium slows GI motility."
+    },
+    {
+      "id": 22,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Infectious Disease",
+      "difficulty": "medium",
+      "question": "A patient with meningitis requires:",
+      "choices": [
+        "A. Standard precautions",
+        "B. Droplet precautions",
+        "C. Contact precautions",
+        "D. Airborne precautions"
+      ],
+      "answer": "B",
+      "rationale": "Meningitis spreads via respiratory droplets."
+    },
+    {
+      "id": 23,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A client with heart failure should monitor:",
+      "choices": [
+        "A. Daily weight",
+        "B. Blood sugar",
+        "C. Temperature",
+        "D. Pulse only"
+      ],
+      "answer": "A",
+      "rationale": "Weight gain indicates fluid retention."
+    },
+    {
+      "id": 24,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A patient with DVT should avoid:",
+      "choices": [
+        "A. Ambulation",
+        "B. Leg exercises",
+        "C. Compression stockings",
+        "D. Anticoagulants"
+      ],
+      "answer": "A",
+      "rationale": "Early ambulation may dislodge the clot."
+    },
+    {
+      "id": 25,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "A client with hypoglycemia should be given:",
+      "choices": [
+        "A. Insulin",
+        "B. Glucose",
+        "C. Protein",
+        "D. Fat"
+      ],
+      "answer": "B",
+      "rationale": "Immediate glucose corrects hypoglycemia."
+    },
+    {
+      "id": 26,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Respiratory",
+      "difficulty": "medium",
+      "question": "A patient with pneumonia shows confusion. This indicates:",
+      "choices": [
+        "A. Improvement",
+        "B. Hypoxia",
+        "C. Dehydration",
+        "D. Fever"
+      ],
+      "answer": "B",
+      "rationale": "Confusion is an early sign of hypoxia."
+    },
+    {
+      "id": 27,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "A client with liver disease has elevated ammonia. The nurse expects:",
+      "choices": [
+        "A. Diarrhea",
+        "B. Confusion",
+        "C. Hypertension",
+        "D. Tachycardia"
+      ],
+      "answer": "B",
+      "rationale": "High ammonia causes hepatic encephalopathy."
+    },
+    {
+      "id": 28,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Hematology",
+      "difficulty": "medium",
+      "question": "A patient receiving blood transfusion develops chills. What is the first action?",
+      "choices": [
+        "A. Continue transfusion",
+        "B. Stop transfusion",
+        "C. Notify physician",
+        "D. Check BP"
+      ],
+      "answer": "B",
+      "rationale": "Stop transfusion to prevent reaction progression."
+    },
+    {
+      "id": 29,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "A client with stroke has difficulty swallowing. The nurse should:",
+      "choices": [
+        "A. Give thin liquids",
+        "B. Position upright",
+        "C. Encourage talking",
+        "D. Feed quickly"
+      ],
+      "answer": "B",
+      "rationale": "Upright position prevents aspiration."
+    },
+    {
+      "id": 30,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Respiratory",
+      "difficulty": "medium",
+      "question": "A patient with asthma should avoid:",
+      "choices": [
+        "A. Cold air",
+        "B. Warm fluids",
+        "C. Humidifiers",
+        "D. Rest"
+      ],
+      "answer": "A",
+      "rationale": "Cold air can trigger bronchospasm."
+    },
+    {
+      "id": 31,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Fluid & Electrolytes",
+      "difficulty": "medium",
+      "question": "A client with dehydration may show:",
+      "choices": [
+        "A. Increased urine",
+        "B. Dry mucous membranes",
+        "C. Weight gain",
+        "D. Bradycardia"
+      ],
+      "answer": "B",
+      "rationale": "Dry mucosa indicates fluid deficit."
+    },
+    {
+      "id": 32,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A patient with MI should be given:",
+      "choices": [
+        "A. Oxygen",
+        "B. Fluids",
+        "C. Antibiotics",
+        "D. Sedatives"
+      ],
+      "answer": "A",
+      "rationale": "Oxygen improves myocardial oxygen supply."
+    },
+    {
+      "id": 33,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Neurological",
+      "difficulty": "medium",
+      "question": "A client with seizures should be placed:",
+      "choices": [
+        "A. Supine",
+        "B. Side-lying",
+        "C. Prone",
+        "D. Sitting"
+      ],
+      "answer": "B",
+      "rationale": "Side-lying prevents aspiration."
+    },
+    {
+      "id": 34,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Integumentary",
+      "difficulty": "medium",
+      "question": "A patient with burns requires priority:",
+      "choices": [
+        "A. Nutrition",
+        "B. Fluid resuscitation",
+        "C. Pain control",
+        "D. Mobility"
+      ],
+      "answer": "B",
+      "rationale": "Preventing shock through fluid replacement is priority."
+    },
+    {
+      "id": 35,
+      "subject": "Medical-Surgical Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A client with hypertension should limit:",
+      "choices": [
+        "A. Potassium",
+        "B. Sodium",
+        "C. Protein",
+        "D. Carbohydrates"
+      ],
+      "answer": "B",
+      "rationale": "Sodium restriction helps control blood pressure."
+    },
+    {
+      "id": 36,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Care",
+      "difficulty": "medium",
+      "question": "Nurse Elena is reviewing the chart of a newly pregnant client. Which historical factor would most significantly increase the risk of a spontaneous abortion for this patient?",
+      "choices": [
+        "A. First pregnancy at age 22",
+        "B. History of controlled hypertension",
+        "C. Maternal age of 39 years",
+        "D. Previous elective termination at age 20"
+      ],
+      "answer": "C",
+      "rationale": "Advanced maternal age (over 35) is the strongest statistical risk factor for spontaneous abortion due to the higher likelihood of chromosomal trisomies."
+    },
+    {
+      "id": 37,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Care",
+      "difficulty": "medium",
+      "question": "A client is admitted with suspected tubal pregnancy. Which nursing assessment is the absolute priority to monitor for internal hemorrhage?",
+      "choices": [
+        "A. Daily weights",
+        "B. Presence of dependent edema",
+        "C. Frequent heart rate and blood pressure checks",
+        "D. Hourly temperature monitoring"
+      ],
+      "answer": "C",
+      "rationale": "Ectopic (tubal) pregnancies can rupture, leading to rapid internal bleeding. Tachycardia and hypotension are the primary indicators of developing hypovolemic shock."
+    },
+    {
+      "id": 38,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "A nurse is providing education to a pregnant client with Type 1 Diabetes. The nurse knows the teaching is effective when the client states that as she enters the third trimester, she should expect:",
+      "choices": [
+        "A. A decrease in her daily caloric requirements",
+        "B. A need to reduce her insulin dosage",
+        "C. A significant increase in her insulin requirements",
+        "D. That her blood glucose will naturally stabilize without medication"
+      ],
+      "answer": "C",
+      "rationale": "Due to the \"diabetogenic effect\" of pregnancy (caused by placental hormones like hPL), insulin resistance peaks in the third trimester, requiring higher doses to maintain euglycemia."
+    },
+    {
+      "id": 39,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Complications",
+      "difficulty": "medium",
+      "question": "Nurse Clara is assessing a client diagnosed with a gestational trophoblastic disease (hydatidiform mole). Which finding is most likely to be absent in this patient?",
+      "choices": [
+        "A. Palpable fetal movement",
+        "B. Fundal height significantly greater than gestational age",
+        "C. Dark brown \"prune juice\" vaginal discharge",
+        "D. Serum hCG levels exceeding 100,000 mIU/mL"
+      ],
+      "answer": "A",
+      "rationale": "A molar pregnancy consists of abnormal trophoblastic proliferation; there is no viable fetus, so fetal heart tones and movement are not present."
+    },
+    {
+      "id": 40,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Fetal & Neonatal Care",
+      "difficulty": "medium",
+      "question": "A client at 38 weeks gestation is diagnosed with intrauterine fetal demise (IUFD). The nurse monitors the client closely for signs of bleeding because this condition carries a high risk for:",
+      "choices": [
+        "A. Placenta accreta",
+        "B. Disseminated intravascular coagulation (DIC)",
+        "C. Cephalopelvic disproportion",
+        "D. Polyhydramnios"
+      ],
+      "answer": "B",
+      "rationale": "When a fetus dies in utero and is retained, the release of thromboplastin from the decaying tissue can consume maternal clotting factors, leading to DIC."
+    },
+    {
+      "id": 41,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "During the active phase of labor, the nurse observes the fetal monitor. The nurse identifies the normal baseline fetal heart rate (FHR) range as:",
+      "choices": [
+        "A. 90 to 110 beats/minute",
+        "B. 110 to 160 beats/minute",
+        "C. 160 to 190 beats/minute",
+        "D. 120 to 180 beats/minute"
+      ],
+      "answer": "B",
+      "rationale": "110–160 bpm is the standard physiological baseline for a term fetus. 8. A client in the latent phase of labor asks for a small snack. Which of the following choices by the nurse is most appropriate? a. Whole milk and a bagel b. Apple juice or clear broth c. A protein shake with peanut butter d. Scrambled eggs and toast Answer: b. Rationale: Light, clear liquids are preferred during labor because gastric motility is delayed, which reduces the risk of aspiration if emergency surgery is required."
+    },
+    {
+      "id": 42,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "A G4P3 client whose previous labors lasted less than 3 hours tells the nurse, \"I feel like I need to have a bowel movement right now!\" What is the nurse's priority action?",
+      "choices": [
+        "A. Prepare the bed for a sterile vaginal exam",
+        "B. Inspect the perineum for crowning",
+        "C. Assist the client to the bathroom",
+        "D. Document the contraction frequency"
+      ],
+      "answer": "B",
+      "rationale": "The sensation of rectal pressure in a multiparous client with a history of precipitous labor often indicates that the fetal head is descending; the nurse must check for imminent birth."
+    },
+    {
+      "id": 43,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "Immediately following the delivery of the placenta, the nurse places one hand just above the symphysis pubis while palpating the fundus with the other. What is the purpose of this technique?",
+      "choices": [
+        "A. To encourage the uterus to rise higher in the abdomen",
+        "B. To prevent the occurrence of uterine inversion",
+        "C. To measure the exact size of the uterus",
+        "D. To decrease the pain of the postpartum period"
+      ],
+      "answer": "B",
+      "rationale": "Stabilizing the lower uterine segment prevents the fundus from being pushed through the cervix (inversion) during palpation."
+    },
+    {
+      "id": 44,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Complications",
+      "difficulty": "medium",
+      "question": "A patient with severe preeclampsia is receiving an IV infusion of magnesium sulfate. Which finding would indicate an early adverse effect of this medication?",
+      "choices": [
+        "A. Sudden increase in hemoglobin levels",
+        "B. Output of less than 30 mL of urine per hour",
+        "C. Brisk patellar reflexes (4+)",
+        "D. Respiratory rate of 24 breaths/minute"
+      ],
+      "answer": "B",
+      "rationale": "Magnesium is cleared by the kidneys. Low urine output can cause magnesium levels to build up to toxic levels, which eventually leads to respiratory depression and loss of reflexes."
+    },
+    {
+      "id": 45,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "A 19-year-old client is admitted to the labor unit in active labor. Which laboratory result must the nurse ensure is on the chart as a priority for safety?",
+      "choices": [
+        "A. Hemoglobin A1c",
+        "B. Serum electrolytes",
+        "C. Blood type and Rh factor",
+        "D. Total protein levels"
+      ],
+      "answer": "C",
+      "rationale": "Knowing the blood type and Rh status is vital for emergency transfusions or the administration of Rh immune globulin."
+    },
+    {
+      "id": 46,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "A neonate was born to a mother who received a high-dose magnesium sulfate infusion for 24 hours prior to delivery. The nurse should assess the newborn for:",
+      "choices": [
+        "A. Hyperactivity and jitters",
+        "B. Excessive hunger",
+        "C. Respiratory depression and hypotonia",
+        "D. High-pitched, shrill crying"
+      ],
+      "answer": "C",
+      "rationale": "Magnesium crosses the placenta and can cause CNS depression in the infant, resulting in \"floppiness\" and poor respiratory effort at birth."
+    },
+    {
+      "id": 47,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "A client walks into the triage area and states, \"I think my water broke and I'm having contractions.\" Which question should the nurse prioritize?",
+      "choices": [
+        "A. \"Do you have any known drug allergies?\"",
+        "B. \"Who is your primary support person today?\"",
+        "C. \"What was the date of your last menstrual period or your due date?\"",
+        "D. \"Have you had any surgeries in the past?\""
+      ],
+      "answer": "C",
+      "rationale": "Identifying the gestational age (via the due date) is the first step in determining if the patient requires term labor management or preterm interventions."
+    },
+    {
+      "id": 48,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Fetal & Neonatal Care",
+      "difficulty": "medium",
+      "question": "A nurse is teaching a group of students about multifetal gestations. The nurse correctly states that the growth of twin fetuses usually begins to differ from that of a singleton fetus at approximately:",
+      "choices": [
+        "A. 20 weeks",
+        "B. 24 weeks",
+        "C. 32 weeks",
+        "D. 38 weeks"
+      ],
+      "answer": "C",
+      "rationale": "Due to space constraints in the uterus, twin growth typically slows compared to singletons around the 30–32 week mark."
+    },
+    {
+      "id": 49,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Care",
+      "difficulty": "medium",
+      "question": "In a monozygotic twin pregnancy, if the division of the fertilized egg occurs 14 days after fertilization, the result will be:",
+      "choices": [
+        "A. Dichorionic/Diamniotic twins",
+        "B. Conjoined twins",
+        "C. Monochorionic/Diamniotic twins",
+        "D. Fraternal twins"
+      ],
+      "answer": "B",
+      "rationale": "Division after day 13 is incomplete, resulting in twins that are physically attached. 17. A nurse is explaining the normal physiological changes of pregnancy to a client. Which respiratory change is expected? a. A decrease in the total amount of air inhaled (tidal volume) b. An increase in the amount of air inhaled per breath (tidal volume) c. A decrease in oxygen consumption to protect the mother d. A narrowing of the airway passages Answer: b. Rationale: To meet increased metabolic demands, the body naturally increases tidal volume during pregnancy."
+    },
+    {
+      "id": 50,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A client asks, \"Why am I being given magnesium sulfate? My blood pressure is already being monitored.\" The nurse's best response is:",
+      "choices": [
+        "A. \"It is used to lower your blood pressure to normal levels.\"",
+        "B. \"It is given to prevent you from having a seizure.\"",
+        "C. \"It helps the baby's lungs mature faster.\"",
+        "D. \"It prevents you from going into preterm labor.\""
+      ],
+      "answer": "B",
+      "rationale": "In preeclampsia, the primary goal of magnesium sulfate is CNS irritability reduction to prevent eclampsia (seizures)."
+    },
+    {
+      "id": 51,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Care",
+      "difficulty": "medium",
+      "question": "A pregnant client with sickle cell disease is admitted in a vaso-occlusive crisis. The nurse should anticipate which immediate intervention?",
+      "choices": [
+        "A. Administration of a powerful diuretic",
+        "B. Restriction of oral and IV fluids",
+        "C. Initiation of vigorous IV hydration",
+        "D. Application of cold compresses to painful joints"
+      ],
+      "answer": "C",
+      "rationale": "Hydration is the priority to \"thin\" the blood and help sickled cells flow through the vessels, reducing pain and tissue ischemia."
+    },
+    {
+      "id": 52,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Care",
+      "difficulty": "medium",
+      "question": "A woman at 30 weeks gestation reports a sudden onset of high fever, chills, and severe pain in her right flank. What is the most likely complication?",
+      "choices": [
+        "A. Normal Braxton Hicks contractions",
+        "B. Acute Pyelonephritis",
+        "C. Ruptured ectopic pregnancy",
+        "D. Placenta previa"
+      ],
+      "answer": "B",
+      "rationale": "Fever plus flank pain/CVA tenderness is a classic presentation of a kidney infection (pyelonephritis), which requires urgent IV antibiotics in pregnancy."
+    },
+    {
+      "id": 53,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Immunization",
+      "difficulty": "medium",
+      "question": "Rh isoimmunization is most likely to occur in which scenario?",
+      "choices": [
+        "A. An Rh-positive mother carrying an Rh-negative fetus",
+        "B. An Rh-negative mother carrying an Rh-positive fetus",
+        "C. An Rh-positive mother carrying an Rh-positive fetus",
+        "D. An Rh-negative mother carrying an Rh-negative fetus"
+      ],
+      "answer": "B",
+      "rationale": "Sensitization occurs when Rh-positive fetal blood enters the circulation of an Rh-negative mother."
+    },
+    {
+      "id": 54,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Fetal & Neonatal Care",
+      "difficulty": "medium",
+      "question": "A neonate is born to a mother with a history of long-term opioid use. Which assessment finding is most characteristic of neonatal withdrawal?",
+      "choices": [
+        "A. Excessive sleepiness and slow heart rate",
+        "B. Persistent sneezing, tremors, and hyperreflexia",
+        "C. Large for gestational age (LGA) weight",
+        "D. Low-pitched, infrequent cry"
+      ],
+      "answer": "B",
+      "rationale": "Neonatal Abstinence Syndrome (NAS) involves CNS hypersensitivity, resulting in jitters, sneezing, and high-pitched crying."
+    },
+    {
+      "id": 55,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "During a postpartum home visit on day 10, the nurse is unable to palpate the client's uterine fundus abdominally. How should the nurse interpret this?",
+      "choices": [
+        "A. This is a normal finding; the uterus has returned to the true pelvis.",
+        "B. This indicates uterine atony and requires immediate massage.",
+        "C. This suggests the client has retained placental fragments.",
+        "D. This is a sign of subinvolution."
+      ],
+      "answer": "A",
+      "rationale": "The fundus descends about 1 cm per day; by day 10, it should be behind the symphysis pubis and no longer palpable."
+    },
+    {
+      "id": 56,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Reproductive Health",
+      "difficulty": "medium",
+      "question": "When asked about the roles of FSH and LH in the menstrual cycle, a student nurse is correct to state:",
+      "choices": [
+        "A. They are produced by the ovaries to thicken the endometrium.",
+        "B. They are released by the anterior pituitary to stimulate the follicles and trigger ovulation.",
+        "C. They are only present during the nine months of pregnancy.",
+        "D. They are responsible for the production of breast milk."
+      ],
+      "answer": "B",
+      "rationale": "FSH stimulates egg-containing follicles; a surge in LH triggers the release of the egg (ovulation)."
+    },
+    {
+      "id": 57,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Fetal & Neonatal Care",
+      "difficulty": "medium",
+      "question": "A nurse is describing fetal circulation to a new mother. The nurse explains that the umbilical cord contains:",
+      "choices": [
+        "A. One artery carrying oxygen to the baby and two veins carrying waste away.",
+        "B. Two arteries carrying waste away from the baby and one vein carrying oxygen to the baby.",
+        "C. Three identical vessels that all carry oxygenated blood.",
+        "D. Two veins and two arteries."
+      ],
+      "answer": "B",
+      "rationale": "The umbilical vein carries oxygen-rich blood from the placenta to the fetus; the two arteries carry deoxygenated blood back to the placenta."
+    },
+    {
+      "id": 58,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "A client’s last menstrual period (LMP) began on October 10, 2025. Using Naegele’s Rule, the estimated date of delivery (EDD) is:",
+      "choices": [
+        "A. July 10, 2026",
+        "B. July 17, 2026",
+        "C. June 17, 2026",
+        "D. August 17, 2026"
+      ],
+      "answer": "B",
+      "rationale": "October (10) - 3 months = July (7). 10 days + 7 days = 17. Year = 2026. 27. A client is currently pregnant. Her obstetric history includes one birth at 39 weeks (living) and one miscarriage at 10 weeks. The nurse records her GTPAL as: a. G=3, T=1, P=0, A=1, L=1 b. G=2, T=1, P=0, A=1, L=1 c. G=3, T=2, P=0, A=0, L=2 d. G=2, T=1, P=1, A=0, L=1 Answer: a. Rationale: G=3 (current + full term + miscarriage); T=1 (the 39-week birth); P=0; A=1 (the miscarriage); L=1 (the living child)."
+    },
+    {
+      "id": 59,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Care",
+      "difficulty": "medium",
+      "question": "Which finding during a second-trimester prenatal visit requires the nurse to notify the healthcare provider?",
+      "choices": [
+        "A. Fetal heart rate of 145 beats/minute",
+        "B. A weight gain of 1 pound in the last month",
+        "C. Fetal heart rate of 100 beats/minute",
+        "D. Complaints of occasional lower back pain"
+      ],
+      "answer": "C",
+      "rationale": "A fetal heart rate of 100 bpm is bradycardic (normal is 110–160) and indicates potential fetal distress."
+    },
+    {
+      "id": 60,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Fetal & Neonatal Care",
+      "difficulty": "medium",
+      "question": "The nurse midwife performs a vaginal exam and pushes upward on the lower uterine segment, feeling the fetus rise and then fall back. This is known as:",
+      "choices": [
+        "A. Quickening",
+        "B. Ballottement",
+        "C. Hegar's Sign",
+        "D. Lightning"
+      ],
+      "answer": "B",
+      "rationale": "Ballottement is a physical exam technique used to identify a floating object (the fetus) in the amniotic fluid."
+    },
+    {
+      "id": 61,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Maternal & Child Health Nursing",
+      "difficulty": "medium",
+      "question": "During a physical exam, the nurse notes that the client's cervix has a bluish-purple discoloration. The nurse documents this as:",
+      "choices": [
+        "A. Goodell's Sign",
+        "B. Chadwick's Sign",
+        "C. Hegar's Sign",
+        "D. Braxton Hicks"
+      ],
+      "answer": "B",
+      "rationale": "Chadwick's sign is caused by increased blood flow (hyperemia) to the pelvic organs during pregnancy."
+    },
+    {
+      "id": 62,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Care",
+      "difficulty": "medium",
+      "question": "An Rh-negative woman has a spontaneous abortion at 11 weeks. The nurse knows that the administration of RhoGAM is:",
+      "choices": [
+        "A. Necessary within 72 hours to prevent antibody formation.",
+        "B. Not needed since the pregnancy did not reach the second trimester.",
+        "C. Only necessary if the mother has a history of blood transfusions.",
+        "D. Delayed until the woman chooses to become pregnant again."
+      ],
+      "answer": "A",
+      "rationale": "Any loss of pregnancy in an Rh-negative woman requires RhoGAM to prevent \"sensitization\" that could harm future pregnancies."
+    },
+    {
+      "id": 63,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "Ten minutes after delivery, the nurse notes the fundus is boggy and displaced to the right of the midline. The nurse's first action should be to:",
+      "choices": [
+        "A. Vigorously massage the fundus.",
+        "B. Notify the obstetrician of a potential hemorrhage.",
+        "C. Encourage the client to void or catheterize if necessary.",
+        "D. Increase the IV Pitocin rate."
+      ],
+      "answer": "C",
+      "rationale": "A displaced, boggy fundus is almost always caused by a full bladder pushing the uterus out of place. Emptying the bladder allows the uterus to contract effectively. CANILLO 33. What is the \"Rule of Thumb\" for the frequency of contractions in active labor? A. Every 10–15 minutes B. Every 2–3 minutes, lasting 60–90 seconds C. Every 1 minute, lasting 2 minutes D. Once an hour Answer: B Rationale: Contractions closer than every 2 minutes or lasting longer than 90 seconds can cause fetal hypoxia and uterine rupture."
+    },
+    {
+      "id": 64,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Complications",
+      "difficulty": "medium",
+      "question": "Which of the following is a symptom of HELLP Syndrome?",
+      "choices": [
+        "A. High platelets",
+        "B. Elevated liver enzymes",
+        "C. Decreased bilirubin",
+        "D. Increased hemoglobin"
+      ],
+      "answer": "B",
+      "rationale": "HELLP stands for Hemolysis, Elevated Liver enzymes, and Low Platelets. 35. \"Station 0\" in labor refers to the fetal presenting part being at the level of the: A. Pelvic inlet B. Ischial spines C. Pelvic outlet D. Perineum Answer: B Rationale: When the baby's head reaches the ischial spines, it is considered \"engaged\" or at station"
+    },
+    {
+      "id": 65,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "36. \"Lochia Rubra\" is typically seen during which postpartum days?",
+      "choices": [
+        "A. Days 1–3",
+        "B. Days 4–10",
+        "C. Days 11–21",
+        "D. After 6 weeks"
+      ],
+      "answer": "A",
+      "rationale": "Rubra (red) is the first stage of discharge, consisting mostly of blood. 37. A postpartum client reports a reddened, swollen, and painful area on one breast accompanied by fever. This likely indicates: A. Engorgement B. Mastitis C. Plugged duct D. Normal lactation Answer: B Rationale: Mastitis is an infection of the breast tissue; the presence of systemic symptoms like fever distinguishes it from simple engorgement"
+    },
+    {
+      "id": 66,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Fetal & Neonatal Care",
+      "difficulty": "medium",
+      "question": "A \"Late Deceleration\" on a fetal monitor strip is typically caused by:",
+      "choices": [
+        "A. Head compression",
+        "B. Cord compression",
+        "C. Uteroplacental insufficiency",
+        "D. Fetal movement"
+      ],
+      "answer": "C",
+      "rationale": "Late decelerations indicate that the fetus is not receiving enough oxygen during a contraction."
+    },
+    {
+      "id": 67,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Maternal & Child Health Nursing",
+      "difficulty": "medium",
+      "question": "The nurse performs fundal massage, but the uterus remains boggy. The physician orders Methylergonovine (Methergine) 0.2 mg IM. Which assessment must the nurse perform BEFORE administering this drug?",
+      "choices": [
+        "A. Assess for a history of asthma.",
+        "B. Check the client’s blood pressure.",
+        "C. Check the client's capillary refill time.",
+        "D. Assess for deep vein thrombosis."
+      ],
+      "answer": "B",
+      "rationale": "Methergine is a potent vasoconstrictor. It is strictly contraindicated in patients with hypertension or preeclampsia because it can cause a sudden, dangerous spike in blood pressure or a cardiovascular accident (CVA)."
+    },
+    {
+      "id": 68,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Maternal & Child Health Nursing",
+      "difficulty": "medium",
+      "question": "Mrs. A’s bleeding is controlled, but the nurse continues to monitor her for signs of hypovolemic shock. Which of the following is an EARLY sign of compensatory shock?",
+      "choices": [
+        "A. Decrease in urine output to < 30 mL/hr.",
+        "B. Cold, clammy skin.",
+        "C. Increasing heart rate (tachycardia).",
+        "D. Narrowing pulse pressure."
+      ],
+      "answer": "C",
+      "rationale": "Tachycardia is often the very first sign of compensation as the heart attempts to maintain cardiac output in the face of decreasing blood volume. Hypotension and cold skin are later signs."
+    },
+    {
+      "id": 69,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Maternal & Child Health Nursing",
+      "difficulty": "medium",
+      "question": "In the BUBBLE-HE assessment, what does the \"L\" stand for?",
+      "choices": [
+        "A. Laceration",
+        "B. Lochia",
+        "C. Lactation",
+        "D. Labor"
+      ],
+      "answer": "B",
+      "rationale": "Assessing the color, amount, and odor of the vaginal discharge (Lochia) is critical in postpartum care."
+    },
+    {
+      "id": 70,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Fetal & Neonatal Care",
+      "difficulty": "medium",
+      "question": "Which position should a nurse place a client in if an umbilical cord prolapse is discovered?",
+      "choices": [
+        "A. High Fowler’s",
+        "B. Supine",
+        "C. Knee-Chest or Trendelenburg",
+        "D. Lithotomy"
+      ],
+      "answer": "C",
+      "rationale": "These positions use gravity to shift the fetus off the cord, preserving oxygen flow until a C-section can be done."
+    },
+    {
+      "id": 71,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Complications",
+      "difficulty": "medium",
+      "question": "What is the antidote for Magnesium Sulfate toxicity?",
+      "choices": [
+        "A. Protamine sulfate",
+        "B. Calcium gluconate",
+        "C. Naloxone",
+        "D. Epinephrine"
+      ],
+      "answer": "B",
+      "rationale": "Calcium gluconate reverses the respiratory and CNS depression caused by magnesium."
+    },
+    {
+      "id": 72,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Fetal & Neonatal Care",
+      "difficulty": "medium",
+      "question": "A nurse is preparing to administer Vitamin K to a newborn. The mother asks why her baby needs a \"shot\" so early. The nurse explains it is to:",
+      "choices": [
+        "A. Prevent infection.",
+        "B. Prevent bleeding because the baby’s gut is sterile and cannot make Vitamin K.",
+        "C. Help the baby’s eyes develop.",
+        "D. Protect against jaundice."
+      ],
+      "answer": "B",
+      "rationale": "Newborns lack the intestinal flora to synthesize Vitamin K, which is essential for the activation of clotting factors."
+    },
+    {
+      "id": 73,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Maternal & Child Health Nursing",
+      "difficulty": "medium",
+      "question": "A physician orders Methergine (Methylergonovine) for a client with uterine atony. Which assessment finding would require the nurse to withhold the medication?",
+      "choices": [
+        "A. A history of asthma.",
+        "B. A blood pressure of 160/100 mmHg.",
+        "C. A heart rate of 90 bpm.",
+        "D. A temperature of 38°C."
+      ],
+      "answer": "B",
+      "rationale": "Methergine is a potent vasoconstrictor. It is contraindicated in clients with hypertension or preeclampsia."
+    },
+    {
+      "id": 74,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "A nurse is caring for four clients on the Labor and Delivery unit. Which client should the nurse assess FIRST?",
+      "choices": [
+        "A. A G1P0 at 39 weeks, 3 cm dilated, reporting a \"bloody show.\"",
+        "B. A G2P1 at 38 weeks, 8 cm dilated, stating she \"needs to have a bowel movement.\"",
+        "C. A G3P2 at 36 weeks, reporting a sudden, sharp abdominal pain followed by a cessation of contractions.",
+        "D. A G1P0 at 40 weeks, whose fetal monitor shows early decelerations."
+      ],
+      "answer": "C",
+      "rationale": "Sudden sharp pain followed by the stopping of contractions is a hallmark sign of Uterine Rupture, a surgical emergency. Client B is likely in transition (normal), and Client D is showing early decelerations (benign)."
+    },
+    {
+      "id": 75,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "A client in preterm labor is being treated with Nifedipine (Procardia). Which assessment finding would require the nurse to intervene immediately?",
+      "choices": [
+        "A. Maternal heart rate of 98 bpm.",
+        "B. Report of a mild headache.",
+        "C. Maternal blood pressure of 82/50 mmHg.",
+        "D. Relaxation of the uterus between contractions."
+      ],
+      "answer": "C",
+      "rationale": "Nifedipine is a calcium channel blocker used to stop contractions, but its primary pharmacological effect is vasodilation. Severe hypotension can lead to decreased uteroplacental perfusion, endangering the fetus. 49. A nurse enters the room of a client who delivered 15 minutes ago. The client is shivering violently and has a temperature of 37.8°C. What is the most appropriate nursing action? A. Notify the provider of a suspected postpartum infection. B. Check the fundus for bogginess. C. Provide warm blankets and reassure the client this is a normal response. D. Administer an antipyretic as ordered. Answer: C"
+    },
+    {
+      "id": 76,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Care",
+      "difficulty": "medium",
+      "question": "A client at 32 weeks gestation is diagnosed with Placenta Previa. She is stable and being sent home on bed rest. Which statement by the client indicates a need for further teaching?",
+      "choices": [
+        "A. \"I need to call the doctor if I have any bleeding, even if it doesn't hurt.\"",
+        "B. \"My partner and I can continue to have sexual intercourse as long as we are careful.\"",
+        "C. \"I will stay on bed rest and only get up to use the bathroom.\"",
+        "D. \"I should avoid any heavy lifting or strenuous exercise.\""
+      ],
+      "answer": "B",
+      "rationale": "Pelvic rest (nothing in the vagina) is mandatory for placenta previa. Any vaginal penetration or examination can cause catastrophic bleeding."
+    },
+    {
+      "id": 77,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "A client at 34 weeks gestation is admitted for suspected preterm labor. The nurse notes that the fetal fibronectin (fFN) test result is negative. What is the most accurate interpretation of this finding?",
+      "choices": [
+        "A. The client will definitely deliver within the next 48 hours.",
+        "B. The client has an increased risk of infection in the amniotic fluid.",
+        "C. There is a high probability (95–99%) that the client will NOT deliver in the next two weeks.",
+        "D. The fetus has reached lung maturity and no steroids are needed."
+      ],
+      "answer": "C",
+      "rationale": "A negative fFN is highly predictive that preterm birth will not occur in the immediate future, allowing the healthcare team to avoid unnecessary interventions."
+    },
+    {
+      "id": 78,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Cardiovascular",
+      "difficulty": "medium",
+      "question": "A client at 38 weeks gestation presents with sudden, sharp, tearing abdominal pain and referred shoulder pain. The nurse notes that the previously palpable fetal parts are now difficult to feel and the fetal heart rate has disappeared. What is the priority nursing action?",
+      "choices": [
+        "A. Perform a vaginal exam to check for cord prolapse.",
+        "B. Prepare for an emergency laparotomy/C-section.",
+        "C. Administer a bolus of Oxytocin.",
+        "D. Place the client in a high-Fowler’s position."
+      ],
+      "answer": "B",
+      "rationale": "These are classic signs of Uterine Rupture. Shoulder pain is caused by blood irritating the diaphragm (phrenic nerve). This is a surgical emergency"
+    },
+    {
+      "id": 79,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Endocrine",
+      "difficulty": "medium",
+      "question": "A nurse is caring for a client with Gestational Diabetes in the second stage of labor. The fetal head emerges but then retracts against the perineum (turtle sign). What is the nurse's first manual intervention?",
+      "choices": [
+        "A. Apply fundal pressure to help the baby move.",
+        "B. Flex the client's thighs sharply against her abdomen (McRoberts maneuver).",
+        "C. Perform a vacuum-assisted delivery.",
+        "D. Prepare for an immediate C-section."
+      ],
+      "answer": "B",
+      "rationale": "The \"turtle sign\" indicates Shoulder Dystocia. McRoberts maneuver flattens the sacrum and rotates the symphysis pubis to help the shoulder clear. Fundal pressure is strictly contraindicated as it can further wedge the shoulder."
+    },
+    {
+      "id": 80,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Care",
+      "difficulty": "medium",
+      "question": "Following an emergency C-section for Abruptio Placentae, a client begins to bleed from the nose and at the site of the Foley catheter. The nurse suspects DIC. Which lab result would confirm this diagnosis?",
+      "choices": [
+        "A. Increased Fibrinogen levels.",
+        "B. Increased D-dimer and Fibrin Degradation Products (FDP).",
+        "C. Shortened Prothrombin Time (PT).",
+        "D. Increased Hemoglobin and Hematocrit."
+      ],
+      "answer": "B",
+      "rationale": "DIC involves the massive breakdown of clots, which leads to an elevation in D-dimer and FDP. Fibrinogen would be decreased, not increased."
+    },
+    {
+      "id": 81,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "A client at 41 weeks gestation is undergoing an Oxytocin induction. The nurse notes 6 contractions in a 10-minute period (Tachysystole). What is the first action?",
+      "choices": [
+        "A. Discontinue the Oxytocin infusion.",
+        "B. Increase the rate of the maintenance IV fluids.",
+        "C. Administer oxygen via non-rebreather mask.",
+        "D. Check the client’s cervix for dilation."
+      ],
+      "answer": "A",
+      "rationale": "Tachysystole reduces placental oxygen refill. The primary rescue is to stop the medication causing overstimulation."
+    },
+    {
+      "id": 82,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "A nurse identifies an \"Android\" pelvis during a labor assessment. Which complication is anticipated?",
+      "choices": [
+        "A. Rapid, \"precipitous\" delivery.",
+        "B. Difficult labor with a high risk of C-section.",
+        "C. Spontaneous rotation to Occiput Anterior.",
+        "D. Excessive amniotic fluid."
+      ],
+      "answer": "B",
+      "rationale": "An Android (heart-shaped) pelvis has narrow dimensions, often leading to Cephalopelvic Disproportion (CPD)."
+    },
+    {
+      "id": 83,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "A nurse assesses Lochia Alba. This discharge is:",
+      "choices": [
+        "A. Dark red",
+        "B. Pinkish-brown",
+        "C. Creamy white or yellow",
+        "D. Green"
+      ],
+      "answer": "C",
+      "rationale": "Alba occurs from day 10 to week 6. 58. A client at 34 weeks gestation has a Biophysical Profile (BPP) score of 4/10. What does this suggest? A. Normal fetal well-being. B. Potential fetal distress/asphyxia. C. Gestational diabetes. D. The baby is sleeping. Answer: B Rationale: Scores below 6 usually require further evaluation or delivery. 59. Which \"T\" of the 4 T's of PPH involves a \"boggy\" uterus? A. Tone B. Trauma C. Tissue D. Thrombin Answer: A Rationale: Tone refers to atony (lack of muscle contraction). 60. A postpartum client has extensive vulvar edema and a firm fundus. She reports severe pain and the \"feeling that something is about to burst\" in her rectal area. What should the nurse do first? A. Offer an analgesic. B. Provide an ice pack to the perineum. C. Inspect the perineum and vaginal area. D. Apply a firm pressure dressing. Answer: C Rationale: Intense pain and rectal pressure out of proportion to the visible edema with a firm fundus strongly suggest a hematoma. The first step is visualization/assessment"
+    },
+    {
+      "id": 84,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Antepartum Care",
+      "difficulty": "medium",
+      "question": "During a non-stress test (NST) on a client at 41 weeks gestation, the nurse notes only one FHR acceleration in a 40-minute period. What does this result mean?",
+      "choices": [
+        "A. Reactive (Normal).",
+        "B. Non-reactive (Abnormal).",
+        "C. Equivocal.",
+        "D. Satisfactory."
+      ],
+      "answer": "B",
+      "rationale": "A reactive NST requires at least two accelerations meeting criteria in 20 minutes. 62. What is the physiological cause of Supine Hypotensive Syndrome during the third trimester? A. Increased blood volume. B. Hormonal relaxation of vessel walls. C. The heavy uterus compressing the inferior vena cava. D. Maternal anemia. Answer: C Rationale: When the large uterus compresses the vena cava, blood return to the heart is reduced, causing hypotension."
+    },
+    {
+      "id": 85,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Respiratory",
+      "difficulty": "medium",
+      "question": "Following an emergency C-section, a client is complaining of sharp chest pain and sudden shortness of breath. She is now coughing up pink, frothy sputum. The nurse immediately suspects:",
+      "choices": [
+        "A. Postoperative pneumonia.",
+        "B. Uterine rupture.",
+        "C. Amniotic fluid embolism.",
+        "D. Normal recovery symptoms."
+      ],
+      "answer": "C",
+      "rationale": "The combination of sudden respiratory collapse and frothy (blood-tinged) sputum is a classic sign of an AFE or pulmonary embolism."
+    },
+    {
+      "id": 86,
+      "subject": "Maternal & Child Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "A client in labor has been stuck at 7 cm dilation and 100% effaced for 4 hours. The contractions have become weak and irregular. This is an example of:",
+      "choices": [
+        "A. Hypotonic labor dysfunction.",
+        "B. Hypertonic labor dysfunction.",
+        "C. Normal labor progression.",
+        "D. Precipitous labor."
+      ],
+      "answer": "A",
+      "rationale": "The uterus is contracting poorly (low \"tone\") after active labor has established. 65. What is the hormone responsible for maintaining the corpus luteum and supporting the uterine lining in very early pregnancy? A. Human chorionic gonadotropin (hCG). B. Progesterone. C. Estrogen. D. Prolactin. Answer: A Rationale: hCG is produced by the trophoblast and signals the corpus luteum to keep making progesterone. JOSHUA"
+    },
+    {
+      "id": 87,
+      "subject": "Community Health Nursing",
+      "topic": "Health Care Delivery",
+      "difficulty": "medium",
+      "question": "Which is the primary goal of community health nursing?",
+      "choices": [
+        "A. To support and supplement the efforts of the medical profession in the promotion of health and prevention of illness",
+        "B. To enhance the capacity of individuals, families and communities to cope with their health needs",
+        "C. To increase the productivity of the people by providing them with services that will increase their level of health",
+        "D. To contribute to national development through promotion of family welfare, focusing particularly on mothers and children."
+      ],
+      "answer": "B",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 88,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "CHN is a community-based practice. Which best explains this statement?",
+      "choices": [
+        "A. The service is provided in the natural environment of people.",
+        "B. The nurse has to conduct community diagnosis to determine nursing needs and problems.",
+        "C. The services are based on the available resources within the community.",
+        "D. Priority setting is based on the magnitude of the health problems identified."
+      ],
+      "answer": "B",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 89,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "Population-focused nursing practice requires which of the following processes?",
+      "choices": [
+        "A. Community organizing",
+        "B. Nursing process",
+        "C. Community diagnosis",
+        "D. Epidemiologic process"
+      ],
+      "answer": "C",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 90,
+      "subject": "Community Health Nursing",
+      "topic": "Occupational Health",
+      "difficulty": "medium",
+      "question": "A business firm must employ an occupational health nurse when it has at least how many employees?",
+      "choices": [
+        "A. 21",
+        "B. 101",
+        "C. 201",
+        "D. 301"
+      ],
+      "answer": "B",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 91,
+      "subject": "Community Health Nursing",
+      "topic": "Occupational Health",
+      "difficulty": "medium",
+      "question": "A garment factory does not have an occupational nurse. Who shall provide the occupational health needs of the factory workers?",
+      "choices": [
+        "A. Occupational health nurse at the Provincial Health Office",
+        "B. Physician employed by the factory",
+        "C. Public health nurse of the RHU of their municipality",
+        "D. Rural sanitary inspector of the RHU of their municipality"
+      ],
+      "answer": "C",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 92,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "According to C.E.Winslow, which of the following is the goal of Public Health?",
+      "choices": [
+        "A. For people to attain their birthrights of health and longevity",
+        "B. For promotion of health and prevention of disease",
+        "C. For people to have access to basic health services",
+        "D. For people to be organized in their health efforts"
+      ],
+      "answer": "A",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 93,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "We say that a Filipino has attained longevity when he is able to reach the average lifespan of Filipinos. What other statistics may be used to determine attainment of longevity?",
+      "choices": [
+        "A. Age-specific mortality rate",
+        "B. Proportionate mortality rate",
+        "C. Swaroop’s index",
+        "D. Case fatality rate"
+      ],
+      "answer": "C",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 94,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "Which of the following is the most prominent feature of public health nursing?",
+      "choices": [
+        "A. It involves providing home care to sick people who are not confined in the hospital.",
+        "B. Services are provided free of charge to people within the catchment area.",
+        "C. The public health nurse functions as part of a team providing public health nursing services.",
+        "D. Public health nursing focuses on preventive, not curative, services."
+      ],
+      "answer": "D",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 95,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "According to Margaret Shetland, the philosophy of public health nursing is based on which of the following?",
+      "choices": [
+        "A. Health and longevity as birthrights",
+        "B. The mandate of the state to protect the birthrights of its citizens",
+        "C. Public health nursing as a specialized field of nursing",
+        "D. The worth and dignity of man"
+      ],
+      "answer": "D",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 96,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "Which of the following is the mission of the Department of Health?",
+      "choices": [
+        "A. Health for all Filipinos",
+        "B. Ensure the accessibility and quality of health care",
+        "C. Improve the general health status of the population",
+        "D. Health in the hands of the Filipino people by the year 2020"
+      ],
+      "answer": "B",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 97,
+      "subject": "Community Health Nursing",
+      "topic": "Health Care Delivery",
+      "difficulty": "medium",
+      "question": "Which is true of primary facilities?",
+      "choices": [
+        "A. They are usually government-run.",
+        "B. Their services are provided on an out-patient basis.",
+        "C. They are training facilities for health professionals.",
+        "D. A community hospital is an example of this level of health facilities."
+      ],
+      "answer": "B",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 98,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "Which is an example of the school nurse’s health care provider functions?",
+      "choices": [
+        "A. Requesting for BCG from the RHU for school entrant immunization",
+        "B. Conducting random classroom inspection during a measles epidemic",
+        "C. Taking remedial action on an accident hazard in the school playground",
+        "D. Observing places in the school where pupils spend their free time"
+      ],
+      "answer": "B",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 99,
+      "subject": "Community Health Nursing",
+      "topic": "Immunization",
+      "difficulty": "medium",
+      "question": "When the nurse determines whether resources were maximized in implementing Ligtas Tigdas, she is evaluating",
+      "choices": [
+        "A. Effectiveness",
+        "B. Efficiency",
+        "C. Adequacy",
+        "D. Appropriateness"
+      ],
+      "answer": "B",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 100,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "You are a new B.S.N. graduate. You want to become a Public Health Nurse. Where will you apply?",
+      "choices": [
+        "A. Department of Health",
+        "B. Provincial Health Office",
+        "C. Regional Health Office",
+        "D. Rural Health Unit"
+      ],
+      "answer": "D",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 101,
+      "subject": "Community Health Nursing",
+      "topic": "Community Organization",
+      "difficulty": "medium",
+      "question": "Who is the Chairman of the Municipal Health Board?",
+      "choices": [
+        "A. Mayor",
+        "B. Municipal Health Officer",
+        "C. Public Health Nurse",
+        "D. Any qualified physician"
+      ],
+      "answer": "A",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 102,
+      "subject": "Community Health Nursing",
+      "topic": "Gastrointestinal",
+      "difficulty": "medium",
+      "question": "Which level of health facility is the usual point of entry of a client into the health care delivery system?",
+      "choices": [
+        "A. Primary",
+        "B. Secondary",
+        "C. Intermediate",
+        "D. Tertiary"
+      ],
+      "answer": "A",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 103,
+      "subject": "Community Health Nursing",
+      "topic": "Community Organization",
+      "difficulty": "medium",
+      "question": "The public health nurse is the supervisor of rural health midwives. Which of the following is a supervisory function of the public health nurse?",
+      "choices": [
+        "A. Referring cases or patients to the midwife",
+        "B. Providing technical guidance to the midwife",
+        "C. Providing nursing care to cases referred by the midwife",
+        "D. Formulating and implementing training programs for midwives"
+      ],
+      "answer": "B",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 104,
+      "subject": "Community Health Nursing",
+      "topic": "Intrapartum & Postpartum",
+      "difficulty": "medium",
+      "question": "One of the participants in a hilot training class asked you to whom she should refer a patient in labor who develops a complication. You will answer, to the",
+      "choices": [
+        "A. Public Health Nurse",
+        "B. Rural Health Midwife",
+        "C. Municipal Health Officer",
+        "D. Any of these health professionals"
+      ],
+      "answer": "C",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 105,
+      "subject": "Community Health Nursing",
+      "topic": "Community Organization",
+      "difficulty": "medium",
+      "question": "You are the public health nurse in a municipality with a total population of about 20,000. There are 3 rural health midwives among the RHU personnel. How many more midwife items will the RHU need?",
+      "choices": [
+        "A. 1",
+        "B. 2",
+        "C. 3",
+        "D. The RHU does not need any more midwife items."
+      ],
+      "answer": "A",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 106,
+      "subject": "Community Health Nursing",
+      "topic": "Epidemiology",
+      "difficulty": "medium",
+      "question": "As an epidemiologist, the nurse is responsible for reporting cases of notifiable diseases. What law mandates reporting of cases of notifiable diseases?",
+      "choices": [
+        "A. Act 3573",
+        "B. R.",
+        "A. 3753",
+        "C. R."
+      ],
+      "answer": "A",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 107,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "According to Freeman and Heinrich, community health nursing is a developmental service. Which of the following best illustrates this statement?",
+      "choices": [
+        "A. The community health nurse continuously develops himself personally and professionally.",
+        "B. Health education and community organizing are necessary in providing community health services.",
+        "C. Community health nursing is intended primarily for health promotion and prevention and treatment of disease.",
+        "D. The goal of community health nursing is to provide nursing services to people in their own places of residence."
+      ],
+      "answer": "B",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 108,
+      "subject": "Community Health Nursing",
+      "topic": "Community Health Nursing",
+      "difficulty": "medium",
+      "question": "Which disease was declared through Presidential Proclamation No. 4 as a target for eradication in the Philippines?",
+      "choices": [
+        "A. Poliomyelitis",
+        "B. Measles",
+        "C. Rabies",
+        "D. Neonatal tetanus"
+      ],
+      "answer": "B",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 109,
+      "subject": "Community Health Nursing",
+      "topic": "Community Organization",
+      "difficulty": "medium",
+      "question": "Which step in community organizing involves training of potential leaders in the community?",
+      "choices": [
+        "A. Integration",
+        "B. Community organization",
+        "C. Community study",
+        "D. Core group formation"
+      ],
+      "answer": "D",
+      "rationale": "Refer to reference material."
+    },
+    {
+      "id": 110,
+      "subject": "Psychiatric Nursing",
+      "topic": "Depression & Antidepressants",
+      "difficulty": "medium",
+      "question": "A client diagnosed with major depressive disorder is started on an antidepressant. The nurse understands that the medication primarily increases which neurotransmitter to improve mood?",
+      "choices": [
+        "A. Serotonin in the synaptic cleft",
+        "B. Dopamine in the nigrostriatal pathway",
+        "C. Acetylcholine in the neuromuscular junction",
+        "D. GABA in the limbic system"
+      ],
+      "answer": "A",
+      "rationale": "Low serotonin is strongly associated with depression."
+    },
+    {
+      "id": 111,
+      "subject": "Psychiatric Nursing",
+      "topic": "Schizophrenia & Psychosis",
+      "difficulty": "medium",
+      "question": "A client with schizophrenia is experiencing auditory hallucinations. The nurse recognizes that this symptom is most associated with:",
+      "choices": [
+        "A. Decreased dopamine activity",
+        "B. Increased dopamine activity",
+        "C. Increased GABA activity",
+        "D. Decreased norepinephrine"
+      ],
+      "answer": "B",
+      "rationale": "Schizophrenia is linked to increased dopamine activity."
+    },
+    {
+      "id": 112,
+      "subject": "Psychiatric Nursing",
+      "topic": "Anxiety & Neurobiology",
+      "difficulty": "medium",
+      "question": "A client reports persistent anxiety and restlessness. Which neurotransmitter imbalance should the nurse anticipate?",
+      "choices": [
+        "A. Increased serotonin",
+        "B. Increased acetylcholine",
+        "C. Decreased GABA",
+        "D. Increased GABA"
+      ],
+      "answer": "C",
+      "rationale": "Low GABA leads to anxiety."
+    },
+    {
+      "id": 113,
+      "subject": "Psychiatric Nursing",
+      "topic": "Anxiety & Neurobiology",
+      "difficulty": "medium",
+      "question": "A nurse is teaching about neurotransmitters. Which statement indicates correct understanding?",
+      "choices": [
+        "A. Dopamine decreases pleasure",
+        "B. GABA is excitatory",
+        "C. Norepinephrine reduces alertness",
+        "D. Serotonin regulates mood and sleep"
+      ],
+      "answer": "D",
+      "rationale": "Serotonin regulates mood, sleep, appetite."
+    },
+    {
+      "id": 114,
+      "subject": "Psychiatric Nursing",
+      "topic": "Depression & Antidepressants",
+      "difficulty": "medium",
+      "question": "A client newly prescribed Fluoxetine asks when the medication will start working. What is the best response by the nurse?",
+      "choices": [
+        "A. “You will feel better immediately.”",
+        "B. “Effects are usually seen within 2–4 weeks.”",
+        "C. “Take double the dose if no effect after 1 week.”",
+        "D. “Stop the medication if there is no improvement after 3 days.”"
+      ],
+      "answer": "B",
+      "rationale": "SSRIs take weeks before therapeutic effects are seen."
+    },
+    {
+      "id": 115,
+      "subject": "Psychiatric Nursing",
+      "topic": "Depression & Antidepressants",
+      "difficulty": "medium",
+      "question": "A client taking Sertraline reports decreased libido. What is the nurse’s best action?",
+      "choices": [
+        "A. Discontinue the medication",
+        "B. Administer an antidote",
+        "C. Reassure that this is a common side effect",
+        "D. Ignore the complaint"
+      ],
+      "answer": "C",
+      "rationale": "Sexual dysfunction is a common SSRI side effect."
+    },
+    {
+      "id": 116,
+      "subject": "Psychiatric Nursing",
+      "topic": "Depression & Antidepressants",
+      "difficulty": "medium",
+      "question": "The nurse is teaching a client about antidepressants. Which statement requires correction?",
+      "choices": [
+        "A. “I should avoid alcohol while taking this medication.”",
+        "B. “I may experience mild side effects initially.”",
+        "C. “I need to take this medication regularly.”",
+        "D. “I can stop the medication once I feel better.”"
+      ],
+      "answer": "D",
+      "rationale": "Abrupt discontinuation can cause relapse or withdrawal."
+    },
+    {
+      "id": 117,
+      "subject": "Psychiatric Nursing",
+      "topic": "Depression & Antidepressants",
+      "difficulty": "medium",
+      "question": "A client taking SSRIs develops agitation, confusion, and sweating. What should the nurse suspect?",
+      "choices": [
+        "A. Serotonin syndrome",
+        "B. Neuroleptic malignant syndrome",
+        "C. Hypertensive crisis",
+        "D. Withdrawal reaction"
+      ],
+      "answer": "A",
+      "rationale": "These are signs of serotonin syndrome."
+    },
+    {
+      "id": 118,
+      "subject": "Psychiatric Nursing",
+      "topic": "Schizophrenia & Psychosis",
+      "difficulty": "medium",
+      "question": "A client with schizophrenia states, “The TV is sending me messages.” What is the nurse’s best response?",
+      "choices": [
+        "A. “That is not true.”",
+        "B. “The TV cannot send messages, but I understand you feel that way.”",
+        "C. “Why do you think that?”",
+        "D. “I agree with you.”"
+      ],
+      "answer": "B",
+      "rationale": "Acknowledge feelings while presenting reality."
+    },
+    {
+      "id": 119,
+      "subject": "Psychiatric Nursing",
+      "topic": "Schizophrenia & Psychosis",
+      "difficulty": "medium",
+      "question": "A client is experiencing command hallucinations instructing self-harm. What is the nurse’s priority action?",
+      "choices": [
+        "A. Ensure client safety",
+        "B. Document the behavior",
+        "C. Administer PRN medication",
+        "D. Reorient the client"
+      ],
+      "answer": "A",
+      "rationale": "Safety is always the priority."
+    },
+    {
+      "id": 120,
+      "subject": "Psychiatric Nursing",
+      "topic": "Schizophrenia & Psychosis",
+      "difficulty": "medium",
+      "question": "Which behavior is an example of a negative symptom of schizophrenia?",
+      "choices": [
+        "A. Auditory hallucinations",
+        "B. Delusions",
+        "C. Social withdrawal",
+        "D. Disorganized speech"
+      ],
+      "answer": "C",
+      "rationale": "Negative symptoms include flat affect and withdrawal."
+    },
+    {
+      "id": 121,
+      "subject": "Psychiatric Nursing",
+      "topic": "Schizophrenia & Psychosis",
+      "difficulty": "medium",
+      "question": "A client with schizophrenia is withdrawn and refuses to talk. Which is the most appropriate nursing approach?",
+      "choices": [
+        "A. Ignore the client",
+        "B. Confront the behavior",
+        "C. Force interaction",
+        "D. Use short, simple communication"
+      ],
+      "answer": "D",
+      "rationale": "Simple communication reduces anxiety and confusion."
+    },
+    {
+      "id": 122,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "A client repeatedly complains of pain despite normal findings. What is the most appropriate response?",
+      "choices": [
+        "A. “I understand your pain is real. Let’s manage it together.”",
+        "B. “There is nothing wrong with you.”",
+        "C. Ignore the complaint",
+        "D. “It’s all in your head.”"
+      ],
+      "answer": "A",
+      "rationale": "Validate feelings while promoting coping."
+    },
+    {
+      "id": 123,
+      "subject": "Psychiatric Nursing",
+      "topic": "Somatic Disorders",
+      "difficulty": "medium",
+      "question": "A client suddenly develops blindness without organic cause and appears unconcerned. This is:",
+      "choices": [
+        "A. Illness anxiety disorder",
+        "B. Conversion disorder",
+        "C. Factitious disorder",
+        "D. Malingering"
+      ],
+      "answer": "B",
+      "rationale": "Conversion disorder involves sensory or motor deficits."
+    },
+    {
+      "id": 124,
+      "subject": "Psychiatric Nursing",
+      "topic": "Somatic Disorders",
+      "difficulty": "medium",
+      "question": "Which behavior differentiates malingering?",
+      "choices": [
+        "A. Symptoms are unconscious",
+        "B. Symptoms are chronic",
+        "C. Symptoms are severe",
+        "D. Symptoms are intentional for gain"
+      ],
+      "answer": "D",
+      "rationale": "Malingering involves intentional symptom production."
+    },
+    {
+      "id": 125,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "A client is preoccupied with having a serious illness despite reassurance. This indicates:",
+      "choices": [
+        "A. Illness anxiety disorder",
+        "B. Conversion disorder",
+        "C. Pain disorder",
+        "D. Factitious disorder"
+      ],
+      "answer": "A",
+      "rationale": "Characterized by excessive concern about having illness."
+    },
+    {
+      "id": 126,
+      "subject": "Psychiatric Nursing",
+      "topic": "Child & Developmental Disorders",
+      "difficulty": "medium",
+      "question": "A child avoids eye contact and has repetitive behaviors. Most likely diagnosis?",
+      "choices": [
+        "A. Autism Spectrum Disorder",
+        "B. ADHD",
+        "C. Conduct disorder",
+        "D. Intellectual disability"
+      ],
+      "answer": "A",
+      "rationale": "ASD involves social communication deficits and repetitive behaviors."
+    },
+    {
+      "id": 127,
+      "subject": "Psychiatric Nursing",
+      "topic": "Child & Developmental Disorders",
+      "difficulty": "medium",
+      "question": "A child with ADHD cannot sit still and interrupts frequently. Priority intervention?",
+      "choices": [
+        "A. Isolate the child",
+        "B. Ignore behavior",
+        "C. Provide structured environment",
+        "D. Allow unrestricted activity"
+      ],
+      "answer": "C",
+      "rationale": "Structure improves attention and behavior control."
+    },
+    {
+      "id": 128,
+      "subject": "Psychiatric Nursing",
+      "topic": "Child & Developmental Disorders",
+      "difficulty": "medium",
+      "question": "Which finding supports intellectual disability?",
+      "choices": [
+        "A. IQ above 100",
+        "B. IQ below 70 with impaired function",
+        "C. Hyperactivity",
+        "D. Good adaptive skills"
+      ],
+      "answer": "B",
+      "rationale": "Includes low IQ and adaptive deficits."
+    },
+    {
+      "id": 129,
+      "subject": "Psychiatric Nursing",
+      "topic": "Child & Developmental Disorders",
+      "difficulty": "medium",
+      "question": "Which intervention is appropriate for autism?",
+      "choices": [
+        "A. Frequent routine changes",
+        "B. Limit parental involvement",
+        "C. Encourage confrontation",
+        "D. Maintain consistent routine"
+      ],
+      "answer": "D",
+      "rationale": "Consistency reduces anxiety and improves function."
+    },
+    {
+      "id": 130,
+      "subject": "Psychiatric Nursing",
+      "topic": "Substance Use Disorders",
+      "difficulty": "medium",
+      "question": "A client who stopped drinking alcohol 8 hours ago becomes restless and diaphoretic. Which finding requires immediate intervention?",
+      "choices": [
+        "A. Onset of visual hallucinations",
+        "B. Mild tremors",
+        "C. Anxiety",
+        "D. Increased appetite"
+      ],
+      "answer": "A",
+      "rationale": "Visual hallucinations indicate severe alcohol withdrawal (delirium tremens), which may progress to seizures and death if untreated."
+    },
+    {
+      "id": 131,
+      "subject": "Psychiatric Nursing",
+      "topic": "Substance Use Disorders",
+      "difficulty": "medium",
+      "question": "A nurse is caring for a client with suspected opioid overdose. What is the priority nursing action?",
+      "choices": [
+        "A. Encourage oral fluids",
+        "B. Administer naloxone",
+        "C. Maintain airway and support breathing",
+        "D. Provide emotional reassurance"
+      ],
+      "answer": "C",
+      "rationale": "Using ABCs, airway and breathing are the priority because opioids cause respiratory depression."
+    },
+    {
+      "id": 132,
+      "subject": "Psychiatric Nursing",
+      "topic": "Substance Use Disorders",
+      "difficulty": "medium",
+      "question": "A client taking disulfiram makes which statement indicating a need for further teaching?",
+      "choices": [
+        "A. “I will avoid alcohol-containing products.”",
+        "B. “I may experience flushing if I drink alcohol.”",
+        "C. “I can drink alcohol occasionally.”",
+        "D. “I will read labels of medications.”"
+      ],
+      "answer": "C",
+      "rationale": "Disulfiram causes severe reactions with alcohol, so total avoidance is required."
+    },
+    {
+      "id": 133,
+      "subject": "Psychiatric Nursing",
+      "topic": "Substance Use Disorders",
+      "difficulty": "medium",
+      "question": "Which finding best indicates substance dependence?",
+      "choices": [
+        "A. Occasional use without consequences",
+        "B. Increased tolerance and withdrawal symptoms",
+        "C. Improved concentration",
+        "D. Stable work performance"
+      ],
+      "answer": "B",
+      "rationale": "Dependence is marked by tolerance and withdrawal, indicating physiologic adaptation."
+    },
+    {
+      "id": 134,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "A client presents with pinpoint pupils, decreased respirations, and drowsiness. Which medication should the nurse prepare?",
+      "choices": [
+        "A. Diazepam",
+        "B. Methadone",
+        "C. Disulfiram",
+        "D. Naloxone"
+      ],
+      "answer": "D",
+      "rationale": "Naloxone is an opioid antagonist that reverses respiratory depression."
+    },
+    {
+      "id": 135,
+      "subject": "Psychiatric Nursing",
+      "topic": "Substance Use Disorders",
+      "difficulty": "medium",
+      "question": "What is the primary goal during detoxification?",
+      "choices": [
+        "A. Prevent relapse",
+        "B. Safely manage withdrawal symptoms",
+        "C. Improve coping skills",
+        "D. Promote long-term abstinence"
+      ],
+      "answer": "B",
+      "rationale": "Detox focuses on safe withdrawal and stabilization, not long-term recovery."
+    },
+    {
+      "id": 136,
+      "subject": "Psychiatric Nursing",
+      "topic": "Substance Use Disorders",
+      "difficulty": "medium",
+      "question": "A client using stimulants exhibits tachycardia and hyperactivity. This indicates:",
+      "choices": [
+        "A. Withdrawal phase",
+        "B. Dependence",
+        "C. Intoxication",
+        "D. Detoxification"
+      ],
+      "answer": "C",
+      "rationale": "Stimulant intoxication causes increased CNS activity, including euphoria and tachycardia."
+    },
+    {
+      "id": 137,
+      "subject": "Psychiatric Nursing",
+      "topic": "Substance Use Disorders",
+      "difficulty": "medium",
+      "question": "Which is a non-modifiable risk factor for substance abuse?",
+      "choices": [
+        "A. Peer influence",
+        "B. Cultural norms",
+        "C. Accessibility of drugs",
+        "D. Genetic predisposition"
+      ],
+      "answer": "D",
+      "rationale": "Genetics cannot be changed, making it a non-modifiable factor."
+    },
+    {
+      "id": 138,
+      "subject": "Psychiatric Nursing",
+      "topic": "Substance Use Disorders",
+      "difficulty": "medium",
+      "question": "A client undergoing alcohol withdrawal develops seizures. Which medication is most appropriate?",
+      "choices": [
+        "A. Lorazepam",
+        "B. Disulfiram",
+        "C. Naltrexone",
+        "D. Acamprosate"
+      ],
+      "answer": "A",
+      "rationale": "Benzodiazepines are used to prevent and control withdrawal seizures."
+    },
+    {
+      "id": 139,
+      "subject": "Psychiatric Nursing",
+      "topic": "Substance Use Disorders",
+      "difficulty": "medium",
+      "question": "During acute substance intoxication, which intervention is priority?",
+      "choices": [
+        "A. Initiate counseling",
+        "B. Encourage group therapy",
+        "C. Monitor vital signs and neurologic status",
+        "D. Develop relapse prevention plan"
+      ],
+      "answer": "C",
+      "rationale": "Close monitoring is needed to detect life-threatening complications during intoxication."
+    },
+    {
+      "id": 140,
+      "subject": "Psychiatric Nursing",
+      "topic": "Cognitive Disorders",
+      "difficulty": "medium",
+      "question": "Which finding is most characteristic of dementia?",
+      "choices": [
+        "A. Sudden onset confusion",
+        "B. Gradual decline in memory and cognition",
+        "C. Fluctuating level of consciousness",
+        "D. Reversible cognitive changes"
+      ],
+      "answer": "B",
+      "rationale": "Dementia presents with gradual, progressive cognitive decline."
+    },
+    {
+      "id": 141,
+      "subject": "Psychiatric Nursing",
+      "topic": "Schizophrenia & Psychosis",
+      "difficulty": "medium",
+      "question": "A client presents with acute confusion and hallucinations. Which condition is most likely?",
+      "choices": [
+        "A. Dementia",
+        "B. Anxiety disorder",
+        "C. Depression",
+        "D. Delirium"
+      ],
+      "answer": "D",
+      "rationale": "Delirium has acute onset and fluctuating consciousness, unlike dementia."
+    },
+    {
+      "id": 142,
+      "subject": "Psychiatric Nursing",
+      "topic": "Cognitive Disorders",
+      "difficulty": "medium",
+      "question": "What is the priority nursing intervention for a client with delirium?",
+      "choices": [
+        "A. Encourage independence",
+        "B. Provide stimulating activities",
+        "C. Ensure safety and prevent injury",
+        "D. Limit interaction"
+      ],
+      "answer": "C",
+      "rationale": "Safety is priority due to confusion and impaired judgment."
+    },
+    {
+      "id": 143,
+      "subject": "Psychiatric Nursing",
+      "topic": "Cognitive Disorders",
+      "difficulty": "medium",
+      "question": "A client with dementia forgets recent events but remembers childhood memories. Which memory is impaired?",
+      "choices": [
+        "A. Short-term memory",
+        "B. Long-term memory",
+        "C. Procedural memory",
+        "D. Remote memory"
+      ],
+      "answer": "A",
+      "rationale": "Early dementia primarily affects short-term memory."
+    },
+    {
+      "id": 144,
+      "subject": "Psychiatric Nursing",
+      "topic": "Cognitive Disorders",
+      "difficulty": "medium",
+      "question": "Which intervention is appropriate for disoriented dementia clients?",
+      "choices": [
+        "A. Increase environmental stimuli",
+        "B. Encourage isolation",
+        "C. Avoid communication",
+        "D. Provide frequent reorientation"
+      ],
+      "answer": "D",
+      "rationale": "Reorientation helps maintain cognitive awareness and reduce confusion."
+    },
+    {
+      "id": 145,
+      "subject": "Psychiatric Nursing",
+      "topic": "Cognitive Disorders",
+      "difficulty": "medium",
+      "question": "Which feature differentiates delirium from dementia?",
+      "choices": [
+        "A. Memory impairment",
+        "B. Impaired judgment",
+        "C. Sudden onset",
+        "D. Confusion"
+      ],
+      "answer": "C",
+      "rationale": "Delirium has rapid onset, while dementia is gradual."
+    },
+    {
+      "id": 146,
+      "subject": "Psychiatric Nursing",
+      "topic": "Cognitive Disorders",
+      "difficulty": "medium",
+      "question": "A client with delirium has a reversed sleep-wake cycle. What is the best intervention?",
+      "choices": [
+        "A. Allow unrestricted sleep",
+        "B. Keep environment dark",
+        "C. Promote normal sleep-wake cycle",
+        "D. Avoid stimulation"
+      ],
+      "answer": "C",
+      "rationale": "Restoring circadian rhythm improves orientation and recovery."
+    },
+    {
+      "id": 147,
+      "subject": "Psychiatric Nursing",
+      "topic": "Cognitive Disorders",
+      "difficulty": "medium",
+      "question": "Which is a modifiable risk factor for cognitive disorders?",
+      "choices": [
+        "A. Age",
+        "B. Genetics",
+        "C. Family history",
+        "D. Physical inactivity"
+      ],
+      "answer": "D",
+      "rationale": "Lifestyle factors like inactivity can be modified to reduce risk."
+    },
+    {
+      "id": 148,
+      "subject": "Psychiatric Nursing",
+      "topic": "Cognitive Disorders",
+      "difficulty": "medium",
+      "question": "What is the purpose of the Mini-Mental State Examination (MMSE)?",
+      "choices": [
+        "A. Diagnose infection",
+        "B. Evaluate cognitive function",
+        "C. Assess motor ability",
+        "D. Measure anxiety"
+      ],
+      "answer": "B",
+      "rationale": "MMSE is used to assess and monitor cognitive impairment."
+    },
+    {
+      "id": 149,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "A delirious client attempts to remove IV lines. What is the nurse’s priority action?",
+      "choices": [
+        "A. Apply restraints immediately",
+        "B. Administer sedatives",
+        "C. Ignore behavior",
+        "D. Reorient and provide calm environment"
+      ],
+      "answer": "D",
+      "rationale": "First-line management is non-pharmacologic, focusing on reorientation and safety before restraints or medications."
+    },
+    {
+      "id": 150,
+      "subject": "Psychiatric Nursing",
+      "topic": "Personality Disorders",
+      "difficulty": "medium",
+      "question": "Which characteristic is common to all personality disorders?",
+      "choices": [
+        "A. Long-standing maladaptive patterns of behavior",
+        "B. Presence of hallucinations",
+        "C. Sudden onset of symptoms",
+        "D. Complete loss of reality testing"
+      ],
+      "answer": "A",
+      "rationale": "Personality disorders involve enduring and inflexible patterns of behavior that deviate from cultural norms."
+    },
+    {
+      "id": 151,
+      "subject": "Psychiatric Nursing",
+      "topic": "Personality Disorders",
+      "difficulty": "medium",
+      "question": "Personality disorders are typically diagnosed when symptoms:",
+      "choices": [
+        "A. Begin in late adulthood",
+        "B. Are stable over time and start in adolescence or early adulthood",
+        "C. Occur only during stress",
+        "D. Are associated with medical illness"
+      ],
+      "answer": "B",
+      "rationale": "These disorders begin early and persist over time, becoming part of the individual’s personality."
+    },
+    {
+      "id": 152,
+      "subject": "Psychiatric Nursing",
+      "topic": "Personality Disorders",
+      "difficulty": "medium",
+      "question": "Which cluster of personality disorders is described as odd or eccentric?",
+      "choices": [
+        "A. Cluster B",
+        "B. Cluster C",
+        "C. Cluster D",
+        "D. Cluster A"
+      ],
+      "answer": "D",
+      "rationale": "Cluster A includes paranoid, schizoid, and schizotypal personality disorders characterized by odd or eccentric behavior."
+    },
+    {
+      "id": 153,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "A client who is socially detached and shows limited emotional expression is MOST consistent with:",
+      "choices": [
+        "A. Paranoid personality disorder",
+        "B. Schizoid personality disorder",
+        "C. Histrionic personality disorder",
+        "D. Dependent personality disorder"
+      ],
+      "answer": "B",
+      "rationale": "Schizoid personality disorder involves detachment from social relationships and restricted emotional expression."
+    },
+    {
+      "id": 154,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "Which disorder is characterized by distrust and suspicion of others?",
+      "choices": [
+        "A. Avoidant personality disorder",
+        "B. Narcissistic personality disorder",
+        "C. Paranoid personality disorder",
+        "D. Borderline personality disorder"
+      ],
+      "answer": "C",
+      "rationale": "Paranoid personality disorder features pervasive distrust and suspicion without sufficient basis."
+    },
+    {
+      "id": 155,
+      "subject": "Psychiatric Nursing",
+      "topic": "Personality Disorders",
+      "difficulty": "medium",
+      "question": "A client with Cluster B personality disorder would MOST likely demonstrate:",
+      "choices": [
+        "A. Emotional and erratic behavior",
+        "B. Anxiety and fearfulness",
+        "C. Social withdrawal",
+        "D. Perfectionism"
+      ],
+      "answer": "A",
+      "rationale": "Cluster B disorders are marked by dramatic, emotional, and unpredictable behaviors."
+    },
+    {
+      "id": 156,
+      "subject": "Psychiatric Nursing",
+      "topic": "Personality Disorders",
+      "difficulty": "medium",
+      "question": "Which is a key feature of borderline personality disorder?",
+      "choices": [
+        "A. Lack of emotional expression",
+        "B. Excessive dependence on others",
+        "C. Persistent suspiciousness",
+        "D. Instability in relationships and self-image"
+      ],
+      "answer": "D",
+      "rationale": "Borderline personality disorder includes unstable relationships, identity disturbance, and emotional dysregulation."
+    },
+    {
+      "id": 157,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "A client who demonstrates a grandiose sense of self-importance most likely has:",
+      "choices": [
+        "A. Avoidant personality disorder",
+        "B. Narcissistic personality disorder",
+        "C. Schizotypal personality disorder",
+        "D. Dependent personality disorder"
+      ],
+      "answer": "B",
+      "rationale": "Narcissistic personality disorder is characterized by grandiosity, need for admiration, and lack of empathy."
+    },
+    {
+      "id": 158,
+      "subject": "Psychiatric Nursing",
+      "topic": "Personality Disorders",
+      "difficulty": "medium",
+      "question": "Which cluster is characterized by anxious or fearful behaviors?",
+      "choices": [
+        "A. Cluster A",
+        "B. Cluster B",
+        "C. Cluster C",
+        "D. Cluster D"
+      ],
+      "answer": "C",
+      "rationale": "Cluster C includes avoidant, dependent, and obsessive-compulsive personality disorders marked by anxiety and fearfulness."
+    },
+    {
+      "id": 159,
+      "subject": "Psychiatric Nursing",
+      "topic": "Therapeutic Communication",
+      "difficulty": "medium",
+      "question": "A client avoids social interaction due to fear of criticism. This is characteristic of:",
+      "choices": [
+        "A. Avoidant personality disorder",
+        "B. Antisocial personality disorder",
+        "C. Histrionic personality disorder",
+        "D. Narcissistic personality disorder"
+      ],
+      "answer": "A",
+      "rationale": "Avoidant personality disorder involves social inhibition and hypersensitivity to negative evaluation."
     }
   ]
 }
