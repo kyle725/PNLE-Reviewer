@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
     <div class="hero">
       <span class="hero-badge">Philippine Nursing Licensure Exam</span>
       <h1 class="hero-title">Master Every<br><em>Board Concept</em></h1>
-      <p class="hero-sub">Practice questions for the PNLE. Good luck future RNs!</p>
+      <p class="hero-sub">Practice questions with detailed rationale, performance analytics, and personalized insights — just like the real exam.</p>
     </div>
 
     <div class="setup-card">
@@ -62,6 +62,8 @@
           <button class="pill active" data-value="10">10</button>
           <button class="pill" data-value="20">20</button>
           <button class="pill" data-value="30">30</button>
+          <button class="pill" data-value="50">50</button>
+          <button class="pill" data-value="159">All</button>
         </div>
       </div>
 
@@ -211,6 +213,6 @@
   </div>
 </div>
 
-<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+<script src="/static/js/app.js"></script>
 </body>
 </html>
