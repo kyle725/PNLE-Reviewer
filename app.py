@@ -18,12 +18,13 @@ app.secret_key = "pnle-reviewer-secret-key-change-in-production"
 # ─── Database Setup ────────────────────────────────────────────────────────────
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "results.db")
-QUESTIONS_PATH = os.path.join(BASE_DIR, "questions.json")
+DB_PATH = os.path.join(BASE_DIR, "data", "results.db")
+QUESTIONS_PATH = os.path.join(BASE_DIR, "data", "questions.json")
+
 
 def init_db():
     """Initialize SQLite database for storing quiz results."""
-    
+    os.makedirs("data", exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
 
@@ -60,8 +61,6 @@ def init_db():
     conn.close()
     print("✅ Database initialized at", DB_PATH)
 
-with app.app_context():
-    init_db()
 
 def load_questions():
     """Load questions from JSON file."""
@@ -71,6 +70,7 @@ def load_questions():
 
 
 # ─── Routes ────────────────────────────────────────────────────────────────────
+
 @app.route("/")
 def index():
     """Home / landing page."""
@@ -95,7 +95,7 @@ def get_questions():
 
     subject_filter = request.args.get("subject", "").strip()
     difficulty_filter = request.args.get("difficulty", "").strip()
-    count = min(int(request.args.get("count", 10)), 50)
+    count = min(int(request.args.get("count", 10)), 200)
     shuffle = request.args.get("shuffle", "true").lower() == "true"
 
     if subject_filter and subject_filter != "all":
@@ -346,9 +346,9 @@ def get_overall_analytics():
 
 
 # ─── Run ───────────────────────────────────────────────────────────────────────
+
 if __name__ == "__main__":
+    init_db()
     print("\n🩺 PNLE Reviewer is running!")
     print("📖 Open http://localhost:5000 in your browser\n")
-
-    PORT = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=PORT)
+    app.run(debug=True, port=5000)
