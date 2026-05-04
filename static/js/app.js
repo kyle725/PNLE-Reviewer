@@ -50,6 +50,7 @@ async function startQuiz() {
 
     State.questions = data.questions;
     showScreen('screen-quiz');
+    initNavMode();
     renderQuestion();
     startTimer();
   } catch (err) {
@@ -164,42 +165,59 @@ function renderQuestion() {
   }
 }
 
+// Switch between dots (≤30) and progress bar (>30) once per session
+function initNavMode() {
+  const useDots = State.questions.length <= 30;
+  document.getElementById('dot-nav').classList.toggle('hidden', !useDots);
+  document.getElementById('q-progress-indicator').classList.toggle('hidden', useDots);
+  document.getElementById('q-total-count').textContent = State.questions.length;
+}
+
 function renderDots() {
-  const nav = document.getElementById('dot-nav');
-  nav.innerHTML = '';
-  State.questions.forEach((q, i) => {
-    const dot = document.createElement('div');
-    dot.className = 'dot';
-    if (State.answers[q.id] !== undefined) dot.classList.add('answered');
-    if (i === State.currentIndex)          dot.classList.add('current');
-    dot.title = `Q${i + 1}`;
-    dot.addEventListener('click', () => {
-      State.currentIndex = i;
-      renderQuestion();
+  const total = State.questions.length;
+
+  if (total <= 30) {
+    // ── Dot mode ──────────────────────────────────────────────────
+    const nav = document.getElementById('dot-nav');
+    nav.innerHTML = '';
+    State.questions.forEach((q, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'dot';
+      if (State.answers[q.id] !== undefined) dot.classList.add('answered');
+      if (i === State.currentIndex)          dot.classList.add('current');
+      dot.title = `Q${i + 1}`;
+      dot.addEventListener('click', () => {
+        State.currentIndex = i;
+        renderQuestion();
+      });
+      nav.appendChild(dot);
     });
-    nav.appendChild(dot);
-  });
+  } else {
+    // ── Bar mode ───────────────────────────────────────────────────
+    const answeredCount = Object.keys(State.answers).length;
+    const pct = Math.round((answeredCount / total) * 100);
+    document.getElementById('q-progress-answered').style.width = pct + '%';
+    document.getElementById('q-answered-count').textContent = answeredCount;
+  }
 }
 
 // ─── Answer Selection ────────────────────────────────────────────────
 function selectAnswer(questionId, letter) {
-  // Prevent double-answering
-  if (State.answers[questionId] !== undefined) return;
-
+  // Save answer (overwrite if changing)
   State.answers[questionId] = letter;
 
-  // Mark the chosen button
+  // Update visual highlight — clear all, mark selected
   const container = document.getElementById('choices-container');
   container.querySelectorAll('.choice-btn').forEach(btn => {
-    btn.disabled = true;
+    btn.classList.remove('selected');
     if (btn.dataset.letter === letter) btn.classList.add('selected');
   });
 
   renderDots();
 
-  // If on last question, update submit button style
+  // If on last question, update submit button style when all answered
   if (State.currentIndex === State.questions.length - 1) {
-    const btnNext    = document.getElementById('btn-next');
+    const btnNext     = document.getElementById('btn-next');
     const allAnswered = State.questions.every(qq => State.answers[qq.id] !== undefined);
     if (allAnswered) {
       btnNext.style.background = 'linear-gradient(135deg, #e63946, #ff6b6b)';
