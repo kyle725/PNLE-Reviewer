@@ -9,12 +9,71 @@ const State = {
   username: "Nurse",
 };
 
+// ─── History Password ───────────────────────────────────────────────
+const HISTORY_PASSWORD = "nurseup2025"; // ← Change this to your preferred password
+let historyUnlocked = false;
+
 // ─── Screen Management ──────────────────────────────────────────────
 function showScreen(id) {
+  if (id === 'screen-history') {
+    if (!historyUnlocked) {
+      showPasswordModal();
+      return;
+    }
+  }
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0, 0);
   if (id === 'screen-history') loadHistory();
+}
+
+// ─── Password Modal ─────────────────────────────────────────────────
+function showPasswordModal() {
+  document.getElementById('password-input').value = '';
+  document.getElementById('password-error').textContent = '';
+  document.getElementById('password-modal-overlay').classList.add('active');
+  setTimeout(() => document.getElementById('password-input').focus(), 100);
+}
+
+function closePasswordModal() {
+  document.getElementById('password-modal-overlay').classList.remove('active');
+}
+
+function submitPassword() {
+  const entered = document.getElementById('password-input').value;
+  if (entered === HISTORY_PASSWORD) {
+    historyUnlocked = true;
+    closePasswordModal();
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('screen-history').classList.add('active');
+    window.scrollTo(0, 0);
+    loadHistory();
+  } else {
+    const errEl = document.getElementById('password-error');
+    errEl.textContent = 'Incorrect password. Please try again.';
+    document.getElementById('password-input').value = '';
+    document.getElementById('password-input').focus();
+    // Shake animation
+    const modal = document.querySelector('.password-modal');
+    modal.classList.add('shake');
+    setTimeout(() => modal.classList.remove('shake'), 500);
+  }
+}
+
+// Allow Enter key in password field
+document.addEventListener('DOMContentLoaded', () => {
+  const pwInput = document.getElementById('password-input');
+  if (pwInput) {
+    pwInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') submitPassword();
+    });
+  }
+});
+
+// Lock history when leaving history screen
+function leaveHistory() {
+  historyUnlocked = false;
+  showScreen('screen-home');
 }
 
 // ─── Pill Groups ────────────────────────────────────────────────────
@@ -50,7 +109,6 @@ async function startQuiz() {
 
     State.questions = data.questions;
     showScreen('screen-quiz');
-    initNavMode();
     renderQuestion();
     startTimer();
   } catch (err) {
@@ -126,15 +184,23 @@ function renderQuestion() {
     const choiceText = choice.replace(/^[A-E]\.\s*/, '');
     btn.innerHTML = `<span class="choice-letter">${letter}</span><span>${choiceText}</span>`;
 
-    if (alreadyChosen !== undefined) {
-      btn.disabled = true;
-      if (letter === alreadyChosen) btn.classList.add('selected');
-    } else {
-      btn.addEventListener('click', () => selectAnswer(q.id, letter));
+    // ── CHANGED: always enable buttons; highlight currently chosen answer ──
+    if (letter === alreadyChosen) {
+      btn.classList.add('selected');
     }
+
+    btn.addEventListener('click', () => selectAnswer(q.id, letter));
 
     container.appendChild(btn);
   });
+
+  // Change-answer hint
+  const hint = document.createElement('p');
+  hint.className = 'change-hint';
+  hint.textContent = alreadyChosen
+    ? '✏️ You can still change your answer before submitting.'
+    : 'Select an answer below.';
+  container.prepend(hint);
 
   // Dot navigation
   renderDots();
@@ -165,59 +231,43 @@ function renderQuestion() {
   }
 }
 
-// Switch between dots (≤30) and progress bar (>30) once per session
-function initNavMode() {
-  const useDots = State.questions.length <= 30;
-  document.getElementById('dot-nav').classList.toggle('hidden', !useDots);
-  document.getElementById('q-progress-indicator').classList.toggle('hidden', useDots);
-  document.getElementById('q-total-count').textContent = State.questions.length;
-}
-
 function renderDots() {
-  const total = State.questions.length;
-
-  if (total <= 30) {
-    // ── Dot mode ──────────────────────────────────────────────────
-    const nav = document.getElementById('dot-nav');
-    nav.innerHTML = '';
-    State.questions.forEach((q, i) => {
-      const dot = document.createElement('div');
-      dot.className = 'dot';
-      if (State.answers[q.id] !== undefined) dot.classList.add('answered');
-      if (i === State.currentIndex)          dot.classList.add('current');
-      dot.title = `Q${i + 1}`;
-      dot.addEventListener('click', () => {
-        State.currentIndex = i;
-        renderQuestion();
-      });
-      nav.appendChild(dot);
+  const nav = document.getElementById('dot-nav');
+  nav.innerHTML = '';
+  State.questions.forEach((q, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    if (State.answers[q.id] !== undefined) dot.classList.add('answered');
+    if (i === State.currentIndex)          dot.classList.add('current');
+    dot.title = `Q${i + 1}`;
+    dot.addEventListener('click', () => {
+      State.currentIndex = i;
+      renderQuestion();
     });
-  } else {
-    // ── Bar mode ───────────────────────────────────────────────────
-    const answeredCount = Object.keys(State.answers).length;
-    const pct = Math.round((answeredCount / total) * 100);
-    document.getElementById('q-progress-answered').style.width = pct + '%';
-    document.getElementById('q-answered-count').textContent = answeredCount;
-  }
+    nav.appendChild(dot);
+  });
 }
 
-// ─── Answer Selection ────────────────────────────────────────────────
+// ─── Answer Selection ─────────────────────────────────────────────────
+// ── CHANGED: removed the early-return guard so answers can be changed ──
 function selectAnswer(questionId, letter) {
-  // Save answer (overwrite if changing)
   State.answers[questionId] = letter;
 
-  // Update visual highlight — clear all, mark selected
+  // Update button highlighting without disabling
   const container = document.getElementById('choices-container');
   container.querySelectorAll('.choice-btn').forEach(btn => {
-    btn.classList.remove('selected');
-    if (btn.dataset.letter === letter) btn.classList.add('selected');
+    btn.classList.toggle('selected', btn.dataset.letter === letter);
   });
+
+  // Update change hint
+  const hint = container.querySelector('.change-hint');
+  if (hint) hint.textContent = '✏️ You can still change your answer before submitting.';
 
   renderDots();
 
-  // If on last question, update submit button style when all answered
+  // If on last question, update submit button style
   if (State.currentIndex === State.questions.length - 1) {
-    const btnNext     = document.getElementById('btn-next');
+    const btnNext    = document.getElementById('btn-next');
     const allAnswered = State.questions.every(qq => State.answers[qq.id] !== undefined);
     if (allAnswered) {
       btnNext.style.background = 'linear-gradient(135deg, #e63946, #ff6b6b)';
@@ -406,14 +456,10 @@ function renderResults(data) {
 
 // ─── Tab Switching ────────────────────────────────────────────────────
 function switchTab(tabId, clickedEl) {
-  // Hide all tab contents
   document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
-  // Remove active from all tab buttons
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  // Show selected tab content
   const tabContent = document.getElementById(tabId);
   if (tabContent) tabContent.classList.add('active');
-  // Mark button active — find it by onclick attribute if no element passed
   if (clickedEl) {
     clickedEl.classList.add('active');
   } else {
@@ -424,8 +470,6 @@ function switchTab(tabId, clickedEl) {
     });
   }
 }
-
-
 
 // ─── History ──────────────────────────────────────────────────────────
 async function loadHistory() {
