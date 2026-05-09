@@ -8,36 +8,27 @@ Required env vars (Railway):
 """
 
 from flask import Flask, render_template, jsonify, request, session
-import json
-import os
-import sqlite3
-import random
-import requests as http_requests
+import json, os, sqlite3, random, requests as http_requests
 from datetime import datetime
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "pnle-reviewer-secret-key-change-in-production")
 
-BASE_DIR       = os.path.dirname(os.path.abspath(__file__))
-DB_PATH        = os.path.join(BASE_DIR, "data", "results.db")
-QUESTIONS_PATH = os.path.join(BASE_DIR, "data", "questions.json")
-
-# Google Apps Script Web App URL (set this in Railway Variables)
+BASE_DIR        = os.path.dirname(os.path.abspath(__file__))
+DB_PATH         = os.path.join(BASE_DIR, "data", "results.db")
+QUESTIONS_PATH  = os.path.join(BASE_DIR, "data", "questions.json")
 APPS_SCRIPT_URL = os.environ.get("APPS_SCRIPT_URL", "")
 
 
-# ─── Apps Script helper ─────────────────────────────────────────────
+# ─── Apps Script helpers ─────────────────────────────────────────
 
 def call_apps_script(payload: dict) -> dict:
-    """POST to the Apps Script web app. Returns {} on failure."""
     if not APPS_SCRIPT_URL:
         print("⚠️  APPS_SCRIPT_URL not set — skipping Sheets sync.")
         return {}
     try:
         resp = http_requests.post(
-            APPS_SCRIPT_URL,
-            json=payload,
-            timeout=15,
+            APPS_SCRIPT_URL, json=payload, timeout=15,
             headers={"Content-Type": "application/json"},
         )
         resp.raise_for_status()
@@ -48,15 +39,10 @@ def call_apps_script(payload: dict) -> dict:
 
 
 def call_apps_script_get(action: str) -> dict:
-    """GET request to Apps Script (for leaderboard / history reads)."""
     if not APPS_SCRIPT_URL:
         return {}
     try:
-        resp = http_requests.get(
-            APPS_SCRIPT_URL,
-            params={"action": action},
-            timeout=10,
-        )
+        resp = http_requests.get(APPS_SCRIPT_URL, params={"action": action}, timeout=10)
         resp.raise_for_status()
         return resp.json()
     except Exception as e:
@@ -64,7 +50,7 @@ def call_apps_script_get(action: str) -> dict:
         return {}
 
 
-# ─── DATABASE SETUP ────────────────────────────────────────────────
+# ─── DATABASE ─────────────────────────────────────────────────────
 
 def init_db():
     os.makedirs("data", exist_ok=True)
@@ -76,6 +62,8 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             session_id TEXT NOT NULL,
             username TEXT DEFAULT 'Guest',
+            email TEXT DEFAULT '',
+            mode TEXT DEFAULT 'practice',
             total_questions INTEGER,
             correct_answers INTEGER,
             score_percent REAL,
@@ -84,6 +72,13 @@ def init_db():
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )
     """)
+
+    # Safe migration — add new columns to existing DBs without breaking them
+    for col, defn in [("email", "TEXT DEFAULT ''"), ("mode", "TEXT DEFAULT 'practice'")]:
+        try:
+            c.execute(f"ALTER TABLE quiz_sessions ADD COLUMN {col} {defn}")
+        except sqlite3.OperationalError:
+            pass  # column already exists
 
     c.execute("""
         CREATE TABLE IF NOT EXISTS question_attempts (
@@ -110,7 +105,7 @@ def load_questions():
         return json.load(f)
 
 
-# ─── ROUTES ────────────────────────────────────────────────────────
+# ─── ROUTES ──────────────────────────────────────────────────────
 
 @app.route("/")
 def index():
@@ -124,9 +119,8 @@ def index():
 
 @app.route("/api/questions", methods=["GET"])
 def get_questions():
-    data = load_questions()
+    data      = load_questions()
     questions = data["questions"]
-
     subject    = request.args.get("subject", "")
     difficulty = request.args.get("difficulty", "")
     count      = min(int(request.args.get("count", 10)), 200)
@@ -150,23 +144,25 @@ def get_questions():
     })
 
 
-# ─── SUBMIT QUIZ ───────────────────────────────────────────────────
+# ─── SUBMIT ──────────────────────────────────────────────────────
 
 @app.route("/api/submit", methods=["POST"])
 def submit_quiz():
-    payload       = request.json
-    session_id    = payload.get("session_id", str(datetime.now().timestamp()))
-    username      = payload.get("username", "Guest")
-    user_answers  = payload.get("answers", {})
-    time_taken    = payload.get("time_taken", 0)
-    subject_filter     = payload.get("subject_filter", "All")
-    difficulty_filter  = payload.get("difficulty_filter", "All")
+    payload           = request.json
+    session_id        = payload.get("session_id", str(datetime.now().timestamp()))
+    username          = payload.get("username", "Guest")
+    email             = payload.get("email", "")
+    mode              = payload.get("mode", "practice")
+    user_answers      = payload.get("answers", {})
+    time_taken        = payload.get("time_taken", 0)
+    subject_filter    = payload.get("subject_filter", "All")
+    difficulty_filter = payload.get("difficulty_filter", "All")
 
     data = load_questions()
     qmap = {str(q["id"]): q for q in data["questions"]}
 
-    results          = []
-    subject_stats    = {}
+    results = []
+    subject_stats = {}
     difficulty_stats = {
         "easy":   {"correct": 0, "total": 0},
         "medium": {"correct": 0, "total": 0},
@@ -182,22 +178,19 @@ def submit_quiz():
         if not q:
             continue
 
-        is_correct = (chosen.upper() == q["answer"].upper())
+        # Empty string = skipped (exam timeout) → counts as wrong
+        is_correct = bool(chosen) and (chosen.upper() == q["answer"].upper())
         if is_correct:
             correct_count += 1
 
-        subj  = q["subject"]
-        topic = q["topic"]
-        diff  = q["difficulty"]
+        subj, topic, diff = q["subject"], q["topic"], q["difficulty"]
 
-        if subj not in subject_stats:
-            subject_stats[subj] = {"correct": 0, "total": 0, "topics": {}}
+        subject_stats.setdefault(subj, {"correct": 0, "total": 0, "topics": {}})
         subject_stats[subj]["total"] += 1
         if is_correct:
             subject_stats[subj]["correct"] += 1
 
-        if topic not in subject_stats[subj]["topics"]:
-            subject_stats[subj]["topics"][topic] = {"correct": 0, "total": 0}
+        subject_stats[subj]["topics"].setdefault(topic, {"correct": 0, "total": 0})
         subject_stats[subj]["topics"][topic]["total"] += 1
         if is_correct:
             subject_stats[subj]["topics"][topic]["correct"] += 1
@@ -207,11 +200,16 @@ def submit_quiz():
             difficulty_stats[diff]["correct"] += 1
 
         results.append({
-            "question_id": int(qid_str),
-            "subject": subj, "topic": topic, "difficulty": diff,
-            "question": q["question"], "choices": q["choices"],
-            "chosen": chosen, "correct_answer": q["answer"],
-            "is_correct": is_correct, "rationale": q["rationale"],
+            "question_id":   int(qid_str),
+            "subject":       subj,
+            "topic":         topic,
+            "difficulty":    diff,
+            "question":      q["question"],
+            "choices":       q["choices"],
+            "chosen":        chosen,
+            "correct_answer": q["answer"],
+            "is_correct":    is_correct,
+            "rationale":     q["rationale"],
         })
 
         c.execute("""
@@ -223,28 +221,25 @@ def submit_quiz():
               chosen, q["answer"], int(is_correct)))
 
     total_q   = len(results)
-    score_pct = round((correct_count / total_q * 100), 2) if total_q > 0 else 0
+    score_pct = round(correct_count / total_q * 100, 2) if total_q > 0 else 0
 
     c.execute("""
         INSERT INTO quiz_sessions
-        (session_id, username, total_questions, correct_answers,
+        (session_id, username, email, mode, total_questions, correct_answers,
          score_percent, time_taken_seconds, subjects_json)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-    """, (session_id, username, total_q, correct_count,
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (session_id, username, email, mode, total_q, correct_count,
           score_pct, time_taken, json.dumps(subject_stats)))
     conn.commit()
     conn.close()
 
-    # Per-subject percent
-    strengths    = []
-    improvements = []
+    strengths, improvements = [], []
     for subj, stats in subject_stats.items():
         pct = (stats["correct"] / stats["total"] * 100) if stats["total"] else 0
         stats["percent"] = round(pct, 1)
-        if pct >= 75:
-            strengths.append({"subject": subj, "percent": stats["percent"]})
-        else:
-            improvements.append({"subject": subj, "percent": stats["percent"]})
+        (strengths if pct >= 75 else improvements).append(
+            {"subject": subj, "percent": stats["percent"]}
+        )
 
     verdict     = "PASSED" if score_pct >= 75 else "NEEDS IMPROVEMENT"
     verdict_msg = (
@@ -253,13 +248,14 @@ def submit_quiz():
         else "Keep studying! Aim for 75% or higher."
     )
 
-    # ── Sync to Google Sheets via Apps Script (non-blocking) ──────
     try:
         call_apps_script({
             "action": "submit",
             "session": {
                 "session_id":        session_id,
                 "username":          username,
+                "email":             email,
+                "mode":              mode,
                 "total":             total_q,
                 "correct":           correct_count,
                 "percent":           score_pct,
@@ -277,40 +273,42 @@ def submit_quiz():
     return jsonify({
         "session_id": session_id,
         "score": {
-            "correct": correct_count, "total": total_q,
-            "percent": score_pct, "verdict": verdict,
-            "verdict_msg": verdict_msg, "time_taken": time_taken,
+            "correct":     correct_count,
+            "total":       total_q,
+            "percent":     score_pct,
+            "verdict":     verdict,
+            "verdict_msg": verdict_msg,
+            "time_taken":  time_taken,
         },
-        "results": results,
-        "subject_stats": subject_stats,
+        "results":          results,
+        "subject_stats":    subject_stats,
         "difficulty_stats": difficulty_stats,
-        "analysis": {"strengths": strengths, "needs_improvement": improvements},
+        "analysis": {
+            "strengths":         strengths,
+            "needs_improvement": improvements,
+        },
     })
 
 
-# ─── LEADERBOARD ──────────────────────────────────────────────────
+# ─── LEADERBOARD ─────────────────────────────────────────────────
 
 @app.route("/api/leaderboard", methods=["GET"])
 def get_leaderboard():
-    # Try Apps Script first (source of truth), fall back to SQLite
     sheets_data = call_apps_script_get("leaderboard")
     if sheets_data.get("leaderboard"):
         lb = sheets_data["leaderboard"]
-        # Normalize column names from Sheets → expected by frontend
-        normalized = []
-        for i, row in enumerate(lb):
-            normalized.append({
-                "rank":         i + 1,
-                "username":     row.get("Username") or row.get("username", "?"),
-                "best_score":   float(row.get("Best Score (%)") or row.get("best_score", 0)),
-                "sessions":     int(row.get("Sessions") or row.get("sessions", 1)),
-                "avg_score":    float(row.get("Avg Score (%)") or row.get("avg_score", 0)),
-                "last_attempt": str(row.get("Last Attempt") or row.get("last_attempt", "")),
-                "verdict":      row.get("Verdict") or row.get("verdict", ""),
-            })
+        normalized = [{
+            "rank":         i + 1,
+            "username":     row.get("Username")           or row.get("username", "?"),
+            "best_score":   float(row.get("Best Score (%)") or row.get("best_score", 0)),
+            "sessions":     int(row.get("Sessions")        or row.get("sessions", 1)),
+            "avg_score":    float(row.get("Avg Score (%)")  or row.get("avg_score", 0)),
+            "last_attempt": str(row.get("Last Attempt")    or row.get("last_attempt", "")),
+            "verdict":      row.get("Verdict")             or row.get("verdict", ""),
+        } for i, row in enumerate(lb)]
         return jsonify({"leaderboard": normalized, "source": "sheets"})
 
-    # SQLite fallback
+    # SQLite fallback — aggregate per username
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     rows = conn.execute("""
@@ -337,7 +335,7 @@ def get_leaderboard():
     return jsonify({"leaderboard": leaderboard, "source": "sqlite"})
 
 
-# ─── HISTORY ───────────────────────────────────────────────────────
+# ─── HISTORY ─────────────────────────────────────────────────────
 
 @app.route("/api/history", methods=["GET"])
 def get_history():
@@ -345,8 +343,7 @@ def get_history():
     conn.row_factory = sqlite3.Row
     rows = conn.execute("""
         SELECT id, session_id, username, total_questions,
-               correct_answers, score_percent,
-               time_taken_seconds, created_at
+               correct_answers, score_percent, time_taken_seconds, created_at
         FROM quiz_sessions
         ORDER BY created_at DESC
         LIMIT 30
@@ -355,7 +352,7 @@ def get_history():
     return jsonify({"history": [dict(r) for r in rows]})
 
 
-# ─── RUN ───────────────────────────────────────────────────────────
+# ─── RUN ─────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
     init_db()
