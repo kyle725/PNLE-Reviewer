@@ -17,7 +17,7 @@
   <header class="home-header">
     <div class="logo">NurseUp</div>
     <div class="header-btns">
-      <button class="btn-ghost" onclick="showScreen('screen-leaderboard')">🏆 Leaderboard</button>
+      <button class="btn-ghost" onclick="showScreen('screen-leaderboard')">🏆 Full Board</button>
       <button class="btn-ghost" onclick="showScreen('screen-history')">📊 History</button>
     </div>
   </header>
@@ -30,6 +30,17 @@
       <p class="hero-sub">Practice questions to your heart's content. Good luck future RNs!</p>
     </div>
 
+    <!-- ── Leaderboard strip on home ── -->
+    <div class="home-leaderboard-card">
+      <div class="home-lb-header">
+        <span class="home-lb-title">🏆 Top Performers</span>
+        <button class="home-lb-more" onclick="showScreen('screen-leaderboard')">View All →</button>
+      </div>
+      <div id="leaderboard-list-home" class="home-lb-list">
+        <p style="color:rgba(255,255,255,0.4);font-size:.85rem;padding:8px 0">Loading…</p>
+      </div>
+    </div>
+
     <div class="setup-card">
       <h2 class="setup-title">Configure Your Session</h2>
 
@@ -38,7 +49,6 @@
         <input type="text" id="username" placeholder="Enter your name" class="input-field" value="Nurse">
       </div>
 
-      <!-- Mode selector -->
       <div class="setup-row">
         <label>Mode</label>
         <div class="mode-toggle">
@@ -55,11 +65,10 @@
         </div>
       </div>
 
-      <!-- Email — only shown in exam mode -->
       <div class="setup-row" id="email-row" style="display:none">
         <label>Email Address <span style="color:#e63946">*</span></label>
         <input type="email" id="user-email" placeholder="you@example.com" class="input-field">
-        <p class="field-hint">Used to record your exam attempt. Each email gets one attempt per session.</p>
+        <p class="field-hint">Used to record your exam attempt. One attempt per email.</p>
       </div>
 
       <div class="setup-row">
@@ -94,9 +103,7 @@
         </div>
       </div>
 
-      <button class="btn-start" onclick="startQuiz()">
-        Start Review Session &rarr;
-      </button>
+      <button class="btn-start" onclick="startQuiz()">Start Review Session &rarr;</button>
     </div>
 
     <div class="stats-strip">
@@ -123,16 +130,12 @@
   <div class="quiz-topbar">
     <button class="btn-exit" onclick="confirmExit()">✕ Exit</button>
     <div class="quiz-progress-wrap">
-      <div class="quiz-progress-bar">
-        <div id="progress-fill" style="width:0%"></div>
-      </div>
+      <div class="quiz-progress-bar"><div id="progress-fill" style="width:0%"></div></div>
       <span id="progress-text">1 / 10</span>
     </div>
-    <!-- Timer: shows elapsed in practice, countdown in exam -->
     <div class="quiz-timer" id="quiz-timer">00:00</div>
   </div>
 
-  <!-- Exam mode per-question countdown bar -->
   <div id="exam-countdown-wrap" style="display:none">
     <div id="exam-countdown-bar"></div>
   </div>
@@ -154,20 +157,16 @@
     <div class="dot-nav" id="dot-nav"></div>
     <button class="btn-nav-next" id="btn-next">Next &#8594;</button>
   </div>
-
 </div>
 
 <!-- ══ SCREEN: Results ════════════════════════════════════════════ -->
 <div id="screen-results" class="screen">
-
   <div class="results-topbar">
     <button class="btn-topbar" onclick="showScreen('screen-home')">&#8592; Home</button>
     <div class="logo">NurseUp</div>
     <button class="btn-topbar" onclick="startQuiz()">Retake</button>
   </div>
-
   <div class="results-body">
-
     <div class="score-hero">
       <div class="score-ring-wrap">
         <svg class="score-ring" viewBox="0 0 120 120">
@@ -182,75 +181,51 @@
       </div>
       <div class="score-details">
         <p id="res-correct-text">0 / 0 correct</p>
-        <p id="res-time-text">&#9201; 0m 0s taken</p>
+        <p id="res-time-text">⏱ 0m 0s taken</p>
         <p id="res-verdict-msg" class="verdict-msg"></p>
       </div>
     </div>
-
     <div class="tabs">
-      <button class="tab active" onclick="switchTab('tab-analysis', this)">&#128202; Analysis</button>
-      <button class="tab"        onclick="switchTab('tab-review', this)">&#128203; Review Answers</button>
+      <button class="tab active" onclick="switchTab('tab-analysis',this)">📊 Analysis</button>
+      <button class="tab"        onclick="switchTab('tab-review',this)">📋 Review Answers</button>
     </div>
-
     <div id="tab-analysis" class="tab-content active">
       <div class="analysis-grid">
-        <div class="analysis-card">
-          <h3>&#128170; Strengths</h3>
-          <div id="strengths-list"></div>
-        </div>
-        <div class="analysis-card">
-          <h3>&#128200; Needs Improvement</h3>
-          <div id="improve-list"></div>
-        </div>
+        <div class="analysis-card"><h3>💪 Strengths</h3><div id="strengths-list"></div></div>
+        <div class="analysis-card"><h3>📈 Needs Improvement</h3><div id="improve-list"></div></div>
       </div>
-      <div class="analysis-card full-width">
-        <h3>Subject Breakdown</h3>
-        <div id="subject-breakdown"></div>
-      </div>
-      <div class="analysis-card full-width">
-        <h3>Performance by Difficulty</h3>
-        <div class="diff-stats" id="diff-stats"></div>
-      </div>
+      <div class="analysis-card full-width"><h3>Subject Breakdown</h3><div id="subject-breakdown"></div></div>
+      <div class="analysis-card full-width"><h3>Performance by Difficulty</h3><div class="diff-stats" id="diff-stats"></div></div>
     </div>
-
-    <div id="tab-review" class="tab-content">
-      <div id="review-list"></div>
-    </div>
-
+    <div id="tab-review" class="tab-content"><div id="review-list"></div></div>
   </div>
 </div>
 
 <!-- ══ SCREEN: Leaderboard ════════════════════════════════════════ -->
 <div id="screen-leaderboard" class="screen">
-
   <div class="results-topbar">
     <button class="btn-topbar" onclick="showScreen('screen-home')">&#8592; Home</button>
     <div class="logo">NurseUp</div>
     <div></div>
   </div>
-
   <div class="results-body">
     <h2 class="section-heading">🏆 Leaderboard</h2>
     <p class="section-sub">Top performers across all sessions.</p>
     <div id="leaderboard-list" class="leaderboard-list"></div>
   </div>
-
 </div>
 
 <!-- ══ SCREEN: History ════════════════════════════════════════════ -->
 <div id="screen-history" class="screen">
-
   <div class="results-topbar">
     <button class="btn-topbar" onclick="leaveHistory()">&#8592; Home</button>
     <div class="logo">NurseUp</div>
     <div></div>
   </div>
-
   <div class="results-body">
     <h2 class="section-heading">Past Sessions</h2>
     <div id="history-list" class="history-list"></div>
   </div>
-
 </div>
 
 <!-- ══ Exit Modal ═════════════════════════════════════════════════ -->
@@ -280,16 +255,15 @@
   </div>
 </div>
 
-<!-- ══ Exam One-Attempt Modal ══════════════════════════════════════ -->
+<!-- ══ Exam Block Modal ═══════════════════════════════════════════ -->
 <div id="exam-block-modal" class="modal-overlay">
   <div class="modal" onclick="event.stopPropagation()">
     <div style="font-size:2rem;margin-bottom:12px">🚫</div>
     <p style="font-weight:600;color:var(--navy);margin-bottom:6px">Attempt Already Recorded</p>
-    <p id="exam-block-msg" style="font-size:0.85rem;color:var(--muted);margin-bottom:20px">
-      This email has already completed an exam session.
-    </p>
+    <p id="exam-block-msg" style="font-size:0.85rem;color:var(--muted);margin-bottom:20px"></p>
     <div class="modal-btns">
-      <button class="btn-modal-exit" style="background:var(--navy)" onclick="document.getElementById('exam-block-modal').classList.remove('active')">OK</button>
+      <button class="btn-modal-exit" style="background:var(--navy)"
+        onclick="document.getElementById('exam-block-modal').classList.remove('active')">OK</button>
     </div>
   </div>
 </div>
