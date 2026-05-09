@@ -816,3 +816,57 @@ body {
   .header-btns  { gap: 6px; }
   .btn-ghost    { padding: 7px 10px; font-size: 0.75rem; }
 }
+
+/* ══════════════════════════════════════════
+   HOME LEADERBOARD STRIP
+══════════════════════════════════════════ */
+.home-leaderboard-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 18px 20px 14px;
+  margin-bottom: 22px;
+  backdrop-filter: blur(10px);
+}
+.home-lb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.home-lb-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.02em;
+}
+.home-lb-more {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--teal-light);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.18s;
+}
+.home-lb-more:hover { opacity: 0.7; }
+
+.home-lb-list { display: flex; flex-direction: column; gap: 8px; }
+
+/* Home leaderboard uses the same .lb-card but with dark theme overrides */
+.home-lb-list .lb-card {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.1);
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+}
+.home-lb-list .lb-card:hover { transform: none; background: rgba(255,255,255,0.12); }
+.home-lb-list .lb-card.lb-top { background: rgba(240,165,0,0.12); }
+.home-lb-list .lb-card.lb-pass { border-left-color: var(--teal); }
+.home-lb-list .lb-card.lb-fail { border-left-color: rgba(230,57,70,0.6); }
+.home-lb-list .lb-rank { font-size: 1.2rem; min-width: 36px; }
+.home-lb-list .lb-name { color: rgba(255,255,255,0.9); font-size: 0.88rem; }
+.home-lb-list .lb-meta { color: rgba(255,255,255,0.4); font-size: 0.72rem; }
+.home-lb-list .lb-best { color: #fff; font-size: 1.2rem; }
