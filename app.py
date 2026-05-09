@@ -42,7 +42,9 @@ def call_apps_script_get(action: str) -> dict:
     if not APPS_SCRIPT_URL:
         return {}
     try:
-        resp = http_requests.get(APPS_SCRIPT_URL, params={"action": action}, timeout=10)
+        resp = http_requests.get(
+            APPS_SCRIPT_URL, params={"action": action}, timeout=10
+        )
         resp.raise_for_status()
         return resp.json()
     except Exception as e:
@@ -52,51 +54,67 @@ def call_apps_script_get(action: str) -> dict:
 
 # ─── DATABASE ─────────────────────────────────────────────────────
 
+def get_db():
+    """
+    Open a SQLite connection with:
+      - 10-second busy timeout  (waits instead of immediately raising "locked")
+      - WAL journal mode        (allows concurrent readers + one writer)
+      - Row factory for dict-like access
+    """
+    conn = sqlite3.connect(DB_PATH, timeout=10)
+    conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA synchronous=NORMAL")
+    return conn
+
+
 def init_db():
     os.makedirs("data", exist_ok=True)
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
+    with get_db() as conn:
+        c = conn.cursor()
 
-    c.execute("""
-        CREATE TABLE IF NOT EXISTS quiz_sessions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            session_id TEXT NOT NULL,
-            username TEXT DEFAULT 'Guest',
-            email TEXT DEFAULT '',
-            mode TEXT DEFAULT 'practice',
-            total_questions INTEGER,
-            correct_answers INTEGER,
-            score_percent REAL,
-            time_taken_seconds INTEGER,
-            subjects_json TEXT,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS quiz_sessions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                session_id TEXT NOT NULL,
+                username TEXT DEFAULT 'Guest',
+                email TEXT DEFAULT '',
+                mode TEXT DEFAULT 'practice',
+                total_questions INTEGER,
+                correct_answers INTEGER,
+                score_percent REAL,
+                time_taken_seconds INTEGER,
+                subjects_json TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
 
-    # Safe migration — add new columns to existing DBs without breaking them
-    for col, defn in [("email", "TEXT DEFAULT ''"), ("mode", "TEXT DEFAULT 'practice'")]:
-        try:
-            c.execute(f"ALTER TABLE quiz_sessions ADD COLUMN {col} {defn}")
-        except sqlite3.OperationalError:
-            pass  # column already exists
+        # Safe migration — only adds columns that don't exist yet
+        existing = {row[1] for row in c.execute("PRAGMA table_info(quiz_sessions)")}
+        for col, defn in [
+            ("email", "TEXT DEFAULT ''"),
+            ("mode",  "TEXT DEFAULT 'practice'"),
+        ]:
+            if col not in existing:
+                c.execute(f"ALTER TABLE quiz_sessions ADD COLUMN {col} {defn}")
+                print(f"✅ Migrated: added column '{col}'")
 
-    c.execute("""
-        CREATE TABLE IF NOT EXISTS question_attempts (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            session_id TEXT NOT NULL,
-            question_id INTEGER NOT NULL,
-            subject TEXT,
-            topic TEXT,
-            difficulty TEXT,
-            chosen_answer TEXT,
-            correct_answer TEXT,
-            is_correct INTEGER,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-    """)
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS question_attempts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                session_id TEXT NOT NULL,
+                question_id INTEGER NOT NULL,
+                subject TEXT,
+                topic TEXT,
+                difficulty TEXT,
+                chosen_answer TEXT,
+                correct_answer TEXT,
+                is_correct INTEGER,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
 
-    conn.commit()
-    conn.close()
+        conn.commit()
     print("✅ Database initialized")
 
 
@@ -136,9 +154,12 @@ def get_questions():
 
     return jsonify({
         "questions": [{
-            "id": q["id"], "subject": q["subject"], "topic": q["topic"],
-            "difficulty": q["difficulty"], "question": q["question"],
-            "choices": q["choices"],
+            "id":         q["id"],
+            "subject":    q["subject"],
+            "topic":      q["topic"],
+            "difficulty": q["difficulty"],
+            "question":   q["question"],
+            "choices":    q["choices"],
         } for q in selected],
         "total": len(selected)
     })
@@ -148,21 +169,21 @@ def get_questions():
 
 @app.route("/api/submit", methods=["POST"])
 def submit_quiz():
-    payload           = request.json
-    session_id        = payload.get("session_id", str(datetime.now().timestamp()))
-    username          = payload.get("username", "Guest")
-    email             = payload.get("email", "")
-    mode              = payload.get("mode", "practice")
-    user_answers      = payload.get("answers", {})
-    time_taken        = payload.get("time_taken", 0)
-    subject_filter    = payload.get("subject_filter", "All")
-    difficulty_filter = payload.get("difficulty_filter", "All")
+    payload           = request.json or {}
+    session_id        = payload.get("session_id") or str(datetime.now().timestamp())
+    username          = payload.get("username") or "Guest"
+    email             = payload.get("email") or ""
+    mode              = payload.get("mode") or "practice"
+    user_answers      = payload.get("answers") or {}
+    time_taken        = int(payload.get("time_taken") or 0)
+    subject_filter    = payload.get("subject_filter") or "All"
+    difficulty_filter = payload.get("difficulty_filter") or "All"
 
     data = load_questions()
     qmap = {str(q["id"]): q for q in data["questions"]}
 
-    results = []
-    subject_stats = {}
+    results          = []
+    subject_stats    = {}
     difficulty_stats = {
         "easy":   {"correct": 0, "total": 0},
         "medium": {"correct": 0, "total": 0},
@@ -170,20 +191,22 @@ def submit_quiz():
     }
     correct_count = 0
 
-    conn = sqlite3.connect(DB_PATH)
-    c    = conn.cursor()
-
+    # Build results in memory first — no DB touch yet
     for qid_str, chosen in user_answers.items():
-        q = qmap.get(qid_str)
+        q = qmap.get(str(qid_str))
         if not q:
             continue
 
-        # Empty string = skipped (exam timeout) → counts as wrong
-        is_correct = bool(chosen) and (chosen.upper() == q["answer"].upper())
+        chosen     = (chosen or "").strip()
+        is_correct = bool(chosen) and (chosen.upper() == q["answer"].strip().upper())
         if is_correct:
             correct_count += 1
 
-        subj, topic, diff = q["subject"], q["topic"], q["difficulty"]
+        subj  = q.get("subject",   "Unknown")
+        topic = q.get("topic",     "Unknown")
+        diff  = q.get("difficulty","medium")
+        if diff not in difficulty_stats:
+            diff = "medium"
 
         subject_stats.setdefault(subj, {"correct": 0, "total": 0, "topics": {}})
         subject_stats[subj]["total"] += 1
@@ -200,39 +223,63 @@ def submit_quiz():
             difficulty_stats[diff]["correct"] += 1
 
         results.append({
-            "question_id":   int(qid_str),
-            "subject":       subj,
-            "topic":         topic,
-            "difficulty":    diff,
-            "question":      q["question"],
-            "choices":       q["choices"],
-            "chosen":        chosen,
-            "correct_answer": q["answer"],
-            "is_correct":    is_correct,
-            "rationale":     q["rationale"],
+            "question_id":    int(qid_str),
+            "subject":        subj,
+            "topic":          topic,
+            "difficulty":     diff,
+            "question":       q.get("question",  ""),
+            "choices":        q.get("choices",   []),
+            "chosen":         chosen,
+            "correct_answer": q.get("answer",    ""),
+            "is_correct":     is_correct,
+            "rationale":      q.get("rationale", ""),
         })
-
-        c.execute("""
-            INSERT INTO question_attempts
-            (session_id, question_id, subject, topic, difficulty,
-             chosen_answer, correct_answer, is_correct)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (session_id, int(qid_str), subj, topic, diff,
-              chosen, q["answer"], int(is_correct)))
 
     total_q   = len(results)
     score_pct = round(correct_count / total_q * 100, 2) if total_q > 0 else 0
 
-    c.execute("""
-        INSERT INTO quiz_sessions
-        (session_id, username, email, mode, total_questions, correct_answers,
-         score_percent, time_taken_seconds, subjects_json)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """, (session_id, username, email, mode, total_q, correct_count,
-          score_pct, time_taken, json.dumps(subject_stats)))
-    conn.commit()
-    conn.close()
+    # ── Single DB write block — `with` guarantees close even on error ──
+    with get_db() as conn:
+        c = conn.cursor()
 
+        # Batch-insert question attempts
+        c.executemany("""
+            INSERT INTO question_attempts
+                (session_id, question_id, subject, topic, difficulty,
+                 chosen_answer, correct_answer, is_correct)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """, [
+            (session_id, r["question_id"], r["subject"], r["topic"],
+             r["difficulty"], r["chosen"], r["correct_answer"], int(r["is_correct"]))
+            for r in results
+        ])
+
+        # Named placeholders — safe regardless of column order in the table
+        c.execute("""
+            INSERT INTO quiz_sessions
+                (session_id, username, email, mode,
+                 total_questions, correct_answers, score_percent,
+                 time_taken_seconds, subjects_json)
+            VALUES
+                (:session_id, :username, :email, :mode,
+                 :total_questions, :correct_answers, :score_percent,
+                 :time_taken_seconds, :subjects_json)
+        """, {
+            "session_id":         session_id,
+            "username":           username,
+            "email":              email,
+            "mode":               mode,
+            "total_questions":    total_q,
+            "correct_answers":    correct_count,
+            "score_percent":      score_pct,
+            "time_taken_seconds": time_taken,
+            "subjects_json":      json.dumps(subject_stats),
+        })
+
+        conn.commit()
+    # connection is closed here automatically
+
+    # Per-subject percentages
     strengths, improvements = [], []
     for subj, stats in subject_stats.items():
         pct = (stats["correct"] / stats["total"] * 100) if stats["total"] else 0
@@ -248,6 +295,7 @@ def submit_quiz():
         else "Keep studying! Aim for 75% or higher."
     )
 
+    # Sheets sync — non-blocking, never raises to the caller
     try:
         call_apps_script({
             "action": "submit",
@@ -308,22 +356,20 @@ def get_leaderboard():
         } for i, row in enumerate(lb)]
         return jsonify({"leaderboard": normalized, "source": "sheets"})
 
-    # SQLite fallback — aggregate per username
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    rows = conn.execute("""
-        SELECT
-            username,
-            MAX(score_percent)           AS best_score,
-            COUNT(*)                     AS sessions,
-            ROUND(AVG(score_percent), 1) AS avg_score,
-            MAX(created_at)              AS last_attempt
-        FROM quiz_sessions
-        GROUP BY username
-        ORDER BY best_score DESC, avg_score DESC
-        LIMIT 50
-    """).fetchall()
-    conn.close()
+    # SQLite fallback
+    with get_db() as conn:
+        rows = conn.execute("""
+            SELECT
+                username,
+                MAX(score_percent)           AS best_score,
+                COUNT(*)                     AS sessions,
+                ROUND(AVG(score_percent), 1) AS avg_score,
+                MAX(created_at)              AS last_attempt
+            FROM quiz_sessions
+            GROUP BY username
+            ORDER BY best_score DESC, avg_score DESC
+            LIMIT 50
+        """).fetchall()
 
     leaderboard = []
     for rank, row in enumerate(rows, 1):
@@ -339,16 +385,14 @@ def get_leaderboard():
 
 @app.route("/api/history", methods=["GET"])
 def get_history():
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    rows = conn.execute("""
-        SELECT id, session_id, username, total_questions,
-               correct_answers, score_percent, time_taken_seconds, created_at
-        FROM quiz_sessions
-        ORDER BY created_at DESC
-        LIMIT 30
-    """).fetchall()
-    conn.close()
+    with get_db() as conn:
+        rows = conn.execute("""
+            SELECT id, session_id, username, total_questions,
+                   correct_answers, score_percent, time_taken_seconds, created_at
+            FROM quiz_sessions
+            ORDER BY created_at DESC
+            LIMIT 30
+        """).fetchall()
     return jsonify({"history": [dict(r) for r in rows]})
 
 
