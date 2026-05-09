@@ -1,20 +1,15 @@
 // ─── Sound Engine ────────────────────────────────────────────────
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let _ctx = null;
-
-function ctx() {
+function getCtx() {
   if (!_ctx) _ctx = new AudioCtx();
   if (_ctx.state === "suspended") _ctx.resume();
   return _ctx;
 }
-
 function playTone(freq, type, duration, volume = 0.18, delay = 0) {
   try {
-    const c    = ctx();
-    const osc  = c.createOscillator();
-    const gain = c.createGain();
-    osc.connect(gain);
-    gain.connect(c.destination);
+    const c = getCtx(), osc = c.createOscillator(), gain = c.createGain();
+    osc.connect(gain); gain.connect(c.destination);
     osc.type = type;
     osc.frequency.setValueAtTime(freq, c.currentTime + delay);
     gain.gain.setValueAtTime(0, c.currentTime + delay);
@@ -24,96 +19,60 @@ function playTone(freq, type, duration, volume = 0.18, delay = 0) {
     osc.stop(c.currentTime + delay + duration + 0.05);
   } catch (_) {}
 }
-
 const SFX = {
-  correct() {
-    playTone(523.25, "sine", 0.13, 0.16);
-    playTone(659.25, "sine", 0.13, 0.16, 0.10);
-    playTone(783.99, "sine", 0.20, 0.16, 0.20);
-    playTone(1046.5, "sine", 0.15, 0.12, 0.32);
-  },
-  incorrect() {
-    playTone(300, "sawtooth", 0.09, 0.14);
-    playTone(250, "sawtooth", 0.10, 0.14, 0.10);
-    playTone(200, "sawtooth", 0.14, 0.12, 0.22);
-  },
-  select()      { playTone(880, "sine", 0.06, 0.10); playTone(1100, "sine", 0.05, 0.08, 0.07); },
-  navigate()    { playTone(528, "sine", 0.07, 0.08); },
-  start()       { playTone(440, "triangle", 0.08, 0.12); playTone(660, "triangle", 0.12, 0.14, 0.10); playTone(880, "triangle", 0.10, 0.12, 0.22); },
-  submit()      { playTone(660, "sine", 0.08, 0.13); playTone(880, "sine", 0.08, 0.13, 0.10); playTone(1100, "sine", 0.16, 0.13, 0.20); },
-  leaderboard() { [523.25, 659.25, 783.99].forEach((f,i) => playTone(f, "sine", 0.15, 0.14, i*0.09)); },
-  tick()        { playTone(1200, "square", 0.03, 0.06); },
-  timeout()     { playTone(400, "sawtooth", 0.12, 0.18); playTone(320, "sawtooth", 0.16, 0.18, 0.15); },
-  pass() {
-    [523.25, 659.25, 783.99, 1046.5].forEach((f,i) => playTone(f, "sine", 0.28, 0.17, i*0.11));
-    playTone(1318.5, "sine", 0.18, 0.18, 0.46);
-    playTone(1046.5, "triangle", 0.55, 0.22, 0.60);
-    playTone(1318.5, "triangle", 0.40, 0.20, 0.90);
-  },
-  fail() {
-    playTone(392, "triangle", 0.18, 0.15);
-    playTone(349.23, "triangle", 0.18, 0.15, 0.20);
-    playTone(311.13, "triangle", 0.18, 0.15, 0.40);
-    playTone(261.63, "triangle", 0.35, 0.15, 0.60);
-  },
+  correct()     { playTone(523,  "sine",     0.13, 0.16); playTone(659,  "sine",     0.13, 0.16, 0.10); playTone(784,  "sine",     0.20, 0.16, 0.20); playTone(1046, "sine",     0.15, 0.12, 0.32); },
+  incorrect()   { playTone(300,  "sawtooth", 0.09, 0.14); playTone(250,  "sawtooth", 0.10, 0.14, 0.10); playTone(200,  "sawtooth", 0.14, 0.12, 0.22); },
+  select()      { playTone(880,  "sine",     0.06, 0.10); playTone(1100, "sine",     0.05, 0.08, 0.07); },
+  navigate()    { playTone(528,  "sine",     0.07, 0.08); },
+  start()       { playTone(440,  "triangle", 0.08, 0.12); playTone(660, "triangle", 0.12, 0.14, 0.10); playTone(880, "triangle", 0.10, 0.12, 0.22); },
+  submit()      { playTone(660,  "sine",     0.08, 0.13); playTone(880, "sine",     0.08, 0.13, 0.10); playTone(1100,"sine",     0.16, 0.13, 0.20); },
+  leaderboard() { [523,659,784].forEach((f,i) => playTone(f,"sine",0.15,0.14,i*0.09)); },
+  tick()        { playTone(1200, "square",   0.03, 0.06); },
+  timeout()     { playTone(400,  "sawtooth", 0.12, 0.18); playTone(320,"sawtooth",0.16,0.18,0.15); },
+  pass()        { [523,659,784,1046].forEach((f,i)=>playTone(f,"sine",0.28,0.17,i*0.11)); playTone(1318,"sine",0.18,0.18,0.46); playTone(1046,"triangle",0.55,0.22,0.60); },
+  fail()        { [392,349,311,261].forEach((f,i)=>playTone(f,"triangle",0.18,0.15,i*0.20)); },
 };
 
-// ─── Constants ────────────────────────────────────────────────────
-const EXAM_SECONDS_PER_Q = 40;
-const HISTORY_PASSWORD   = "nurseup2025";
+// ─── Constants ───────────────────────────────────────────────────
+const EXAM_SECS      = 40;
+const HIST_PASSWORD  = "nurseup2025";
+const MEDAL          = ["🥇","🥈","🥉"];
 
-// ─── State ──────────────────────────────────────────────────────
+// ─── State ───────────────────────────────────────────────────────
 const State = {
   questions:        [],
-  answers:          {},
+  answers:          {},       // questionId → letter chosen
+  revealed:         {},       // questionId → true (practice: answer shown)
   currentIndex:     0,
-  timerInterval:    null,
-  examQInterval:    null,
-  elapsedSeconds:   0,
-  examQSecondsLeft: EXAM_SECONDS_PER_Q,
+  mode:             "practice",
   sessionId:        null,
   username:         "Nurse",
   email:            "",
-  mode:             "practice",
   subjectFilter:    "all",
-  difficultyFilter: "all",
-  practiceRevealed: {},
+  diffFilter:       "all",
+  elapsedSecs:      0,
+  examSecsLeft:     EXAM_SECS,
+  globalTimer:      null,
+  examTimer:        null,
 };
 
 let historyUnlocked = false;
 
-// ─── Exam attempt memory (localStorage) ─────────────────────────
-function getExamAttempted(email) {
-  try {
-    const raw = localStorage.getItem("nurseup_exam_attempts");
-    const map = raw ? JSON.parse(raw) : {};
-    return !!map[email.toLowerCase()];
-  } catch { return false; }
+// ─── Exam attempt guard (localStorage) ───────────────────────────
+function examAttempted(email) {
+  try { return !!(JSON.parse(localStorage.getItem("nu_exams")||"{}")[email.toLowerCase()]); } catch { return false; }
 }
-function setExamAttempted(email) {
+function markExamAttempted(email) {
   try {
-    const raw = localStorage.getItem("nurseup_exam_attempts");
-    const map = raw ? JSON.parse(raw) : {};
-    map[email.toLowerCase()] = Date.now();
-    localStorage.setItem("nurseup_exam_attempts", JSON.stringify(map));
+    const m = JSON.parse(localStorage.getItem("nu_exams")||"{}");
+    m[email.toLowerCase()] = Date.now();
+    localStorage.setItem("nu_exams", JSON.stringify(m));
   } catch {}
 }
 
-// ─── Mode Selection ───────────────────────────────────────────────
-function selectMode(mode) {
-  State.mode = mode;
-  document.getElementById("mode-practice").classList.toggle("active", mode === "practice");
-  document.getElementById("mode-exam").classList.toggle("active", mode === "exam");
-  document.getElementById("email-row").style.display = mode === "exam" ? "block" : "none";
-  SFX.select();
-}
-
-// ─── Screen Management ───────────────────────────────────────────
+// ─── Screen management ───────────────────────────────────────────
 function showScreen(id) {
-  if (id === "screen-history" && !historyUnlocked) {
-    showPasswordModal();
-    return;
-  }
+  if (id === "screen-history" && !historyUnlocked) { showPasswordModal(); return; }
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
   window.scrollTo(0, 0);
@@ -121,7 +80,7 @@ function showScreen(id) {
   if (id === "screen-leaderboard") { loadLeaderboard(); SFX.leaderboard(); }
 }
 
-// ─── Password Modal ──────────────────────────────────────────────
+// ─── Password modal ───────────────────────────────────────────────
 function showPasswordModal() {
   document.getElementById("password-input").value = "";
   document.getElementById("password-error").textContent = "";
@@ -132,8 +91,7 @@ function closePasswordModal() {
   document.getElementById("password-modal-overlay").classList.remove("active");
 }
 function submitPassword() {
-  const entered = document.getElementById("password-input").value;
-  if (entered === HISTORY_PASSWORD) {
+  if (document.getElementById("password-input").value === HIST_PASSWORD) {
     historyUnlocked = true;
     closePasswordModal();
     showScreen("screen-history");
@@ -141,22 +99,28 @@ function submitPassword() {
     document.getElementById("password-error").textContent = "Incorrect password.";
     document.getElementById("password-input").value = "";
     document.getElementById("password-input").focus();
-    const modal = document.querySelector(".password-modal");
-    modal.classList.add("shake");
-    setTimeout(() => modal.classList.remove("shake"), 500);
+    const m = document.querySelector(".password-modal");
+    m.classList.add("shake");
+    setTimeout(() => m.classList.remove("shake"), 500);
     SFX.incorrect();
   }
 }
 document.addEventListener("DOMContentLoaded", () => {
-  const pw = document.getElementById("password-input");
-  if (pw) pw.addEventListener("keydown", e => { if (e.key === "Enter") submitPassword(); });
+  document.getElementById("password-input")
+    ?.addEventListener("keydown", e => { if (e.key === "Enter") submitPassword(); });
 });
-function leaveHistory() {
-  historyUnlocked = false;
-  showScreen("screen-home");
+function leaveHistory() { historyUnlocked = false; showScreen("screen-home"); }
+
+// ─── Mode selection ───────────────────────────────────────────────
+function selectMode(mode) {
+  State.mode = mode;
+  document.getElementById("mode-practice").classList.toggle("active", mode === "practice");
+  document.getElementById("mode-exam").classList.toggle("active", mode === "exam");
+  document.getElementById("email-row").style.display = mode === "exam" ? "block" : "none";
+  SFX.select();
 }
 
-// ─── Pill Groups ─────────────────────────────────────────────────
+// ─── Pill groups ─────────────────────────────────────────────────
 document.querySelectorAll(".pill-group").forEach(group => {
   group.querySelectorAll(".pill").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -167,279 +131,237 @@ document.querySelectorAll(".pill-group").forEach(group => {
   });
 });
 
-// ─── Start Quiz ──────────────────────────────────────────────────
+// ─── Start quiz ───────────────────────────────────────────────────
 async function startQuiz() {
   const subject    = document.getElementById("subject-select").value;
   const difficulty = document.querySelector("#diff-group .pill.active")?.dataset.value || "all";
   const count      = parseInt(document.querySelector("#count-group .pill.active")?.dataset.value || 10);
 
-  State.username        = document.getElementById("username").value.trim() || "Nurse";
-  State.email           = (document.getElementById("user-email")?.value || "").trim();
-  State.subjectFilter   = subject;
-  State.difficultyFilter = difficulty;
+  State.username      = document.getElementById("username").value.trim() || "Nurse";
+  State.email         = document.getElementById("user-email")?.value.trim() || "";
+  State.subjectFilter = subject;
+  State.diffFilter    = difficulty;
 
   if (State.mode === "exam") {
-    if (!State.email) {
-      alert("Please enter your email address to use Exam mode.");
-      document.getElementById("user-email").focus();
-      return;
-    }
-    if (getExamAttempted(State.email)) {
+    if (!State.email) { alert("Please enter your email for Exam mode."); document.getElementById("user-email").focus(); return; }
+    if (examAttempted(State.email)) {
       document.getElementById("exam-block-msg").textContent =
-        `${State.email} has already completed an exam session. Switch to Practice mode to keep reviewing.`;
+        `${State.email} has already completed an exam attempt. Use Practice mode to keep reviewing.`;
       document.getElementById("exam-block-modal").classList.add("active");
       return;
     }
   }
 
-  // ── Full state reset ──
-  State.sessionId        = "SES_" + Date.now();
-  State.answers          = {};
-  State.currentIndex     = 0;
-  State.elapsedSeconds   = 0;
-  State.practiceRevealed = {};
-  clearInterval(State.timerInterval);
-  clearInterval(State.examQInterval);
+  // Full reset
+  State.sessionId    = "SES_" + Date.now();
+  State.answers      = {};
+  State.revealed     = {};
+  State.currentIndex = 0;
+  State.elapsedSecs  = 0;
+  stopTimers();
 
   SFX.start();
 
   try {
-    const params = new URLSearchParams({ subject, difficulty, count });
-    const res  = await fetch(`/api/questions?${params}`);
+    const res  = await fetch(`/api/questions?${new URLSearchParams({ subject, difficulty, count })}`);
     const data = await res.json();
-
-    if (!data.questions || data.questions.length === 0) {
-      alert("No questions found for this filter. Try different settings.");
-      return;
-    }
-
+    if (!data.questions?.length) { alert("No questions found for this filter."); return; }
     State.questions = data.questions;
-
-    showScreen("screen-quiz");
-
-    const isExam = State.mode === "exam";
-    document.getElementById("exam-countdown-wrap").style.display = isExam ? "block" : "none";
-    document.getElementById("q-mode-badge").style.display = "inline-block";
-    document.getElementById("q-mode-badge").textContent   = isExam ? "⏱ Exam" : "📖 Practice";
-    document.getElementById("btn-prev").style.display     = isExam ? "none" : "";
-
-    renderQuestion();
-    startTimer();
-    if (isExam) startExamQuestionTimer();
-
   } catch (err) {
-    alert("Failed to load questions. Is the Flask server running?");
-    console.error(err);
+    alert("Failed to load questions. Is the server running?");
+    console.error(err); return;
   }
+
+  showScreen("screen-quiz");
+
+  const isExam = State.mode === "exam";
+  document.getElementById("exam-countdown-wrap").style.display = isExam ? "block" : "none";
+  document.getElementById("q-mode-badge").textContent = isExam ? "⏱ Exam" : "📖 Practice";
+  document.getElementById("btn-prev").style.display   = isExam ? "none" : "";
+
+  renderQuestion();
+  startGlobalTimer();
+  if (isExam) startExamTimer();
 }
 
-// ─── Global elapsed timer ─────────────────────────────────────────
-function startTimer() {
-  clearInterval(State.timerInterval);
-  State.elapsedSeconds = 0;
+// ─── Timers ───────────────────────────────────────────────────────
+function stopTimers() {
+  clearInterval(State.globalTimer);
+  clearInterval(State.examTimer);
+  State.globalTimer = null;
+  State.examTimer   = null;
+}
+
+function startGlobalTimer() {
   const el = document.getElementById("quiz-timer");
-  el.textContent = "00:00";
-  el.className   = "quiz-timer";
-  State.timerInterval = setInterval(() => {
-    State.elapsedSeconds++;
-    const m = Math.floor(State.elapsedSeconds / 60).toString().padStart(2, "0");
-    const s = (State.elapsedSeconds % 60).toString().padStart(2, "0");
-    // In practice mode show elapsed; in exam mode the per-Q timer overrides display
+  State.globalTimer = setInterval(() => {
+    State.elapsedSecs++;
     if (State.mode === "practice") {
+      const m = String(Math.floor(State.elapsedSecs / 60)).padStart(2,"0");
+      const s = String(State.elapsedSecs % 60).padStart(2,"0");
       el.textContent = `${m}:${s}`;
+      el.className = "quiz-timer";
     }
   }, 1000);
 }
-function stopTimer() {
-  clearInterval(State.timerInterval);
-  clearInterval(State.examQInterval);
-}
 
-// ─── Exam per-question countdown ─────────────────────────────────
-function startExamQuestionTimer() {
-  clearInterval(State.examQInterval);
-  State.examQSecondsLeft = EXAM_SECONDS_PER_Q;
+function startExamTimer() {
+  State.examSecsLeft = EXAM_SECS;
   updateExamBar();
-  const timerEl = document.getElementById("quiz-timer");
+  const el = document.getElementById("quiz-timer");
 
-  State.examQInterval = setInterval(() => {
-    State.examQSecondsLeft--;
-    timerEl.textContent = `⏱ ${State.examQSecondsLeft}s`;
-    if (State.examQSecondsLeft <= 10) {
-      timerEl.classList.add("danger");
-      SFX.tick();
-    } else {
-      timerEl.classList.remove("danger");
-    }
+  State.examTimer = setInterval(() => {
+    State.examSecsLeft--;
+    el.textContent = `⏱ ${State.examSecsLeft}s`;
+    el.className   = State.examSecsLeft <= 10 ? "quiz-timer danger" : "quiz-timer";
+    if (State.examSecsLeft <= 10) SFX.tick();
     updateExamBar();
-
-    if (State.examQSecondsLeft <= 0) {
+    if (State.examSecsLeft <= 0) {
+      clearInterval(State.examTimer);
       SFX.timeout();
-      clearInterval(State.examQInterval);
-      handleExamTimeout();
+      onExamTimeout();
     }
   }, 1000);
 }
 
 function updateExamBar() {
-  const pct = (State.examQSecondsLeft / EXAM_SECONDS_PER_Q) * 100;
   const bar = document.getElementById("exam-countdown-bar");
   if (!bar) return;
-  bar.style.width = pct + "%";
-  if (pct > 50)      bar.style.background = "linear-gradient(90deg,#00a896,#02c39a)";
-  else if (pct > 25) bar.style.background = "linear-gradient(90deg,#f0a500,#ffc640)";
-  else               bar.style.background = "linear-gradient(90deg,#e63946,#ff6b6b)";
+  const pct = (State.examSecsLeft / EXAM_SECS) * 100;
+  bar.style.width      = pct + "%";
+  bar.style.background = pct > 50
+    ? "linear-gradient(90deg,#00a896,#02c39a)"
+    : pct > 25
+      ? "linear-gradient(90deg,#f0a500,#ffc640)"
+      : "linear-gradient(90deg,#e63946,#ff6b6b)";
 }
 
-function handleExamTimeout() {
+function onExamTimeout() {
   const q = State.questions[State.currentIndex];
   if (!State.answers[q.id]) State.answers[q.id] = "__SKIPPED__";
   renderDots();
-
   if (State.currentIndex === State.questions.length - 1) {
     submitQuiz();
   } else {
     State.currentIndex++;
     renderQuestion();
-    startExamQuestionTimer();
+    startExamTimer();
   }
 }
 
-// ─── Render Question ─────────────────────────────────────────────
+// ─── Render question ──────────────────────────────────────────────
 function renderQuestion() {
-  const q     = State.questions[State.currentIndex];
-  const total = State.questions.length;
-  const idx   = State.currentIndex;
+  const q      = State.questions[State.currentIndex];
+  const idx    = State.currentIndex;
+  const total  = State.questions.length;
+  const isExam = State.mode === "exam";
 
-  // Progress bar
+  // Progress
   document.getElementById("progress-fill").style.width = ((idx + 1) / total * 100) + "%";
   document.getElementById("progress-text").textContent = `${idx + 1} / ${total}`;
 
   // Badges
   document.getElementById("q-subject").textContent = q.subject;
   document.getElementById("q-topic").textContent   = q.topic;
-  const diffBadge  = document.getElementById("q-diff");
+  const diffBadge = document.getElementById("q-diff");
   diffBadge.textContent = q.difficulty.charAt(0).toUpperCase() + q.difficulty.slice(1);
-  const dc = { easy: { bg:"#e6f7f5",color:"#00a896",border:"#00a896" }, medium: { bg:"#fff8e7",color:"#a07000",border:"#f0a500" }, hard: { bg:"#fdecea",color:"#e63946",border:"#e63946" } }[q.difficulty] || {};
+  const dc = { easy:{bg:"#e6f7f5",color:"#00a896",border:"#00a896"}, medium:{bg:"#fff8e7",color:"#a07000",border:"#f0a500"}, hard:{bg:"#fdecea",color:"#e63946",border:"#e63946"} }[q.difficulty] || {};
   Object.assign(diffBadge.style, { background: dc.bg, color: dc.color, borderColor: dc.border });
-
   document.getElementById("q-number").textContent      = `Question ${idx + 1}`;
   document.getElementById("question-text").textContent = q.question;
 
-  // Choices container
+  // State for this question
+  const chosen     = State.answers[q.id];                        // undefined | letter | "__SKIPPED__"
+  const answered   = chosen !== undefined && chosen !== "__SKIPPED__";
+  const revealed   = !!State.revealed[q.id];                    // practice: show correct/wrong colours
+  const lockChoice = revealed || (isExam && answered);          // no more clicking
+
+  // Choices container — rebuild completely
   const container = document.getElementById("choices-container");
   container.innerHTML = "";
-
-  const letters       = ["A","B","C","D","E"];
-  const alreadyChosen = State.answers[q.id];
-  const isRevealed    = !!State.practiceRevealed[q.id];
-  const isExam        = State.mode === "exam";
-  const isAnswered    = alreadyChosen && alreadyChosen !== "__SKIPPED__";
 
   // Hint line
   const hint = document.createElement("p");
   hint.className = "change-hint";
   if (isExam) {
-    hint.textContent = isAnswered ? "Answer locked — waiting for next question." : "Select one answer. Time is running!";
+    hint.textContent = answered ? "Answer locked — waiting for next question." : "Select one answer. Time is running!";
   } else {
-    hint.textContent = isRevealed ? "Answer revealed. Move to the next question." : isAnswered ? "✏️ You can still change your answer before submitting." : "Select an answer below.";
+    hint.textContent = revealed  ? "Answer revealed — move to the next question."
+                     : answered  ? "✏️ You can still change your answer before submitting."
+                     :             "Select an answer below.";
   }
   container.appendChild(hint);
 
-  q.choices.forEach((choice, i) => {
-    const letter    = letters[i];
-    const btn       = document.createElement("button");
+  ["A","B","C","D","E"].slice(0, q.choices.length).forEach((letter, i) => {
+    const btn = document.createElement("button");
     btn.className      = "choice-btn";
     btn.dataset.letter = letter;
-    const choiceText   = choice.replace(/^[A-E]\.\s*/, "");
-    btn.innerHTML      = `<span class="choice-letter">${letter}</span><span>${choiceText}</span>`;
+    btn.innerHTML      = `<span class="choice-letter">${letter}</span><span>${q.choices[i].replace(/^[A-E]\.\s*/,"")}</span>`;
 
-    const shouldReveal = isRevealed || (isExam && isAnswered);
-    if (shouldReveal) {
-      if (letter === q.answer)                                           btn.classList.add("correct");
-      else if (letter === alreadyChosen && alreadyChosen !== q.answer)  btn.classList.add("incorrect");
+    if (lockChoice) {
+      // Show correct / incorrect colouring
+      if (letter === q.answer)                               btn.classList.add("correct");
+      else if (letter === chosen && chosen !== q.answer)     btn.classList.add("incorrect");
       btn.disabled = true;
-    } else if (isAnswered) {
-      if (letter === alreadyChosen) btn.classList.add("selected");
-      if (isExam) btn.disabled = true;
+    } else if (answered) {
+      // Answered but not yet revealed (practice) or not locked (shouldn't happen in exam)
+      if (letter === chosen) btn.classList.add("selected");
+      // In practice: still allow changing answer — DON'T disable
     }
 
-    if (!btn.disabled) btn.addEventListener("click", () => selectAnswer(q.id, letter, q.answer));
+    // Attach click handler only when not locked
+    if (!lockChoice) {
+      btn.addEventListener("click", () => onChoiceClick(q, letter));
+    }
+
     container.appendChild(btn);
   });
 
-  if (isRevealed) showRationale(q);
+  // Show rationale if already revealed
+  if (revealed) renderRationale(q);
 
   renderDots();
   document.getElementById("btn-prev").disabled = (idx === 0);
-  rebuildNextButton();
+  rebuildNextBtn();
 }
 
-// ─── Rebuild Next button (fixes stale handler bug) ────────────────
-function rebuildNextButton() {
-  const idx    = State.currentIndex;
-  const total  = State.questions.length;
-  const isLast = idx === total - 1;
+// ─── Choice click ─────────────────────────────────────────────────
+function onChoiceClick(q, letter) {
+  const isExam = State.mode === "exam";
 
-  const old = document.getElementById("btn-next");
-  if (!old) return;
+  // Guard: exam — already answered
+  if (isExam && State.answers[q.id] && State.answers[q.id] !== "__SKIPPED__") return;
 
-  const btn = document.createElement("button");
-  btn.id        = "btn-next";
-  btn.className = "btn-nav-next";
+  State.answers[q.id] = letter;
 
-  if (isLast) {
-    const allAnswered = State.questions.every(q => {
-      const ans = State.answers[q.id];
-      return ans !== undefined && ans !== "__SKIPPED__";
-    });
-    btn.textContent = "Submit Quiz ✓";
-    if (allAnswered) {
-      btn.style.background = "linear-gradient(135deg,#e63946,#ff6b6b)";
-      btn.style.boxShadow  = "0 4px 16px rgba(230,57,70,.4)";
-    }
-    btn.addEventListener("click", submitQuiz);
-  } else {
-    btn.textContent = "Next →";
-    btn.addEventListener("click", nextQuestion);
-  }
+  const container  = document.getElementById("choices-container");
+  const isCorrect  = letter === q.answer;
 
-  old.replaceWith(btn);
-}
+  if (State.mode === "practice") {
+    // Mark revealed so navigation re-renders with colours
+    State.revealed[q.id] = true;
 
-// ─── Answer Selection ────────────────────────────────────────────
-function selectAnswer(questionId, letter, correctAnswer) {
-  const isExam     = State.mode === "exam";
-  const isPractice = State.mode === "practice";
-
-  // Exam: lock after first real answer
-  if (isExam && State.answers[questionId] && State.answers[questionId] !== "__SKIPPED__") return;
-
-  State.answers[questionId] = letter;
-
-  const container = document.getElementById("choices-container");
-
-  if (isPractice) {
-    State.practiceRevealed[questionId] = true;
-    const isCorrect = letter.toUpperCase() === correctAnswer.toUpperCase();
-    isCorrect ? SFX.correct() : SFX.incorrect();
-
+    // Update button styles immediately (no re-render needed)
     container.querySelectorAll(".choice-btn").forEach(btn => {
-      btn.disabled = true;
       const bl = btn.dataset.letter;
-      if (bl === correctAnswer)                         btn.classList.add("correct");
-      else if (bl === letter && letter !== correctAnswer) btn.classList.add("incorrect");
+      btn.disabled = true;
+      btn.classList.remove("selected","correct","incorrect");
+      if (bl === q.answer)                          btn.classList.add("correct");
+      else if (bl === letter && !isCorrect)         btn.classList.add("incorrect");
     });
 
-    const q = State.questions[State.currentIndex];
-    showRationale(q);
+    renderRationale(q);
 
     const hint = container.querySelector(".change-hint");
     if (hint) hint.textContent = isCorrect ? "✅ Correct! Move to the next question." : "❌ Incorrect. See the rationale below.";
 
-  } else if (isExam) {
+    isCorrect ? SFX.correct() : SFX.incorrect();
+
+  } else {
+    // Exam — lock selection
     container.querySelectorAll(".choice-btn").forEach(btn => {
       btn.disabled = true;
+      btn.classList.remove("selected");
       if (btn.dataset.letter === letter) btn.classList.add("selected");
     });
     const hint = container.querySelector(".change-hint");
@@ -448,10 +370,10 @@ function selectAnswer(questionId, letter, correctAnswer) {
   }
 
   renderDots();
-  rebuildNextButton();
+  rebuildNextBtn();
 }
 
-function showRationale(q) {
+function renderRationale(q) {
   document.querySelector(".rationale-box")?.remove();
   const box = document.createElement("div");
   box.className = "rationale-box";
@@ -459,26 +381,7 @@ function showRationale(q) {
   document.getElementById("choices-container").appendChild(box);
 }
 
-// ─── Navigation ──────────────────────────────────────────────────
-function nextQuestion() {
-  if (State.currentIndex < State.questions.length - 1) {
-    State.currentIndex++;
-    renderQuestion();
-    window.scrollTo(0, 0);
-    SFX.navigate();
-    if (State.mode === "exam") startExamQuestionTimer();
-  }
-}
-function prevQuestion() {
-  if (State.mode === "exam") return;
-  if (State.currentIndex > 0) {
-    State.currentIndex--;
-    renderQuestion();
-    window.scrollTo(0, 0);
-    SFX.navigate();
-  }
-}
-
+// ─── Dots ─────────────────────────────────────────────────────────
 function renderDots() {
   const nav = document.getElementById("dot-nav");
   nav.innerHTML = "";
@@ -497,34 +400,81 @@ function renderDots() {
   });
 }
 
-// ─── Submit Quiz ─────────────────────────────────────────────────
+// ─── Next button (fresh element every render = no stale handlers) ──
+function rebuildNextBtn() {
+  const idx    = State.currentIndex;
+  const isLast = idx === State.questions.length - 1;
+  const old    = document.getElementById("btn-next");
+  if (!old) return;
+
+  const btn = document.createElement("button");
+  btn.id        = "btn-next";
+  btn.className = "btn-nav-next";
+
+  if (isLast) {
+    const allAnswered = State.questions.every(q => {
+      const a = State.answers[q.id];
+      return a !== undefined && a !== "__SKIPPED__";
+    });
+    btn.textContent = "Submit Quiz ✓";
+    if (allAnswered) {
+      btn.style.background = "linear-gradient(135deg,#e63946,#ff6b6b)";
+      btn.style.boxShadow  = "0 4px 16px rgba(230,57,70,.4)";
+    }
+    btn.addEventListener("click", submitQuiz);
+  } else {
+    btn.textContent = "Next →";
+    btn.addEventListener("click", () => {
+      State.currentIndex++;
+      renderQuestion();
+      window.scrollTo(0, 0);
+      SFX.navigate();
+      if (State.mode === "exam") { clearInterval(State.examTimer); startExamTimer(); }
+    });
+  }
+
+  old.replaceWith(btn);
+}
+
+// ─── Prev ─────────────────────────────────────────────────────────
+function prevQuestion() {
+  if (State.mode === "exam" || State.currentIndex === 0) return;
+  State.currentIndex--;
+  renderQuestion();
+  window.scrollTo(0, 0);
+  SFX.navigate();
+}
+
+// ─── Submit ───────────────────────────────────────────────────────
 async function submitQuiz() {
   const unanswered = State.questions.filter(q => State.answers[q.id] === undefined).length;
   if (unanswered > 0 && State.mode !== "exam") {
     if (!confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) return;
   }
 
-  stopTimer();
+  stopTimers();
   SFX.submit();
-
-  if (State.mode === "exam" && State.email) setExamAttempted(State.email);
+  if (State.mode === "exam" && State.email) markExamAttempted(State.email);
 
   const btnNext = document.getElementById("btn-next");
   if (btnNext) { btnNext.textContent = "Submitting…"; btnNext.disabled = true; }
 
   const cleanAnswers = {};
-  for (const [id, ans] of Object.entries(State.answers)) {
+  Object.entries(State.answers).forEach(([id, ans]) => {
     cleanAnswers[id] = ans === "__SKIPPED__" ? "" : ans;
-  }
-
-  const payload = {
-    session_id: State.sessionId, username: State.username, email: State.email,
-    mode: State.mode, answers: cleanAnswers, time_taken: State.elapsedSeconds,
-    subject_filter: State.subjectFilter, difficulty_filter: State.difficultyFilter,
-  };
+  });
 
   try {
-    const res  = await fetch("/api/submit", { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(payload) });
+    const res  = await fetch("/api/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        session_id: State.sessionId, username: State.username,
+        email: State.email, mode: State.mode,
+        answers: cleanAnswers, time_taken: State.elapsedSecs,
+        subject_filter: State.subjectFilter, difficulty_filter: State.diffFilter,
+      }),
+    });
     const data = await res.json();
     renderResults(data);
     showScreen("screen-results");
@@ -536,23 +486,23 @@ async function submitQuiz() {
   }
 }
 
-// ─── Exit Modal ──────────────────────────────────────────────────
+// ─── Exit modal ───────────────────────────────────────────────────
 function confirmExit() {
   document.getElementById("modal-message").textContent = "Exit this quiz? Your progress will be lost.";
   document.getElementById("modal-overlay").classList.add("active");
 }
 function closeModal() { document.getElementById("modal-overlay").classList.remove("active"); }
-function exitQuiz()   { stopTimer(); closeModal(); showScreen("screen-home"); SFX.navigate(); }
+function exitQuiz()   { stopTimers(); closeModal(); showScreen("screen-home"); SFX.navigate(); }
 
-// ─── Render Results ───────────────────────────────────────────────
+// ─── Render results ───────────────────────────────────────────────
 function renderResults(data) {
   const { score, results, subject_stats, difficulty_stats, analysis } = data;
   const pct = score.percent;
 
-  const ringEl = document.getElementById("ring-fill");
-  ringEl.style.strokeDashoffset = 314;
-  ringEl.style.stroke = pct >= 75 ? "var(--teal)" : "var(--red)";
-  setTimeout(() => { ringEl.style.strokeDashoffset = 314 - (pct/100)*314; }, 80);
+  const ring = document.getElementById("ring-fill");
+  ring.style.stroke = pct >= 75 ? "var(--teal)" : "var(--red)";
+  ring.style.strokeDashoffset = 314;
+  setTimeout(() => { ring.style.strokeDashoffset = 314 - (pct / 100) * 314; }, 80);
 
   document.getElementById("res-score-pct").textContent    = pct + "%";
   document.getElementById("res-verdict").textContent      = score.verdict;
@@ -565,22 +515,26 @@ function renderResults(data) {
 
   document.getElementById("strengths-list").innerHTML = analysis.strengths.length
     ? analysis.strengths.map(s => `<div class="perf-item"><span>${s.subject}</span><span class="perf-pct good">${s.percent}%</span></div>`).join("")
-    : `<p style="color:var(--muted);font-size:.85rem;padding:8px 0">No subjects at 75%+ yet. Keep studying!</p>`;
+    : `<p style="color:var(--muted);font-size:.85rem;padding:8px 0">No subjects at 75%+ yet.</p>`;
 
   document.getElementById("improve-list").innerHTML = analysis.needs_improvement.length
     ? analysis.needs_improvement.map(s => `<div class="perf-item"><span>${s.subject}</span><span class="perf-pct bad">${s.percent}%</span></div>`).join("")
     : `<p style="color:var(--muted);font-size:.85rem;padding:8px 0">🎉 All subjects above 75%!</p>`;
 
-  document.getElementById("subject-breakdown").innerHTML = Object.entries(subject_stats).map(([subj, stats]) => {
-    const p = stats.percent, color = p >= 75 ? "#00a896" : p >= 50 ? "#f0a500" : "#e63946";
-    return `<div class="subj-bar-row"><div class="subj-bar-meta"><span>${subj}</span><span style="color:${color};font-weight:600">${stats.correct}/${stats.total} — ${p}%</span></div><div class="subj-bar-track"><div class="subj-bar-fill" style="width:0%;background:${color}" data-width="${p}"></div></div></div>`;
+  document.getElementById("subject-breakdown").innerHTML = Object.entries(subject_stats).map(([subj, st]) => {
+    const p = st.percent, color = p >= 75 ? "#00a896" : p >= 50 ? "#f0a500" : "#e63946";
+    return `<div class="subj-bar-row">
+      <div class="subj-bar-meta"><span>${subj}</span><span style="color:${color};font-weight:600">${st.correct}/${st.total} — ${p}%</span></div>
+      <div class="subj-bar-track"><div class="subj-bar-fill" style="width:0%;background:${color}" data-width="${p}"></div></div>
+    </div>`;
   }).join("");
   setTimeout(() => document.querySelectorAll(".subj-bar-fill").forEach(b => b.style.width = b.dataset.width + "%"), 120);
 
   const diffEl = document.getElementById("diff-stats");
   diffEl.innerHTML = "";
   ["easy","medium","hard"].forEach(diff => {
-    const d = difficulty_stats[diff], p = d.total > 0 ? Math.round(d.correct/d.total*100) : 0;
+    const d = difficulty_stats[diff] || {correct:0,total:0};
+    const p = d.total > 0 ? Math.round(d.correct / d.total * 100) : 0;
     const card = document.createElement("div");
     card.className = `diff-stat-card ${diff}`;
     card.innerHTML = `<div class="diff-label">${diff.toUpperCase()}</div><div class="diff-stat-pct">${p}%</div><div class="diff-sub">${d.correct}/${d.total} correct</div>`;
@@ -594,65 +548,69 @@ function renderResults(data) {
         <span style="font-size:.75rem;color:var(--muted)">${r.subject} · ${r.difficulty}</span>
       </div>
       <div class="review-q-text">Q${i+1}: ${r.question}</div>
-      <div class="review-answer-info">${!r.is_correct ? `Your answer: <span class="chosen-wrong">${r.chosen||"No answer"}</span> &nbsp;|&nbsp; ` : ""}Correct answer: <span class="correct-ans">${r.correct_answer}</span></div>
+      <div class="review-answer-info">
+        ${!r.is_correct ? `Your answer: <span class="chosen-wrong">${r.chosen||"No answer"}</span> &nbsp;|&nbsp; ` : ""}
+        Correct answer: <span class="correct-ans">${r.correct_answer}</span>
+      </div>
       <div class="review-rationale"><strong>💡 Rationale:</strong> ${r.rationale}</div>
     </div>`).join("");
 
   switchTab("tab-analysis", null);
 }
 
-// ─── Tab Switching ────────────────────────────────────────────────
+// ─── Tabs ─────────────────────────────────────────────────────────
 function switchTab(tabId, clickedEl) {
-  document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
+  document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("active"));
   document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
   document.getElementById(tabId)?.classList.add("active");
-  if (clickedEl) {
-    clickedEl.classList.add("active");
-  } else {
-    document.querySelectorAll(".tab").forEach(t => {
-      if (t.getAttribute("onclick")?.includes(tabId)) t.classList.add("active");
-    });
-  }
+  if (clickedEl) { clickedEl.classList.add("active"); }
+  else { document.querySelectorAll(".tab").forEach(t => { if (t.getAttribute("onclick")?.includes(tabId)) t.classList.add("active"); }); }
   SFX.navigate();
 }
 
 // ─── Leaderboard ─────────────────────────────────────────────────
-const MEDAL = ["🥇","🥈","🥉"];
-
 async function loadLeaderboard() {
-  const list = document.getElementById("leaderboard-list");
-  list.innerHTML = `<p style="color:var(--muted);padding:20px 0">Loading leaderboard…</p>`;
+  ["leaderboard-list","leaderboard-list-home"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = `<p style="color:var(--muted);padding:16px 0 4px">Loading…</p>`;
+  });
+
   try {
     const res  = await fetch("/api/leaderboard");
     const data = await res.json();
-    if (!data.leaderboard?.length) {
-      list.innerHTML = `<p style="color:var(--muted);padding:20px 0">No sessions yet. Be the first! 🏆</p>`;
-      return;
-    }
-    const src = data.source === "sheets"
-      ? `<div style="font-size:.75rem;color:var(--teal);margin-bottom:16px">✅ Live from Google Sheets</div>`
-      : `<div style="font-size:.75rem;color:var(--muted);margin-bottom:16px">📦 Local data</div>`;
 
-    list.innerHTML = src + data.leaderboard.map((h, i) => {
-      const rank = i + 1, pass = parseFloat(h.best_score) >= 75;
-      const medal = MEDAL[rank-1] || `#${rank}`;
-      let dateStr = "—";
-      try { const d = new Date(h.last_attempt); if (!isNaN(d)) dateStr = d.toLocaleDateString("en-PH",{month:"short",day:"numeric",year:"numeric"}); } catch(_){}
-      return `
-        <div class="lb-card ${pass?"lb-pass":"lb-fail"} ${rank<=3?"lb-top":""}">
-          <div class="lb-rank">${medal}</div>
-          <div class="lb-info">
-            <div class="lb-name">${h.username||"?"}</div>
-            <div class="lb-meta">${parseInt(h.sessions||1)} session${h.sessions!=1?"s":""} · Last: ${dateStr} · Avg: ${parseFloat(h.avg_score||0).toFixed(1)}%</div>
-          </div>
-          <div class="lb-score">
-            <div class="lb-best">${parseFloat(h.best_score||0).toFixed(1)}%</div>
-            <div class="lb-verdict" style="color:${pass?"var(--teal)":"var(--red)"}">${pass?"✅ PASSED":"📚 KEEP GOING"}</div>
-          </div>
-        </div>`;
-    }).join("");
+    const html = !data.leaderboard?.length
+      ? `<p style="color:var(--muted);padding:16px 0 4px">No sessions yet. Be the first! 🏆</p>`
+      : data.leaderboard.map((h, i) => {
+          const rank  = i + 1;
+          const pass  = parseFloat(h.best_score) >= 75;
+          const medal = MEDAL[rank-1] || `#${rank}`;
+          let dateStr = "—";
+          try { const d = new Date(h.last_attempt); if (!isNaN(d)) dateStr = d.toLocaleDateString("en-PH",{month:"short",day:"numeric",year:"numeric"}); } catch(_){}
+          return `
+            <div class="lb-card ${pass?"lb-pass":"lb-fail"} ${rank<=3?"lb-top":""}">
+              <div class="lb-rank">${medal}</div>
+              <div class="lb-info">
+                <div class="lb-name">${h.username||"?"}</div>
+                <div class="lb-meta">${parseInt(h.sessions||1)} session${h.sessions!=1?"s":""} · Avg: ${parseFloat(h.avg_score||0).toFixed(1)}%</div>
+              </div>
+              <div class="lb-score">
+                <div class="lb-best">${parseFloat(h.best_score||0).toFixed(1)}%</div>
+                <div class="lb-verdict" style="color:${pass?"var(--teal-light)":"#ff8a8a"}">${pass?"✅ PASSED":"📚 KEEP GOING"}</div>
+              </div>
+            </div>`;
+        }).join("");
+
+    ["leaderboard-list","leaderboard-list-home"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = html;
+    });
+
   } catch(e) {
-    list.innerHTML = `<p style="color:var(--muted);padding:20px 0">Failed to load leaderboard.</p>`;
+    ["leaderboard-list","leaderboard-list-home"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = `<p style="color:var(--muted);padding:16px 0 4px">Failed to load.</p>`;
+    });
   }
 }
 
@@ -663,14 +621,11 @@ async function loadHistory() {
   try {
     const res  = await fetch("/api/history");
     const data = await res.json();
-    if (!data.history.length) {
-      list.innerHTML = `<p style="color:var(--muted);padding:20px 0">No sessions yet.</p>`;
-      return;
-    }
+    if (!data.history.length) { list.innerHTML = `<p style="color:var(--muted);padding:20px 0">No sessions yet.</p>`; return; }
     list.innerHTML = data.history.map(h => {
       const pass = h.score_percent >= 75;
       const date = new Date(h.created_at).toLocaleDateString("en-PH",{month:"short",day:"numeric",year:"numeric"});
-      const mins = Math.floor((h.time_taken_seconds||0)/60), secs = (h.time_taken_seconds||0)%60;
+      const mins = Math.floor((h.time_taken_seconds||0)/60), secs=(h.time_taken_seconds||0)%60;
       return `
         <div class="history-card">
           <div class="history-score-badge ${pass?"pass":"fail"}">${h.score_percent}%</div>
@@ -687,3 +642,6 @@ async function loadHistory() {
     list.innerHTML = `<p style="color:var(--muted);padding:20px 0">Failed to load history.</p>`;
   }
 }
+
+// ─── Load leaderboard on home screen boot ────────────────────────
+document.addEventListener("DOMContentLoaded", () => { loadLeaderboard(); });
