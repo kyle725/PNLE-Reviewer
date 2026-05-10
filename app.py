@@ -175,6 +175,11 @@ def get_questions():
     selected = questions[:count]
     session["current_question_ids"] = [q["id"] for q in selected]
 
+    # Include answer + rationale so practice mode can show
+    # immediate per-choice feedback without waiting for submit.
+    # The correct answer is visible client-side anyway once the
+    # user submits, so including it here is not a security concern
+    # for a self-study tool.
     return jsonify({
         "questions": [{
             "id":         q["id"],
@@ -183,6 +188,8 @@ def get_questions():
             "difficulty": q["difficulty"],
             "question":   q["question"],
             "choices":    q["choices"],
+            "answer":     q.get("answer",    ""),
+            "rationale":  q.get("rationale", ""),
         } for q in selected],
         "total": len(selected)
     })
@@ -398,18 +405,22 @@ def get_leaderboard():
         } for i, row in enumerate(lb)]
         return jsonify({"leaderboard": normalized, "source": "sheets"})
 
-    # SQLite fallback
+    # SQLite fallback — exam sessions only, ranked by avg score then total correct
     with get_db() as conn:
         rows = conn.execute("""
             SELECT
                 username,
-                MAX(score_percent)           AS best_score,
-                COUNT(*)                     AS sessions,
-                ROUND(AVG(score_percent), 1) AS avg_score,
-                MAX(created_at)              AS last_attempt
+                COUNT(*)                                  AS exam_sessions,
+                ROUND(AVG(score_percent), 1)              AS avg_score,
+                MAX(score_percent)                        AS best_score,
+                SUM(correct_answers)                      AS total_correct,
+                SUM(total_questions)                      AS total_questions,
+                MAX(created_at)                           AS last_attempt
             FROM quiz_sessions
+            WHERE LOWER(mode) = 'exam'
             GROUP BY username
-            ORDER BY best_score DESC, avg_score DESC
+            HAVING exam_sessions > 0
+            ORDER BY avg_score DESC, total_correct DESC, best_score DESC
             LIMIT 50
         """).fetchall()
 
@@ -417,7 +428,7 @@ def get_leaderboard():
     for rank, row in enumerate(rows, 1):
         d = dict(row)
         d["rank"]    = rank
-        d["verdict"] = "PASSED" if d["best_score"] >= 75 else "NEEDS IMPROVEMENT"
+        d["verdict"] = "PASSED" if (d["avg_score"] or 0) >= 75 else "NEEDS IMPROVEMENT"
         leaderboard.append(d)
 
     return jsonify({"leaderboard": leaderboard, "source": "sqlite"})
