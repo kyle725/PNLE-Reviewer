@@ -195,13 +195,14 @@ function stopTimers() {
 function startGlobalTimer() {
   const el = document.getElementById("quiz-timer");
   State.globalTimer = setInterval(() => {
-    State.elapsedSecs++;
+    State.elapsedSecs++;                          // always count, both modes
     if (State.mode === "practice") {
       const m = String(Math.floor(State.elapsedSecs / 60)).padStart(2,"0");
       const s = String(State.elapsedSecs % 60).padStart(2,"0");
       el.textContent = `${m}:${s}`;
-      el.className = "quiz-timer";
+      el.className   = "quiz-timer";
     }
+    // exam mode: el is controlled by startExamTimer() per-question countdown
   }, 1000);
 }
 
@@ -300,8 +301,9 @@ function renderQuestion() {
 
     if (lockChoice) {
       // Show correct / incorrect colouring
-      if (letter === q.answer)                               btn.classList.add("correct");
-      else if (letter === chosen && chosen !== q.answer)     btn.classList.add("incorrect");
+      const na = normAnswer(q.answer);
+      if (letter === na)                        btn.classList.add("correct");
+      else if (letter === chosen && chosen !== na) btn.classList.add("incorrect");
       btn.disabled = true;
     } else if (answered) {
       // Answered but not yet revealed (practice) or not locked (shouldn't happen in exam)
@@ -326,6 +328,12 @@ function renderQuestion() {
 }
 
 // ─── Choice click ─────────────────────────────────────────────────
+function normAnswer(raw) {
+  // Normalize answer to single uppercase letter — handles "A", "A.", "A. Full text…"
+  const s = (raw || "").trim();
+  return s.length > 0 ? s[0].toUpperCase() : "";
+}
+
 function onChoiceClick(q, letter) {
   const isExam = State.mode === "exam";
 
@@ -337,7 +345,7 @@ function onChoiceClick(q, letter) {
   State.answers[q.id] = letter;
 
   const container = document.getElementById("choices-container");
-  const isCorrect = letter === q.answer;
+  const isCorrect = letter === normAnswer(q.answer);
 
   if (State.mode === "practice") {
     // Mark revealed BEFORE updating UI
@@ -348,8 +356,8 @@ function onChoiceClick(q, letter) {
       const bl = btn.dataset.letter;
       btn.disabled = true;
       btn.classList.remove("selected", "correct", "incorrect");
-      if (bl === q.answer)                { btn.classList.add("correct");   }
-      else if (bl === letter && !isCorrect) { btn.classList.add("incorrect"); }
+      if (bl === normAnswer(q.answer))          { btn.classList.add("correct");   }
+      else if (bl === letter && !isCorrect)   { btn.classList.add("incorrect"); }
       else                                  { btn.classList.add("unchosen"); }
     });
 
@@ -393,7 +401,7 @@ function renderPerChoiceRationale(q, chosenLetter) {
       btn.nextElementSibling.remove();
 
     const bl        = btn.dataset.letter;
-    const isCorrect = bl === q.answer;
+    const isCorrect = bl === normAnswer(q.answer);
     const isChosen  = bl === chosenLetter;
 
     // Build the chip
@@ -591,8 +599,8 @@ function renderResults(data) {
   const letters = ["A","B","C","D","E"];
 
   document.getElementById("review-list").innerHTML = results.map((r, i) => {
-    const chosen  = (r.chosen || "").toUpperCase();
-    const correct = (r.correct_answer || "").toUpperCase();
+    const chosen  = normAnswer(r.chosen);
+    const correct = normAnswer(r.correct_answer);
 
     // Build per-choice rows
     const choiceRows = (r.choices || []).map((choiceText, ci) => {
