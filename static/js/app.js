@@ -317,8 +317,8 @@ function renderQuestion() {
     container.appendChild(btn);
   });
 
-  // Show rationale if already revealed
-  if (revealed) renderRationale(q);
+  // Show per-choice rationale if already revealed (navigating back)
+  if (revealed) renderPerChoiceRationale(q, chosen);
 
   renderDots();
   document.getElementById("btn-prev").disabled = (idx === 0);
@@ -331,34 +331,41 @@ function onChoiceClick(q, letter) {
 
   // Guard: exam — already answered
   if (isExam && State.answers[q.id] && State.answers[q.id] !== "__SKIPPED__") return;
+  // Guard: practice — already revealed, don't re-trigger
+  if (State.mode === "practice" && State.revealed[q.id]) return;
 
   State.answers[q.id] = letter;
 
-  const container  = document.getElementById("choices-container");
-  const isCorrect  = letter === q.answer;
+  const container = document.getElementById("choices-container");
+  const isCorrect = letter === q.answer;
 
   if (State.mode === "practice") {
-    // Mark revealed so navigation re-renders with colours
+    // Mark revealed BEFORE updating UI
     State.revealed[q.id] = true;
 
-    // Update button styles immediately (no re-render needed)
+    // Lock all buttons and apply correct/incorrect colours
     container.querySelectorAll(".choice-btn").forEach(btn => {
       const bl = btn.dataset.letter;
       btn.disabled = true;
-      btn.classList.remove("selected","correct","incorrect");
-      if (bl === q.answer)                          btn.classList.add("correct");
-      else if (bl === letter && !isCorrect)         btn.classList.add("incorrect");
+      btn.classList.remove("selected", "correct", "incorrect");
+      if (bl === q.answer)                { btn.classList.add("correct");   }
+      else if (bl === letter && !isCorrect) { btn.classList.add("incorrect"); }
+      else                                  { btn.classList.add("unchosen"); }
     });
 
-    renderRationale(q);
+    // Render per-choice rationale panels (Quizizz style)
+    renderPerChoiceRationale(q, letter);
 
+    // Update hint — do NOT auto-advance or auto-submit
     const hint = container.querySelector(".change-hint");
-    if (hint) hint.textContent = isCorrect ? "✅ Correct! Move to the next question." : "❌ Incorrect. See the rationale below.";
+    if (hint) hint.textContent = isCorrect
+      ? "✅ Correct! Press Next to continue."
+      : "❌ Incorrect. Review the rationale, then press Next.";
 
     isCorrect ? SFX.correct() : SFX.incorrect();
 
   } else {
-    // Exam — lock selection
+    // Exam — lock selection, no rationale shown
     container.querySelectorAll(".choice-btn").forEach(btn => {
       btn.disabled = true;
       btn.classList.remove("selected");
@@ -370,15 +377,40 @@ function onChoiceClick(q, letter) {
   }
 
   renderDots();
+  // Rebuild next button AFTER reveal — never auto-submit, just update label
   rebuildNextBtn();
 }
 
-function renderRationale(q) {
-  document.querySelector(".rationale-box")?.remove();
-  const box = document.createElement("div");
-  box.className = "rationale-box";
-  box.innerHTML = `<strong>💡 Rationale:</strong> ${q.rationale || "No rationale provided."}`;
-  document.getElementById("choices-container").appendChild(box);
+// ─── Per-choice rationale (Quizizz style) ─────────────────────────
+function renderPerChoiceRationale(q, chosenLetter) {
+  const letters   = ["A","B","C","D","E"];
+  const container = document.getElementById("choices-container");
+
+  // Insert a rationale chip below each choice button
+  container.querySelectorAll(".choice-btn").forEach(btn => {
+    // Remove any existing rationale chip for this button
+    btn.nextElementSibling?.classList.contains("choice-rationale") &&
+      btn.nextElementSibling.remove();
+
+    const bl        = btn.dataset.letter;
+    const isCorrect = bl === q.answer;
+    const isChosen  = bl === chosenLetter;
+
+    // Build the chip
+    const chip = document.createElement("div");
+    chip.className = "choice-rationale " + (isCorrect ? "cr-correct" : isChosen ? "cr-wrong" : "cr-neutral");
+
+    if (isCorrect) {
+      chip.innerHTML = `<span class="cr-icon">✔</span><span><strong>Correct.</strong> ${q.rationale || "This is the right answer."}</span>`;
+    } else if (isChosen) {
+      chip.innerHTML = `<span class="cr-icon">✘</span><span><strong>Incorrect.</strong> ${q.rationale || "See the correct answer above."}</span>`;
+    } else {
+      chip.innerHTML = `<span class="cr-icon">◯</span><span>Not the correct answer.</span>`;
+    }
+
+    // Insert immediately after the button
+    btn.insertAdjacentElement("afterend", chip);
+  });
 }
 
 // ─── Dots ─────────────────────────────────────────────────────────
@@ -412,16 +444,31 @@ function rebuildNextBtn() {
   btn.className = "btn-nav-next";
 
   if (isLast) {
+    // In practice: only show Submit if the current question has been revealed
+    // This prevents accidental submit when the user just selected an answer
+    const currentRevealed = State.mode !== "practice" || !!State.revealed[State.questions[idx].id];
     const allAnswered = State.questions.every(q => {
       const a = State.answers[q.id];
       return a !== undefined && a !== "__SKIPPED__";
     });
-    btn.textContent = "Submit Quiz ✓";
-    if (allAnswered) {
+
+    btn.textContent = currentRevealed ? "Submit Quiz ✓" : "Check Answer";
+
+    if (currentRevealed && allAnswered) {
+      // All done — make it red to signal final action
       btn.style.background = "linear-gradient(135deg,#e63946,#ff6b6b)";
       btn.style.boxShadow  = "0 4px 16px rgba(230,57,70,.4)";
     }
-    btn.addEventListener("click", submitQuiz);
+
+    if (currentRevealed) {
+      // Safe to submit — all questions seen
+      btn.addEventListener("click", submitQuiz);
+    } else {
+      // Not yet answered — this shouldn't normally be reachable since
+      // the btn only says "Check Answer" as a safety label, clicking does nothing
+      // (answer reveal happens via choice button click, not Next)
+      btn.addEventListener("click", () => {});
+    }
   } else {
     btn.textContent = "Next →";
     btn.addEventListener("click", () => {
@@ -609,6 +656,78 @@ function switchTab(tabId, clickedEl) {
 }
 
 // ─── Leaderboard ─────────────────────────────────────────────────
+// ─── Leaderboard state ───────────────────────────────────────────
+let _lbData      = [];   // full list cached after fetch
+let _lbShowAll   = false; // home strip: show all or top-3 only
+
+function renderLeaderboard(entries, containerId, homeMode = false) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+
+  if (!entries.length) {
+    el.innerHTML = `<p style="color:var(--muted);padding:16px 0 4px">No exam sessions yet. Complete an Exam to appear here! 🏆</p>`;
+    return;
+  }
+
+  const visible = homeMode && !_lbShowAll ? entries.slice(0, 3) : entries;
+
+  el.innerHTML = visible.map((h, i) => {
+    const rank       = i + 1;
+    const pass       = parseFloat(h.avg_score || 0) >= 75;
+    const medal      = MEDAL[rank-1] || `<span style="font-size:1rem;font-weight:700">#${rank}</span>`;
+    const avg        = parseFloat(h.avg_score    || 0).toFixed(1);
+    const best       = parseFloat(h.best_score   || 0).toFixed(1);
+    const totalCorr  = parseInt(h.total_correct  || 0);
+    const totalQs    = parseInt(h.total_questions|| 0);
+    const sessions   = parseInt(h.exam_sessions  || h.sessions || 1);
+    const username   = h.username || "?";
+    let dateStr = "—";
+    try {
+      const d = new Date(h.last_attempt);
+      if (!isNaN(d)) dateStr = d.toLocaleDateString("en-PH",{month:"short",day:"numeric",year:"numeric"});
+    } catch(_){}
+
+    return `
+      <div class="lb-card ${pass?"lb-pass":"lb-fail"} ${rank<=3?"lb-top":""}">
+        <div class="lb-rank">${medal}</div>
+        <div class="lb-info">
+          <div class="lb-name">${username}</div>
+          <div class="lb-meta">
+            ${sessions} exam${sessions!==1?"s":""} · Best: ${best}% · ${totalCorr}/${totalQs} correct
+          </div>
+          <div class="lb-meta" style="margin-top:2px">Last: ${dateStr}</div>
+        </div>
+        <div class="lb-score">
+          <div class="lb-best">${avg}%</div>
+          <div class="lb-score-label">avg score</div>
+          <div class="lb-verdict" style="color:${pass?"var(--teal-light)":"#ff8a8a"}">${pass?"✅ PASSED":"📚 KEEP GOING"}</div>
+        </div>
+      </div>`;
+  }).join("");
+
+  // Home strip toggle button
+  if (homeMode) {
+    const toggleWrap = document.getElementById("lb-home-toggle");
+    if (toggleWrap) {
+      if (entries.length > 3) {
+        toggleWrap.style.display = "block";
+        toggleWrap.innerHTML = `
+          <button class="home-lb-toggle-btn" onclick="toggleHomeLb()">
+            ${_lbShowAll ? "▲ Show Top 3 Only" : `▼ Show All ${entries.length} Entries`}
+          </button>`;
+      } else {
+        toggleWrap.style.display = "none";
+      }
+    }
+  }
+}
+
+function toggleHomeLb() {
+  _lbShowAll = !_lbShowAll;
+  renderLeaderboard(_lbData, "leaderboard-list-home", true);
+  SFX.select();
+}
+
 async function loadLeaderboard() {
   ["leaderboard-list","leaderboard-list-home"].forEach(id => {
     const el = document.getElementById(id);
@@ -618,33 +737,12 @@ async function loadLeaderboard() {
   try {
     const res  = await fetch("/api/leaderboard");
     const data = await res.json();
+    _lbData = data.leaderboard || [];
 
-    const html = !data.leaderboard?.length
-      ? `<p style="color:var(--muted);padding:16px 0 4px">No sessions yet. Be the first! 🏆</p>`
-      : data.leaderboard.map((h, i) => {
-          const rank  = i + 1;
-          const pass  = parseFloat(h.best_score) >= 75;
-          const medal = MEDAL[rank-1] || `#${rank}`;
-          let dateStr = "—";
-          try { const d = new Date(h.last_attempt); if (!isNaN(d)) dateStr = d.toLocaleDateString("en-PH",{month:"short",day:"numeric",year:"numeric"}); } catch(_){}
-          return `
-            <div class="lb-card ${pass?"lb-pass":"lb-fail"} ${rank<=3?"lb-top":""}">
-              <div class="lb-rank">${medal}</div>
-              <div class="lb-info">
-                <div class="lb-name">${h.username||"?"}</div>
-                <div class="lb-meta">${parseInt(h.sessions||1)} session${h.sessions!=1?"s":""} · Avg: ${parseFloat(h.avg_score||0).toFixed(1)}%</div>
-              </div>
-              <div class="lb-score">
-                <div class="lb-best">${parseFloat(h.best_score||0).toFixed(1)}%</div>
-                <div class="lb-verdict" style="color:${pass?"var(--teal-light)":"#ff8a8a"}">${pass?"✅ PASSED":"📚 KEEP GOING"}</div>
-              </div>
-            </div>`;
-        }).join("");
-
-    ["leaderboard-list","leaderboard-list-home"].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.innerHTML = html;
-    });
+    // Full leaderboard screen
+    renderLeaderboard(_lbData, "leaderboard-list", false);
+    // Home strip — top 3 by default
+    renderLeaderboard(_lbData, "leaderboard-list-home", true);
 
   } catch(e) {
     ["leaderboard-list","leaderboard-list-home"].forEach(id => {
