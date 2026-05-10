@@ -229,8 +229,18 @@ def _submit_quiz_inner():
         if not q:
             continue
 
-        chosen     = (chosen or "").strip()
-        is_correct = bool(chosen) and (chosen.upper() == q["answer"].strip().upper())
+        chosen = (chosen or "").strip()
+
+        # Normalize both sides to just the leading letter (A/B/C/D/E).
+        # questions.json may store answer as "A", "A.", "A. Full text", or the full choice string.
+        raw_answer  = q.get("answer", "").strip()
+        norm_answer = raw_answer[0].upper() if raw_answer else ""
+        norm_chosen = chosen[0].upper()     if chosen     else ""
+
+        # Debug: visible in Railway logs — remove once confirmed working
+        print(f"[DBG] Q{qid_str} chosen='{chosen}' norm_chosen='{norm_chosen}' raw_answer='{raw_answer}' norm_answer='{norm_answer}'")
+
+        is_correct = bool(norm_chosen) and (norm_chosen == norm_answer)
         if is_correct:
             correct_count += 1
 
@@ -261,8 +271,8 @@ def _submit_quiz_inner():
             "difficulty":     diff,
             "question":       q.get("question",  ""),
             "choices":        q.get("choices",   []),
-            "chosen":         chosen,
-            "correct_answer": q.get("answer",    ""),
+            "chosen":         norm_chosen,
+            "correct_answer": norm_answer,
             "is_correct":     is_correct,
             "rationale":      q.get("rationale", ""),
         })
