@@ -941,3 +941,94 @@ body {
 }
 .correct-summary { background: #e6f7f5; color: #00a896; }
 .wrong-summary   { background: #fdecea; color: var(--red); }
+
+/* ── Leaderboard toggle button ── */
+.home-lb-toggle-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.75);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 7px 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.18s;
+  width: 100%;
+}
+.home-lb-toggle-btn:hover {
+  background: rgba(255,255,255,0.18);
+  color: white;
+}
+
+/* ── Leaderboard score label ── */
+.lb-score-label {
+  font-size: 0.62rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 1px;
+  margin-bottom: 3px;
+}
+.home-lb-list .lb-score-label { color: rgba(255,255,255,0.35); }
+
+/* ── Extra meta line on lb cards ── */
+.lb-info .lb-meta + .lb-meta { margin-top: 2px; }
+
+/* ══════════════════════════════════════════
+   PER-CHOICE RATIONALE CHIPS (Quizizz style)
+══════════════════════════════════════════ */
+.choice-rationale {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 10px 14px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin-top: -4px;           /* tuck under the choice button */
+  margin-bottom: 6px;
+  animation: slideDown 0.22s ease;
+  border: 1.5px solid transparent;
+  border-top: none;
+}
+.choice-rationale.cr-correct {
+  background: #e6f7f5;
+  border-color: #00a896;
+  color: #004d44;
+}
+.choice-rationale.cr-wrong {
+  background: #fdecea;
+  border-color: var(--red);
+  color: #7a1020;
+}
+.choice-rationale.cr-neutral {
+  background: #f4f7fa;
+  border-color: var(--border);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.cr-icon {
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-width: 16px;
+  margin-top: 1px;
+}
+.cr-correct .cr-icon { color: #00a896; }
+.cr-wrong   .cr-icon { color: var(--red); }
+.cr-neutral .cr-icon { color: var(--muted); }
+
+/* Choice button bottom corners stay square when rationale is showing */
+.choice-btn + .choice-rationale {
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+.choice-btn:has(+ .choice-rationale) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 0;
+}
+
+/* Unchosen choices dim slightly after reveal */
+.choice-btn.unchosen {
+  opacity: 0.55;
+}
