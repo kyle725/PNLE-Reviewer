@@ -541,19 +541,59 @@ function renderResults(data) {
     diffEl.appendChild(card);
   });
 
-  document.getElementById("review-list").innerHTML = results.map((r,i) => `
-    <div class="review-item ${r.is_correct?"correct":"incorrect"}">
-      <div class="review-item-header">
-        <span class="review-status ${r.is_correct?"correct":"incorrect"}">${r.is_correct?"✔ Correct":"✘ Incorrect"}</span>
-        <span style="font-size:.75rem;color:var(--muted)">${r.subject} · ${r.difficulty}</span>
-      </div>
-      <div class="review-q-text">Q${i+1}: ${r.question}</div>
-      <div class="review-answer-info">
-        ${!r.is_correct ? `Your answer: <span class="chosen-wrong">${r.chosen||"No answer"}</span> &nbsp;|&nbsp; ` : ""}
-        Correct answer: <span class="correct-ans">${r.correct_answer}</span>
-      </div>
-      <div class="review-rationale"><strong>💡 Rationale:</strong> ${r.rationale}</div>
-    </div>`).join("");
+  const letters = ["A","B","C","D","E"];
+
+  document.getElementById("review-list").innerHTML = results.map((r, i) => {
+    const chosen  = (r.chosen || "").toUpperCase();
+    const correct = (r.correct_answer || "").toUpperCase();
+
+    // Build per-choice rows
+    const choiceRows = (r.choices || []).map((choiceText, ci) => {
+      const letter      = letters[ci];
+      const cleanText   = choiceText.replace(/^[A-E]\.\s*/, "");
+      const isCorrect   = letter === correct;
+      const isChosen    = letter === chosen;
+      const isWrong     = isChosen && !isCorrect;
+
+      let icon  = "◯";
+      let cls   = "rc-neutral";
+      let label = "";
+
+      if (isCorrect && isChosen) { icon = "✔"; cls = "rc-correct";  label = `<span class="rc-tag rc-tag-correct">Your answer · Correct</span>`; }
+      else if (isCorrect)        { icon = "✔"; cls = "rc-correct";  label = `<span class="rc-tag rc-tag-correct">Correct answer</span>`; }
+      else if (isWrong)          { icon = "✘"; cls = "rc-wrong";    label = `<span class="rc-tag rc-tag-wrong">Your answer · Incorrect</span>`; }
+
+      return `
+        <div class="rc-row ${cls}">
+          <span class="rc-letter ${cls}">${letter}</span>
+          <span class="rc-text">${cleanText}</span>
+          <span class="rc-icon">${icon}</span>
+          ${label}
+        </div>`;
+    }).join("");
+
+    // Summary line
+    const summary = r.is_correct
+      ? `<div class="review-summary correct-summary">✔ You answered correctly</div>`
+      : chosen
+        ? `<div class="review-summary wrong-summary">✘ You chose <strong>${chosen}</strong> — correct answer is <strong>${correct}</strong></div>`
+        : `<div class="review-summary wrong-summary">✘ Not answered — correct answer is <strong>${correct}</strong></div>`;
+
+    return `
+      <div class="review-item ${r.is_correct?"correct":"incorrect"}">
+        <div class="review-item-header">
+          <span class="review-status ${r.is_correct?"correct":"incorrect"}">${r.is_correct?"✔ Correct":"✘ Incorrect"}</span>
+          <span class="review-meta-badges">
+            <span class="review-badge subject">${r.subject}</span>
+            <span class="review-badge diff-${r.difficulty}">${r.difficulty}</span>
+          </span>
+        </div>
+        <div class="review-q-text">Q${i+1}: ${r.question}</div>
+        <div class="review-choices">${choiceRows}</div>
+        ${summary}
+        <div class="review-rationale"><strong>💡 Rationale:</strong> ${r.rationale || "No rationale provided."}</div>
+      </div>`;
+  }).join("");
 
   switchTab("tab-analysis", null);
 }
