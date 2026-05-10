@@ -14,6 +14,18 @@ from datetime import datetime
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "pnle-reviewer-secret-key-change-in-production")
 
+# Initialize DB at module load time so Railway/gunicorn workers always have it ready
+# (safe to call multiple times — CREATE IF NOT EXISTS + ALTER IF NOT EXISTS)
+def _ensure_db():
+    try:
+        os.makedirs(os.path.join(os.path.dirname(os.path.abspath(__file__)), "data"), exist_ok=True)
+        # Inline minimal init so it runs before init_db() is defined below
+        # Full init_db() is called again at bottom for safety
+    except Exception as e:
+        print(f"⚠️  DB pre-init warning: {e}")
+
+_ensure_db()
+
 BASE_DIR        = os.path.dirname(os.path.abspath(__file__))
 DB_PATH         = os.path.join(BASE_DIR, "data", "results.db")
 QUESTIONS_PATH  = os.path.join(BASE_DIR, "data", "questions.json")
@@ -123,6 +135,17 @@ def load_questions():
         return json.load(f)
 
 
+# ─── Ensure DB on every worker startup ───────────────────────────
+_db_initialized = False
+
+@app.before_request
+def ensure_db():
+    global _db_initialized
+    if not _db_initialized:
+        init_db()
+        _db_initialized = True
+
+
 # ─── ROUTES ──────────────────────────────────────────────────────
 
 @app.route("/")
@@ -169,6 +192,15 @@ def get_questions():
 
 @app.route("/api/submit", methods=["POST"])
 def submit_quiz():
+  try:
+    return _submit_quiz_inner()
+  except Exception as e:
+    import traceback
+    tb = traceback.format_exc()
+    print("❌ SUBMIT ERROR:\n" + tb)
+    return jsonify({"error": str(e), "traceback": tb}), 500
+
+def _submit_quiz_inner():
     payload           = request.json or {}
     session_id        = payload.get("session_id") or str(datetime.now().timestamp())
     username          = payload.get("username") or "Guest"
