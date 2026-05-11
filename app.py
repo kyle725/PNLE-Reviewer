@@ -449,6 +449,20 @@ def get_history():
     return jsonify({"history": [dict(r) for r in rows]})
 
 
+# ─── PING SHEETS (debug helper) ──────────────────────────────────
+
+@app.route("/api/ping-sheets", methods=["GET"])
+def ping_sheets():
+    """Call ?action=ping on the Apps Script to verify the URL + deployment are alive."""
+    if not APPS_SCRIPT_URL:
+        return jsonify({"status": "no_url", "message": "APPS_SCRIPT_URL env var not set"})
+    try:
+        resp = http_requests.get(APPS_SCRIPT_URL, params={"action": "ping"}, timeout=10)
+        return jsonify({"status": "ok", "http_code": resp.status_code, "body": resp.json()})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)})
+
+
 # ─── RUN ─────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
