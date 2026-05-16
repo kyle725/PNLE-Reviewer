@@ -391,15 +391,17 @@ def get_leaderboard():
         return jsonify({"leaderboard": normalized, "source": "sheets"})
 
     # SQLite fallback:
-    # Rank by best_score first (peak performance), then avg_score (consistency),
-    # then total_correct (volume). Exam sessions only.
+    # Primary rank: avg_score (consistency across all attempts).
+    # Tiebreaker 1: best_score (peak performance).
+    # Tiebreaker 2: total_correct (volume of right answers).
+    # Exam sessions only; exclude sessions with 0 questions.
     with get_db() as conn:
         rows = conn.execute("""
             SELECT
                 username,
                 COUNT(*)                                  AS exam_sessions,
-                ROUND(MAX(score_percent), 1)              AS best_score,
                 ROUND(AVG(score_percent), 1)              AS avg_score,
+                ROUND(MAX(score_percent), 1)              AS best_score,
                 SUM(correct_answers)                      AS total_correct,
                 SUM(total_questions)                      AS total_questions,
                 MAX(created_at)                           AS last_attempt
@@ -407,7 +409,7 @@ def get_leaderboard():
             WHERE LOWER(mode) = 'exam'
               AND total_questions > 0
             GROUP BY username
-            ORDER BY best_score DESC, avg_score DESC, total_correct DESC
+            ORDER BY avg_score DESC, best_score DESC, total_correct DESC
             LIMIT 50
         """).fetchall()
 
@@ -415,7 +417,7 @@ def get_leaderboard():
     for rank, row in enumerate(rows, 1):
         d = dict(row)
         d["rank"]    = rank
-        d["verdict"] = "PASSED" if (d["best_score"] or 0) >= 75 else "NEEDS IMPROVEMENT"
+        d["verdict"] = "PASSED" if (d["avg_score"] or 0) >= 75 else "NEEDS IMPROVEMENT"
         leaderboard.append(d)
 
     return jsonify({"leaderboard": leaderboard, "source": "sqlite"})
