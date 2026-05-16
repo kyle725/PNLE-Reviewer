@@ -14,13 +14,9 @@ from datetime import datetime
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "pnle-reviewer-secret-key-change-in-production")
 
-# Initialize DB at module load time so Railway/gunicorn workers always have it ready
-# (safe to call multiple times — CREATE IF NOT EXISTS + ALTER IF NOT EXISTS)
 def _ensure_db():
     try:
         os.makedirs(os.path.join(os.path.dirname(os.path.abspath(__file__)), "data"), exist_ok=True)
-        # Inline minimal init so it runs before init_db() is defined below
-        # Full init_db() is called again at bottom for safety
     except Exception as e:
         print(f"⚠️  DB pre-init warning: {e}")
 
@@ -67,12 +63,6 @@ def call_apps_script_get(action: str) -> dict:
 # ─── DATABASE ─────────────────────────────────────────────────────
 
 def get_db():
-    """
-    Open a SQLite connection with:
-      - 10-second busy timeout  (waits instead of immediately raising "locked")
-      - WAL journal mode        (allows concurrent readers + one writer)
-      - Row factory for dict-like access
-    """
     conn = sqlite3.connect(DB_PATH, timeout=10)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
@@ -101,13 +91,12 @@ def init_db():
             )
         """)
 
-        # Safe migration — only adds columns that don't exist yet
-        existing = {row[1] for row in c.execute("PRAGMA table_info(quiz_sessions)")}
+        existing_cols = {row[1] for row in c.execute("PRAGMA table_info(quiz_sessions)")}
         for col, defn in [
             ("email", "TEXT DEFAULT ''"),
             ("mode",  "TEXT DEFAULT 'practice'"),
         ]:
-            if col not in existing:
+            if col not in existing_cols:
                 c.execute(f"ALTER TABLE quiz_sessions ADD COLUMN {col} {defn}")
                 print(f"✅ Migrated: added column '{col}'")
 
@@ -117,7 +106,7 @@ def init_db():
                 session_id TEXT NOT NULL,
                 question_id INTEGER NOT NULL,
                 subject TEXT,
-                topic TEXT,
+                subcategory TEXT,
                 difficulty TEXT,
                 chosen_answer TEXT,
                 correct_answer TEXT,
@@ -125,6 +114,15 @@ def init_db():
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         """)
+
+        # Migrate question_attempts: rename topic -> subcategory if needed
+        qa_cols = {row[1] for row in c.execute("PRAGMA table_info(question_attempts)")}
+        if "topic" in qa_cols and "subcategory" not in qa_cols:
+            c.execute("ALTER TABLE question_attempts RENAME COLUMN topic TO subcategory")
+            print("✅ Migrated: renamed column 'topic' -> 'subcategory' in question_attempts")
+        elif "subcategory" not in qa_cols:
+            c.execute("ALTER TABLE question_attempts ADD COLUMN subcategory TEXT")
+            print("✅ Migrated: added column 'subcategory' to question_attempts")
 
         conn.commit()
     print("✅ Database initialized")
@@ -160,8 +158,8 @@ def index():
 
 @app.route("/api/questions", methods=["GET"])
 def get_questions():
-    data      = load_questions()
-    questions = data["questions"]
+    data       = load_questions()
+    questions  = data["questions"]
     subject    = request.args.get("subject", "")
     difficulty = request.args.get("difficulty", "")
     count      = min(int(request.args.get("count", 10)), 200)
@@ -175,21 +173,17 @@ def get_questions():
     selected = questions[:count]
     session["current_question_ids"] = [q["id"] for q in selected]
 
-    # Include answer + rationale so practice mode can show
-    # immediate per-choice feedback without waiting for submit.
-    # The correct answer is visible client-side anyway once the
-    # user submits, so including it here is not a security concern
-    # for a self-study tool.
     return jsonify({
         "questions": [{
-            "id":         q["id"],
-            "subject":    q["subject"],
-            "topic":      q["topic"],
-            "difficulty": q["difficulty"],
-            "question":   q["question"],
-            "choices":    q["choices"],
-            "answer":     q.get("answer",    ""),
-            "rationale":  q.get("rationale", ""),
+            "id":          q["id"],
+            "subject":     q["subject"],
+            "subcategory": q.get("subcategory", ""),
+            "difficulty":  q["difficulty"],
+            "stem":        q.get("stem", ""),
+            "choices":     q["choices"],
+            "answer":      q.get("answer", ""),
+            "rationale":   q.get("rationale", ""),
+            "choice_rationales": q.get("choice_rationales", []),
         } for q in selected],
         "total": len(selected)
     })
@@ -199,13 +193,13 @@ def get_questions():
 
 @app.route("/api/submit", methods=["POST"])
 def submit_quiz():
-  try:
-    return _submit_quiz_inner()
-  except Exception as e:
-    import traceback
-    tb = traceback.format_exc()
-    print("❌ SUBMIT ERROR:\n" + tb)
-    return jsonify({"error": str(e), "traceback": tb}), 500
+    try:
+        return _submit_quiz_inner()
+    except Exception as e:
+        import traceback
+        tb = traceback.format_exc()
+        print("❌ SUBMIT ERROR:\n" + tb)
+        return jsonify({"error": str(e), "traceback": tb}), 500
 
 def _submit_quiz_inner():
     payload           = request.json or {}
@@ -230,7 +224,6 @@ def _submit_quiz_inner():
     }
     correct_count = 0
 
-    # Build results in memory first — no DB touch yet
     for qid_str, chosen in user_answers.items():
         q = qmap.get(str(qid_str))
         if not q:
@@ -238,34 +231,31 @@ def _submit_quiz_inner():
 
         chosen = (chosen or "").strip()
 
-        # Normalize both sides to just the leading letter (A/B/C/D/E).
-        # questions.json may store answer as "A", "A.", "A. Full text", or the full choice string.
         raw_answer  = q.get("answer", "").strip()
         norm_answer = raw_answer[0].upper() if raw_answer else ""
         norm_chosen = chosen[0].upper()     if chosen     else ""
 
-        # Debug: visible in Railway logs — remove once confirmed working
         print(f"[DBG] Q{qid_str} chosen='{chosen}' norm_chosen='{norm_chosen}' raw_answer='{raw_answer}' norm_answer='{norm_answer}'")
 
         is_correct = bool(norm_chosen) and (norm_chosen == norm_answer)
         if is_correct:
             correct_count += 1
 
-        subj  = q.get("subject",   "Unknown")
-        topic = q.get("topic",     "Unknown")
-        diff  = q.get("difficulty","medium")
+        subj        = q.get("subject",     "Unknown")
+        subcategory = q.get("subcategory", "Unknown")
+        diff        = q.get("difficulty",  "medium")
         if diff not in difficulty_stats:
             diff = "medium"
 
-        subject_stats.setdefault(subj, {"correct": 0, "total": 0, "topics": {}})
+        subject_stats.setdefault(subj, {"correct": 0, "total": 0, "subcategories": {}})
         subject_stats[subj]["total"] += 1
         if is_correct:
             subject_stats[subj]["correct"] += 1
 
-        subject_stats[subj]["topics"].setdefault(topic, {"correct": 0, "total": 0})
-        subject_stats[subj]["topics"][topic]["total"] += 1
+        subject_stats[subj]["subcategories"].setdefault(subcategory, {"correct": 0, "total": 0})
+        subject_stats[subj]["subcategories"][subcategory]["total"] += 1
         if is_correct:
-            subject_stats[subj]["topics"][topic]["correct"] += 1
+            subject_stats[subj]["subcategories"][subcategory]["correct"] += 1
 
         difficulty_stats[diff]["total"] += 1
         if is_correct:
@@ -274,36 +264,34 @@ def _submit_quiz_inner():
         results.append({
             "question_id":    int(qid_str),
             "subject":        subj,
-            "topic":          topic,
+            "subcategory":    subcategory,
             "difficulty":     diff,
-            "question":       q.get("question",  ""),
-            "choices":        q.get("choices",   []),
+            "stem":           q.get("stem",    ""),
+            "choices":        q.get("choices", []),
             "chosen":         norm_chosen,
             "correct_answer": norm_answer,
             "is_correct":     is_correct,
             "rationale":      q.get("rationale", ""),
+            "choice_rationales": q.get("choice_rationales", []),
         })
 
     total_q   = len(results)
     score_pct = round(correct_count / total_q * 100, 2) if total_q > 0 else 0
 
-    # ── Single DB write block — `with` guarantees close even on error ──
     with get_db() as conn:
         c = conn.cursor()
 
-        # Batch-insert question attempts
         c.executemany("""
             INSERT INTO question_attempts
-                (session_id, question_id, subject, topic, difficulty,
+                (session_id, question_id, subject, subcategory, difficulty,
                  chosen_answer, correct_answer, is_correct)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """, [
-            (session_id, r["question_id"], r["subject"], r["topic"],
+            (session_id, r["question_id"], r["subject"], r["subcategory"],
              r["difficulty"], r["chosen"], r["correct_answer"], int(r["is_correct"]))
             for r in results
         ])
 
-        # Named placeholders — safe regardless of column order in the table
         c.execute("""
             INSERT INTO quiz_sessions
                 (session_id, username, email, mode,
@@ -326,9 +314,7 @@ def _submit_quiz_inner():
         })
 
         conn.commit()
-    # connection is closed here automatically
 
-    # Per-subject percentages
     strengths, improvements = [], []
     for subj, stats in subject_stats.items():
         pct = (stats["correct"] / stats["total"] * 100) if stats["total"] else 0
@@ -344,7 +330,6 @@ def _submit_quiz_inner():
         else "Keep studying! Aim for 75% or higher."
     )
 
-    # Sheets sync — non-blocking, never raises to the caller
     try:
         call_apps_script({
             "action": "submit",
@@ -396,31 +381,33 @@ def get_leaderboard():
         lb = sheets_data["leaderboard"]
         normalized = [{
             "rank":         i + 1,
-            "username":     row.get("Username")           or row.get("username", "?"),
+            "username":     row.get("Username")            or row.get("username", "?"),
             "best_score":   float(row.get("Best Score (%)") or row.get("best_score", 0)),
-            "sessions":     int(row.get("Sessions")        or row.get("sessions", 1)),
-            "avg_score":    float(row.get("Avg Score (%)")  or row.get("avg_score", 0)),
-            "last_attempt": str(row.get("Last Attempt")    or row.get("last_attempt", "")),
-            "verdict":      row.get("Verdict")             or row.get("verdict", ""),
+            "sessions":     int(row.get("Sessions")         or row.get("sessions", 1)),
+            "avg_score":    float(row.get("Avg Score (%)")   or row.get("avg_score", 0)),
+            "last_attempt": str(row.get("Last Attempt")     or row.get("last_attempt", "")),
+            "verdict":      row.get("Verdict")              or row.get("verdict", ""),
         } for i, row in enumerate(lb)]
         return jsonify({"leaderboard": normalized, "source": "sheets"})
 
-    # SQLite fallback — exam sessions only, ranked by avg score then total correct
+    # SQLite fallback:
+    # Rank by best_score first (peak performance), then avg_score (consistency),
+    # then total_correct (volume). Exam sessions only.
     with get_db() as conn:
         rows = conn.execute("""
             SELECT
                 username,
                 COUNT(*)                                  AS exam_sessions,
+                ROUND(MAX(score_percent), 1)              AS best_score,
                 ROUND(AVG(score_percent), 1)              AS avg_score,
-                MAX(score_percent)                        AS best_score,
                 SUM(correct_answers)                      AS total_correct,
                 SUM(total_questions)                      AS total_questions,
                 MAX(created_at)                           AS last_attempt
             FROM quiz_sessions
             WHERE LOWER(mode) = 'exam'
+              AND total_questions > 0
             GROUP BY username
-            HAVING exam_sessions > 0
-            ORDER BY avg_score DESC, total_correct DESC, best_score DESC
+            ORDER BY best_score DESC, avg_score DESC, total_correct DESC
             LIMIT 50
         """).fetchall()
 
@@ -428,7 +415,7 @@ def get_leaderboard():
     for rank, row in enumerate(rows, 1):
         d = dict(row)
         d["rank"]    = rank
-        d["verdict"] = "PASSED" if (d["avg_score"] or 0) >= 75 else "NEEDS IMPROVEMENT"
+        d["verdict"] = "PASSED" if (d["best_score"] or 0) >= 75 else "NEEDS IMPROVEMENT"
         leaderboard.append(d)
 
     return jsonify({"leaderboard": leaderboard, "source": "sqlite"})
@@ -453,7 +440,6 @@ def get_history():
 
 @app.route("/api/ping-sheets", methods=["GET"])
 def ping_sheets():
-    """Call ?action=ping on the Apps Script to verify the URL + deployment are alive."""
     if not APPS_SCRIPT_URL:
         return jsonify({"status": "no_url", "message": "APPS_SCRIPT_URL env var not set"})
     try:
